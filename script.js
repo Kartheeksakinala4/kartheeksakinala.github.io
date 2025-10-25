@@ -48,8 +48,8 @@ document.head.appendChild(style);
 // Contact form -> Google Sheets
 // -----------------------------
 
-// IMPORTANT: paste your Google Apps Script Web App URL below.
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxn7rpaWqSYNrbRLtL_efGWIXf0DbwcQ1S0Y49_RBEtaQOs5cDgKp-aE-vO_7LbqzPVww/exec";
+// IMPORTANT: paste your Google Apps Script Web App URL below:
+const SCRIPT_URL = "https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec";
 
 (function initContactForm(){
   const form = document.getElementById('contactForm');
@@ -87,11 +87,7 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxn7rpaWqSYNrbRLtL_e
     fd.append('ua', navigator.userAgent);
 
     try {
-      const res = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: fd      // <-- no headers; Content-Type will be set automatically
-      });
-
+      const res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
       let ok = res.ok;
       let data = {};
       try { data = await res.json(); } catch(e){ /* ignore parse errors */ }

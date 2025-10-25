@@ -49,7 +49,7 @@ document.head.appendChild(style);
 // -----------------------------
 
 // IMPORTANT: paste your Google Apps Script Web App URL below:
-const SCRIPT_URL = "https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxre6k0exPNN6_m5CXRmKAu36wyqLEE9xlBFzsa248ue_NOZv6WrjUAVSZLzSiiZ93meg/exec";
 
 (function initContactForm(){
   const form = document.getElementById('contactForm');
@@ -99,7 +99,7 @@ const SCRIPT_URL = "https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYM
         throw new Error((data && data.message) || 'Submission failed');
       }
     } catch (err){
-      statusEl.textContent = 'Sorry—something went wrong. Please email me at hello@kartheeksakinala.me.';
+      statusEl.textContent = 'Sorry—something went wrong. Please email me at kartheek.s93@gmail.com.';
       console.error(err);
     } finally {
       btn.disabled = false;

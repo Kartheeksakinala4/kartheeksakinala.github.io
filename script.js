@@ -43,3 +43,70 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+// -----------------------------
+// Contact form -> Google Sheets
+// -----------------------------
+
+// IMPORTANT: paste your Google Apps Script Web App URL below.
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxEAKq3p7GE057JRmR-H0bSRy_ftLBnHCEMZI-9t0sTfOL4glWZlyW6JZGkAq1bTUG9/exec";
+
+(function initContactForm(){
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const btn = document.getElementById('sendBtn');
+  const statusEl = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!SCRIPT_URL || SCRIPT_URL.includes('REPLACE_WITH_YOUR_DEPLOYMENT_ID')){
+      statusEl.textContent = 'Setup required: Add your Google Apps Script URL in script.js (SCRIPT_URL).';
+      return;
+    }
+
+    // Basic HTML5 validation check
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    statusEl.textContent = '';
+
+    const payload = {
+      name: document.getElementById('name')?.value.trim() || '',
+      email: document.getElementById('email')?.value.trim() || '',
+      phone: document.getElementById('phone')?.value.trim() || '',
+      message: document.getElementById('message')?.value.trim() || '',
+      honey: document.getElementById('company')?.value.trim() || '',
+      page: window.location.href,
+      ua: navigator.userAgent
+    };
+
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (data.status === 'success' || data.status === 'ok'){
+        form.reset();
+        statusEl.textContent = "Thanks! I'll get back to you within 1 business day.";
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err){
+      statusEl.textContent = 'Sorry—something went wrong. Please email me at hello@kartheeksakinala.me.';
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  });
+})();

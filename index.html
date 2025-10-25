@@ -281,8 +281,8 @@
           <p class="section-sub">Tell me what you need help with — I’ll get back within 1 business day.</p>
         </div>
 
-        <!-- UPDATED FORM: works with Google Apps Script -->
-        <form id="contactForm" novalidate>
+        <form class="contact-form" name="contact" method="post" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-row">
             <label for="name">Name</label>
             <input id="name" name="name" required placeholder="Your name" />
@@ -292,20 +292,13 @@
             <input id="email" type="email" name="email" required placeholder="you@example.com" />
           </div>
           <div class="form-row">
-            <label for="phone">Phone Number</label>
-            <input id="phone" type="tel" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98765 43210" />
-          </div>
-          <div class="form-row">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required placeholder="What do you want to achieve?"></textarea>
           </div>
-          <!-- Honeypot -->
-          <input type="text" id="company" name="honey" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" autocomplete="off" />
           <div class="form-actions">
-            <button class="btn btn-primary" id="sendBtn" type="submit">Send</button>
+            <button class="btn btn-primary" type="submit">Send</button>
             <a class="btn btn-ghost" href="#services">View Services</a>
           </div>
-          <p id="formStatus" class="form-status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -313,12 +306,12 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2025 Kartheek S · Digital Monk</p>
+      <p>© 2025 Kartheek Sakinala </p>
       <nav aria-label="Footer">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">Home </a>
+        <a href="#services"> Services </a>
+        <a href="#products"> Products </a>
+        <a href="#contact"> Contact </a>
       </nav>
     </div>
   </footer>

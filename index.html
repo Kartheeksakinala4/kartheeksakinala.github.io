@@ -1,401 +1,713 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kartheek Sakinala — Strategic Cybersecurity, Forensics & IT Infrastructure Consulting. Book a discovery call.">
-  <title>Kartheek Sakinala | Consulting & Lead Generation</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- SEO Basics -->
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://kartheeksakinala.me/" />
-  <meta name="author" content="Kartheek Sakinala" />
-  <meta name="keywords" content="cybersecurity consultant, digital forensics, data recovery, SOC setup, firewall deployment, Hyderabad, India, Kartheek Sakinala" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Kartheek Sakinala — Cybersecurity & Forensics Consulting" />
-  <meta property="og:description" content="From SOC & firewall to digital forensics & recovery — book a free discovery call." />
-  <meta property="og:url" content="https://kartheeksakinala.me/" />
-  <meta property="og:image" content="https://kartheeksakinala.me/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kartheek Sakinala — Cybersecurity & Forensics Consulting" />
-  <meta name="twitter:description" content="From SOC & firewall to digital forensics & recovery — book a free discovery call." />
-  <meta name="twitter:image" content="https://kartheeksakinala.me/og-image.jpg" />
-
-  <!-- Icons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- JSON-LD: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Kartheek Sakinala",
-    "url": "https://kartheeksakinala.me/",
-    "headline": "Strategic Cybersecurity & Forensics Consulting",
-    "description": "Consulting for SOC & firewall deployments, digital forensics, and data recovery. Book a discovery call.",
-    "inLanguage": "en"
-  }
-  </script>
-
-  <!-- JSON-LD: Person (Consultant) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kartheek Sakinala",
-    "jobTitle": "Cybersecurity & Digital Forensics Consultant",
-    "url": "https://kartheeksakinala.me/",
-    "image": "https://kartheeksakinala.me/profile.jpg",
-    "sameAs": [
-      "https://www.linkedin.com/in/kartheek-sakinala/"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Independent Consultant"
-    },
-    "knowsAbout": [
-      "Cybersecurity",
-      "SOC",
-      "Firewall deployment",
-      "Digital forensics",
-      "Data recovery",
-      "Monitoring"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
+  <meta charset="utf-8"/>
+  <title>Kartheek Sakinala — Cybersecurity • Data Recovery • Forensics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#0b1221"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b14;
+      --bg-2:#0b1221;
+      --acc:#5ac8fa;
+      --acc-2:#9b5cff;
+      --txt:#e6eefb;
+      --muted:#a2b3cf;
+      --border:rgba(255,255,255,0.08);
+      --glass:rgba(17,25,50,0.55);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius:16px;
+      --header-h:74px;
+      --container-w:1200px;
     }
-  }
-  </script>
 
-  <!-- JSON-LD: Service (Consulting Offer) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Cybersecurity & Digital Forensics Consulting",
-    "provider": {
-      "@type": "Person",
-      "name": "Kartheek Sakinala",
-      "url": "https://kartheeksakinala.me/"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "India"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Consulting Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firewall / Network / SOC" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Recovery / Digital Forensics" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monitoring (Dark Web / Social Media)" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Training / Workshop / Mentoring" } }
-      ]
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(155,92,255,0.25), transparent 60%),
+        radial-gradient(1000px 600px at -10% 20%, rgba(90,200,250,0.22), transparent 55%),
+        linear-gradient(180deg,var(--bg),var(--bg-2) 60%, #0c1328);
+      line-height:1.45;
     }
-  }
-  </script>
+    a{color:var(--acc);text-decoration:none}
+    .container{max-width:var(--container-w);padding:0 20px;margin:0 auto}
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you work with individuals and SMEs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. I handle individual cases (data recovery, account compromises) and SME projects like SOC setup, firewall deployments, and incident response planning."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly can you start?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For urgent incidents, I can usually start within 24 hours. For planned projects, we’ll schedule a discovery call and a scoped kickoff."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What tools and stacks do you use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "pfSense/OPNsense, Wazuh/SIEM, Sysmon, MITRE ATT&CK mapping, and standard forensic toolchains—always documented and reproducible."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide reports and documentation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes—every engagement includes clear deliverables: a summary, detailed steps taken, and recommended next actions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I get a quote?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use the contact form to describe your need. After the discovery call, I’ll share a fixed-scope proposal with timelines and pricing."
-        }
-      }
-    ]
-  }
-  </script>
+    /* Fixed header */
+    header{
+      position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:9999;
+      display:flex;align-items:center;backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg, rgba(8,12,22,0.98), rgba(8,12,22,0.9));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;width:100%}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:48px;height:48px;border-radius:12px;
+      background: conic-gradient(from 220deg,var(--acc),var(--acc-2),#2ef2ff,var(--acc));
+      display:flex;align-items:center;justify-content:center;color:#06111f;font-weight:800;font-size:14px;
+      box-shadow:inset 0 0 20px rgba(255,255,255,0.04),0 8px 26px rgba(0,0,0,0.45)
+    }
+    .brand .title { display:flex; flex-direction:column; line-height:1; }
+    .brand h1{font-size:18px;margin:0;font-weight:800}
+    .brand .subtitle{font-size:12px;color:var(--muted);margin-top:3px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:var(--txt);opacity:0.95;padding:8px 6px}
+    .cta{padding:8px 14px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#06111f;font-weight:700;border:none}
 
+    /* Prevent header hiding anchors */
+    section { scroll-margin-top: calc(var(--header-h) + 12px); }
+    main{padding-top: calc(var(--header-h) + 12px);}
+
+    /* Hero */
+    .hero{padding:36px 0 40px}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr 0.95fr;gap:28px;align-items:center}
+    .badge{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));font-size:12px;color:var(--muted)}
+    .hero h2{font-size:44px;line-height:1.06;margin:14px 0}
+    .grad{background:linear-gradient(90deg,#c4d9ff,#9b5cff 40%,#5ac8fa 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:15px}
+    .hero-actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);color:var(--txt);font-weight:600}
+
+    /* hero art (video + terminal) */
+    .hero-art{position:relative;height:420px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);background:#04102a; isolation:isolate}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.58);pointer-events:none}
+    .terminal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86%;height:66%;border-radius:12px;border:1px solid var(--border);background:#031022c2;box-shadow:inset 0 0 30px rgba(0,0,0,.6);overflow:hidden;color:#cfe2ff;font-family:ui-monospace,monospace}
+    .term-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border);background:#07112a}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.r{background:#ff5d73}.dot.y{background:#ffb703}.dot.g{background:#3ddc97}
+    .term-body{padding:12px;font-size:13px;height:calc(100% - 40px);overflow:auto}
+
+    /* Sections (base) */
+    .section{padding:64px 0}
+    .section-title{font-size:28px;margin:0 0 8px}
+    .section-desc{color:var(--muted);margin:0 0 18px}
+
+    /* ----------------------
+       Section textures + spacing
+       ---------------------- */
+    /* increase vertical spacing so textures form distinct bands */
+    .section {
+      padding: 120px 0;
+      position: relative;
+      z-index: 1;
+      overflow: visible;
+    }
+    .section + .section { margin-top: 36px; }
+
+    /* three example textures */
+    .bg-texture-1 {
+      background-image:
+        radial-gradient(1000px 600px at 0% 20%, rgba(20,45,60,0.20), transparent 35%),
+        linear-gradient(180deg, rgba(7,11,20,0.95), rgba(11,18,36,0.9));
+      background-blend-mode: normal;
+      background-size: cover;
+    }
+
+    .bg-texture-2 {
+      background-image:
+        radial-gradient(900px 520px at 100% 10%, rgba(110,35,150,0.12), transparent 30%),
+        linear-gradient(180deg, rgba(8,12,22,0.95), rgba(10,14,28,0.9));
+      background-size: cover;
+    }
+
+    .bg-texture-3 {
+      background-image:
+        radial-gradient(1000px 600px at 60% 0%, rgba(60,100,140,0.10), transparent 30%),
+        linear-gradient(180deg, rgba(6,10,18,0.95), rgba(12,7,35,0.92));
+      background-size: cover;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -18px; height: 36px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.18));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border-radius:12px;padding:16px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));border:1px solid var(--border);box-shadow:var(--shadow)}
+    .card .head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#06111f}
+
+    /* About: photo + dotted ring + pill bar */
+    #aboutme { position: relative; padding-top: 120px; } /* push content down so seam is hidden */
+    #aboutme::before{
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      height: 120px; /* adjust if seam height differs */
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(7,11,20,0.0), rgba(7,11,20,0.85));
+      mix-blend-mode: normal;
+      z-index: 0;
+    }
+
+    .about-wrap{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;position:relative;z-index:2}
+    .about-art{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+
+    /* dotted ring sits behind the photo and will spin */
+    .ring-dotted{position:absolute;width:340px;height:340px;border-radius:50%;border:2px dashed rgba(255,255,255,0.06);top:46%;left:50%;transform:translate(-50%,-50%);z-index:0;animation:ringSpin 24s linear infinite;pointer-events:none;box-shadow:0 18px 40px rgba(0,0,0,0.45), inset 0 0 30px rgba(155,92,255,0.01)}
+    @keyframes ringSpin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+
+    /* photo wrapper: static image (no rotation) */
+    .photo-wrap{width:220px;height:220px;border-radius:50%;overflow:hidden;border:3px solid var(--border);background:#0d1530;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 8px 30px rgba(0,0,0,0.45)}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;}
+
+    .photo-bar{position:relative;margin-top:14px;display:flex;justify-content:center;z-index:4}
+    .photo-bar .pill{background:linear-gradient(135deg,var(--acc),var(--acc-2));padding:6px 12px;border-radius:999px;color:#06111f;font-weight:700;font-size:13px;box-shadow:var(--shadow);z-index:2}
+
+    /* Services: tab UI and panels */
+    .tabbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .tab{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;background:transparent;color:var(--txt)}
+    .tab.active{background:linear-gradient(135deg,var(--acc),var(--acc-2));color:#06111f;border:none}
+    .svc-panel{display:none}
+    .svc-panel.active{display:block}
+
+    /* svc-list grid and nicer free-floating learn button */
+    .svc-list{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    .svc-item{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      padding:18px 18px 22px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.008), rgba(255,255,255,0.003));
+      border:1px solid var(--border);
+      min-height:150px;
+      gap:10px;
+      position:relative;
+    }
+    .svc-item .left { width:100% }
+    .svc-item .left > div:first-child{font-weight:700;margin-bottom:6px}
+    .learn {
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:linear-gradient(135deg, var(--acc), var(--acc-2));
+      color:#06111f;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 10px 22px rgba(60,80,120,0.18);
+      transition:transform .12s ease, box-shadow .12s ease;
+      cursor:pointer;
+    }
+    .learn:hover { transform:translateY(-4px); box-shadow:0 18px 36px rgba(60,80,120,0.26); }
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{position:relative;padding:16px;border-radius:12px;background:var(--glass);border:1px solid var(--border)}
+    .quote .linkedin{position:absolute;right:12px;top:12px;opacity:0;transition:opacity .18s}
+    .quote:hover .linkedin{opacity:1}
+
+    /* Contact */
+    .contact-grid{display:grid;gap:18px;grid-template-columns:1fr;max-width:760px}
+    form{border-radius:12px;padding:18px;background:var(--glass);border:1px solid var(--border)}
+    label{font-size:13px;color:#d7e6ff;display:block;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:12px 14px;margin-bottom:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;color:var(--txt);outline:none}
+    textarea{min-height:120px;resize:vertical}
+    .note{font-size:12px;color:var(--muted)}
+    .service-preview{margin-top:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid var(--border);color:var(--muted)}
+
+    /* Custom select styles */
+    select, select option { background: rgba(6,12,22,0.95) !important; color: var(--txt) !important; border: 1px solid rgba(255,255,255,0.06) !important; }
+    select { -webkit-appearance: none; -moz-appearance: none; appearance: none; padding-right: 36px; background-image: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); z-index:5; position:relative; }
+
+    .custom-select-wrap { position: relative; display:inline-block; width:100%; }
+    .custom-select-display { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; border-radius:10px; cursor:pointer; background: rgba(8,12,22,0.85); border:1px solid var(--border); color:var(--txt); }
+    .custom-select-list { position:absolute; left:0; right:0; margin-top:8px; max-height:260px; overflow:auto; background: rgba(6,10,18,0.98); border-radius:10px; border:1px solid var(--border); box-shadow: var(--shadow); z-index:99999; padding:8px; }
+    .custom-select-item { padding:10px 12px; cursor:pointer; border-radius:8px; color:var(--muted); }
+    .custom-select-item:hover { background: rgba(255,255,255,0.02); color:var(--txt); }
+
+    /* Responsive behavior */
+    @media (max-width:1100px){ .about-wrap{grid-template-columns:1fr 380px} .svc-list{grid-template-columns:repeat(2,1fr)} .svc-item{min-height:unset} }
+    @media (max-width:980px){ .hero-wrap{grid-template-columns:1fr} .about-wrap{grid-template-columns:1fr} .cards{grid-template-columns:1fr 1fr} .testimonials{grid-template-columns:1fr 1fr} .svc-list{grid-template-columns:1fr} }
+    @media (max-width:640px){ .cards{grid-template-columns:1fr} .hero h2{font-size:30px} .ring-dotted{width:260px;height:260px} .photo-wrap{width:180px;height:180px} }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#" class="logo" aria-label="Kartheek Sakinala Home">
-        <span class="logo-chip" aria-hidden="true">KS</span>
-        <span class="logo-text">Kartheek Sakinala</span>
-      </a>
-
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-
-      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#results">Results</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a class="btn btn-primary small only-desktop" href="#contact">Book Discovery Call</a>
-      </nav>
+<header>
+  <div class="container nav" style="align-items:center;">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">KS</div>
+      <div class="title">
+        <h1>Kartheek Sakinala</h1>
+        <div class="subtitle">Cybersecurity • Data Recovery • Forensics</div>
+      </div>
     </div>
-  </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section id="home" class="section hero">
-      <div class="container grid-2">
-        <div class="hero-copy">
-          <h1>Strategic Cybersecurity & Forensics Consulting — Built for Real-World Impact.</h1>
-          <p>From SOC and firewall setups to data recovery and investigations — I help individuals and businesses secure, recover, and scale their digital systems.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contact">Book Free Discovery Call</a>
-            <a class="btn btn-ghost" href="https://digitalmonk.example" target="_blank" rel="noopener">Explore Digital Monk</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#aboutme">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#trainings">Trainings</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero bg-texture-1" aria-label="Hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">Trusted by SMEs &amp; Professionals • 24×7 Support</span>
+        <h2>Defend, Recover, and Investigate with <span class="grad">Expert Precision</span></h2>
+        <p>Enterprise-grade cybersecurity, data recovery and digital forensics for SMEs and professionals.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#contact">Get a Quote</a>
+          <a class="btn" href="#services">View Services</a>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:16px">
+          <div style="padding:8px 10px;border-radius:10px;background:var(--glass);border:1px solid var(--border);color:var(--muted)">Avg Response: <strong>30–60 min</strong></div>
+          <div style="padding:8px 10px;border-radius:10px;background:var(--glass);border:1px solid var(--border);color:var(--muted)">Engagements: <strong>500+</strong></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <!-- replace VIDEO_SRC.mp4 with your MP4 (muted required for autoplay) -->
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://source.unsplash.com/1600x900/?technology,cybersecurity">
+          <source src="VIDEO_SRC.mp4" type="video/mp4">
+        </video>
+
+        <div class="terminal" role="img" aria-label="Security console">
+          <div class="term-bar" aria-hidden="true">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
           </div>
-          <p class="hero-sub">Cybersecurity • SOC/Firewall • Data Recovery • Digital Forensics • Monitoring</p>
-        </div>
-        <div class="hero-art reveal" aria-hidden="true">
-          <div class="cyber-grid"></div>
-          <div class="orb"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERTISE -->
-    <section id="expertise" class="section">
-      <div class="container">
-        <h2 class="section-title">One Specialist. Multiple Domains.</h2>
-        <div class="cards-4">
-          <article class="card reveal">
-            <div class="card-icon">🛡️</div>
-            <h3>Cybersecurity & Infrastructure</h3>
-            <p>Firewall design, SOC build-outs, endpoint hardening, threat simulation, Zero Trust remote access.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon">🧬</div>
-            <h3>Digital Forensics & Data Recovery</h3>
-            <p>Case reconstruction, HDD/SSD/NAND recovery advisory, ransomware triage, reporting templates.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon">🌐</div>
-            <h3>Monitoring & Intelligence</h3>
-            <p>Dark web & social media exposure checks, breach assessments — delivered via Digital Monk.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon">🎓</div>
-            <h3>Training & Strategy</h3>
-            <p>Workshops, security playbooks, DFIR labs, mentorship for teams and institutes.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESULTS / CASE HIGHLIGHTS -->
-    <section id="results" class="section alt">
-      <div class="container">
-        <h2 class="section-title">Results That Matter</h2>
-        <div class="cards-3">
-          <article class="case reveal">
-            <h4>Firewall Deployment for SME</h4>
-            <p>Reduced exposed services and blocked unsolicited traffic; measurable drop in intrusion attempts within 3 weeks.</p>
-            <a class="link" href="#contact">Discuss Your Project →</a>
-          </article>
-          <article class="case reveal">
-            <h4>Ransomware Data Restoration</h4>
-            <p>Recovered the majority of critical files, implemented 3-2-1 backups, and verified quarterly restore drills.</p>
-            <a class="link" href="#contact">Discuss Your Project →</a>
-          </article>
-          <article class="case reveal">
-            <h4>Credential Leak Mitigation</h4>
-            <p>Detected leaked employee credentials, enforced MFA and blocked legacy auth, reduced risky sign-ins.</p>
-            <a class="link" href="#contact">Discuss Your Project →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY WORK WITH ME -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Why Work With Kartheek</h2>
-        <div class="grid-2">
-          <ul class="bullets reveal">
-            <li>Hands-on engineering: pfSense/OPNsense, Wazuh, Sysmon, ATT&CK mapping.</li>
-            <li>Forensics depth: imaging workflows, triage, HDD/SSD recovery advisory.</li>
-            <li>Pragmatic approach: simple, repeatable, documented solutions.</li>
-            <li>Clear outcomes: deliverables, timelines, and owner’s checklist.</li>
-          </ul>
-          <div class="cred reveal">
-            <div class="chip">Consultant & Practitioner</div>
-            <div class="chip">Available for Projects & Partnerships</div>
-            <a class="btn btn-secondary" href="#contact">Let’s Talk</a>
+          <div class="term-body" aria-hidden="true">
+<span style="color:#9b5cff">[SOC]</span> Bootstrapping collector... <span style="color:#3ddc97">OK</span><br>
+<span style="color:#9b5cff">[EDR]</span> Threat intel sync... <span style="color:#3ddc97">OK</span><br>
+<span style="color:#9b5cff">[FW]</span> Policy deploy SME-Edge-01... <span style="color:#3ddc97">OK</span><br>
+<span style="color:#9b5cff">[MON]</span> Brand &amp; dark web watchlists... <span style="color:#3ddc97">ACTIVE</span><br>
+<span style="color:#9b5cff">[DR]</span> PC-3000 remote session ready... <span style="color:#3ddc97">READY</span><br>
+<span style="color:#9b5cff">[DFIR]</span> Case DF-247: DVR carve, OSINT pivot... <span style="color:#ffb703">RUNNING</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">About Kartheek</h2>
-          <p>I’m a cybersecurity and digital forensics specialist focused on practical, outcome-driven projects. I work closely with individuals and SMEs to build resilient systems and actionable workflows.</p>
-          <p>Monitoring and exposure intelligence are delivered through my platform, Digital Monk.</p>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/kartheek-sakinala/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  <!-- ABOUT -->
+  <section id="aboutme" class="section bg-texture-2" aria-label="About">
+    <div class="container about-wrap">
+      <div>
+        <h2 class="section-title">About Kartheek</h2>
+        <p>I’m a cybersecurity &amp; digital forensics specialist focused on privacy, threat detection and data recovery. I help SMEs & professionals build resilience through pragmatic, hands-on solutions.</p>
+        <p>My mission: make cybersecurity actionable for teams that can't afford to wait.</p>
+        <a class="btn" href="https://www.linkedin.com/in/kartheek-sakinala/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+
+      <div class="about-art" aria-hidden="true">
+        <div class="ring-dotted" aria-hidden="true"></div>
+
+        <!-- Wrapped photo to ensure perfect circular clipping -->
+        <div class="photo-wrap" aria-hidden="true">
+          <img class="about-photo" src="profile.jpg" alt="Portrait of Kartheek Sakinala"/>
         </div>
-        <div class="about-art reveal" aria-hidden="true">
-          <div class="ring"></div>
-          <img class="about-photo" src="profile.jpg" alt="Portrait of Kartheek Sakinala">
-          <div class="chip badge">Open for Consulting & Collaborations</div>
+
+        <div class="photo-bar"><div class="pill">Available for: Advisory · Training · Cases</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section bg-texture-3" aria-label="Services">
+    <div class="container" style="padding-top:18px;">
+      <h2 class="section-title">Services</h2>
+      <p class="section-desc">Click a category below to view its services. Each item has a Learn more link.</p>
+
+      <div class="tabbar" role="tablist" aria-label="Service categories">
+        <div class="tab active" data-tab="cyber" role="tab" aria-selected="true">Cybersecurity</div>
+        <div class="tab" data-tab="recovery" role="tab" aria-selected="false">Data Recovery</div>
+        <div class="tab" data-tab="forensics" role="tab" aria-selected="false">Digital Forensics</div>
+      </div>
+
+      <div class="svc-panel active" data-panel="cyber">
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="left">
+              <div>Firewall Installation &amp; Setup (SME)</div>
+              <div style="color:var(--muted);font-size:13px">Architecture, segmentation, HA, VPN, logging & backups.</div>
+            </div>
+            <a class="learn" href="services/firewall.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>SOC Setup (SME)</div>
+              <div style="color:var(--muted);font-size:13px">SIEM onboarding, parsers, alert tuning, runbooks.</div>
+            </div>
+            <a class="learn" href="services/soc.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>Brand &amp; Dark Web Monitoring</div>
+              <div style="color:var(--muted);font-size:13px">Leak detection, credential exposure alerts, takedown support.</div>
+            </div>
+            <a class="learn" href="services/darkweb.html">Learn more</a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Book a Discovery Call</h2>
-          <p class="section-sub">Tell me what you need help with — I’ll get back within 1 business day.</p>
+      <div class="svc-panel" data-panel="recovery">
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="left">
+              <div>Remote Support — PC-3000, MRT, Dolphin</div>
+              <div style="color:var(--muted);font-size:13px">Remote guided imaging, head maps, firmware handling.</div>
+            </div>
+            <a class="learn" href="services/remote-recovery.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>Lab Setup / Guidance</div>
+              <div style="color:var(--muted);font-size:13px">Clean benches, ESD, donor inventory, SOPs & QA.</div>
+            </div>
+            <a class="learn" href="services/lab-setup.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>Ransomware Data Recovery</div>
+              <div style="color:var(--muted);font-size:13px">Forensic imaging, decryptor feasibility, partial restorations.</div>
+            </div>
+            <a class="learn" href="services/ransomware.html">Learn more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-panel" data-panel="forensics">
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="left">
+              <div>DVR Recovery</div>
+              <div style="color:var(--muted);font-size:13px">Proprietary formats, timestamp repair, legal-ready exports.</div>
+            </div>
+            <a class="learn" href="services/dvr.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>Damaged Drive Forensics</div>
+              <div style="color:var(--muted);font-size:13px">Read-unstable imaging, artifact triage, chain-of-custody.</div>
+            </div>
+            <a class="learn" href="services/damaged-drive.html">Learn more</a>
+          </div>
+
+          <div class="svc-item">
+            <div class="left">
+              <div>OSINT Investigations</div>
+              <div style="color:var(--muted);font-size:13px">Attribution support, persona risk, evidence preservation.</div>
+            </div>
+            <a class="learn" href="services/osint.html">Learn more</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRAININGS -->
+  <section id="trainings" class="section bg-texture-1">
+    <div class="container">
+      <h3 class="section-title">Trainings</h3>
+      <p class="section-desc">Hands-on programs — each has a Learn more link.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="head"><div class="icon">TR</div><div><b>Data Recovery</b><br><small style="color:var(--muted)">Foundations → Advanced</small></div></div>
+          <div style="color:var(--muted);margin-top:6px">Drive architecture, PC-3000/MRT/DLL labs, SOPs.</div>
+          <div style="margin-top:12px"><a class="learn" href="trainings/data-recovery.html">Learn more</a></div>
         </div>
 
-        <form id="contactForm" class="contact-form reveal" novalidate>
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your name" />
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" required placeholder="you@example.com" />
-          </div>
-          <div class="form-row">
-            <label for="phone">Phone Number</label>
-            <input id="phone" type="tel" name="phone" required pattern="[0-9+\-\s]{7,15}" placeholder="+91 98765 43210" />
-          </div>
-          <div class="form-row">
-            <label for="projectType">Project Type</label>
-            <select id="projectType" name="project_type" required>
-              <option value="" disabled selected>Select one</option>
-              <option>Firewall / Network / SOC</option>
-              <option>Data Recovery / Digital Forensics</option>
-              <option>Monitoring (Dark Web / Social Media)</option>
-              <option>Training / Workshop / Mentoring</option>
-              <option>Other IT Project</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="What do you want to achieve?"></textarea>
-          </div>
+        <div class="card">
+          <div class="head"><div class="icon">CS</div><div><b>Cybersecurity</b><br><small style="color:var(--muted)">SME practical security</small></div></div>
+          <div style="color:var(--muted);margin-top:6px">Firewall policy, SIEM basics, playbooks and bootcamps.</div>
+          <div style="margin-top:12px"><a class="learn" href="trainings/cybersecurity.html">Learn more</a></div>
+        </div>
 
-          <!-- Optional consent -->
-          <div class="form-row checkbox">
-            <label><input type="checkbox" id="consent" name="consent"> I’m open to follow-up via WhatsApp or email</label>
-          </div>
+        <div class="card">
+          <div class="head"><div class="icon">DF</div><div><b>Digital Forensics</b><br><small style="color:var(--muted)">Evidence & reporting</small></div></div>
+          <div style="color:var(--muted);margin-top:6px">Imaging, hashing, DVR carving, OSINT tooling.</div>
+          <div style="margin-top:12px"><a class="learn" href="trainings/forensics.html">Learn more</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Honeypot -->
-          <input type="text" id="company" name="honey" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" autocomplete="off" />
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section bg-texture-2">
+    <div class="container">
+      <h3 class="section-title">What Clients Say</h3>
+      <p class="section-desc">Hover a testimonial to view it on LinkedIn.</p>
 
-          <div class="form-actions">
-            <button class="btn btn-primary" id="sendBtn" type="submit">Send</button>
-            <a class="btn btn-ghost" href="https://digitalmonk.example" target="_blank" rel="noopener">Explore Digital Monk</a>
+      <div class="testimonials">
+        <div class="quote">
+          <div class="linkedin"><a href="https://www.linkedin.com/in/kartheek-sakinala/" target="_blank" rel="noopener">View on LinkedIn ↗</a></div>
+          <p>They restored mission-critical data after a ransomware hit and improved backups. Clear, calm, effective.</p>
+          <div style="color:var(--muted);font-size:13px">COO, Manufacturing SME</div>
+        </div>
+
+        <div class="quote">
+          <div class="linkedin"><a href="https://www.linkedin.com/in/kartheek-sakinala/" target="_blank" rel="noopener">View on LinkedIn ↗</a></div>
+          <p>Our SOC is now actionable. Noise down, true positives up. Playbooks changed the game.</p>
+          <div style="color:var(--muted);font-size:13px">IT Head, Fintech</div>
+        </div>
+
+        <div class="quote">
+          <div class="linkedin"><a href="https://www.linkedin.com/in/kartheek-sakinala/" target="_blank" rel="noopener">View on LinkedIn ↗</a></div>
+          <p>DVR recovery produced admissible footage on a tight deadline. Flawless chain-of-custody.</p>
+          <div style="color:var(--muted);font-size:13px">Attorney, Litigation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section bg-texture-3">
+    <div class="container">
+      <h3 class="section-title">Contact</h3>
+      <p class="section-desc">Fast, confidential response. NDAs on request.</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="Your full name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="name@company.com" required>
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 000 0000">
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" placeholder="Short summary (e.g., Ransomware recovery)" required>
+
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Firewall Installation & Setup (SME)">Firewall Installation &amp; Setup (SME)</option>
+            <option value="SOC Setup (SME)">SOC Setup (SME)</option>
+            <option value="Brand & Dark Web Monitoring">Brand &amp; Dark Web Monitoring</option>
+            <option value="Remote Data Recovery">Remote Data Recovery</option>
+            <option value="Lab Setup / Guidance">Lab Setup / Guidance</option>
+            <option value="Ransomware Recovery">Ransomware Recovery</option>
+            <option value="DVR Recovery">DVR Recovery</option>
+            <option value="Damaged Drive Forensics">Damaged Drive Forensics</option>
+            <option value="OSINT Investigations">OSINT Investigations</option>
+          </select>
+
+          <div id="servicePreview" class="service-preview" aria-live="polite">Choose a service to see a short summary here.</div>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe urgency, systems involved and constraints." required></textarea>
+
+          <div class="note">By submitting you agree to be contacted. We never sell your data.</div>
+          <div id="formStatus" class="note" role="status" aria-live="polite" style="margin-top:8px"></div>
+
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <button class="cta" type="submit">Send Request</button>
+            <button class="btn" type="reset">Reset</button>
           </div>
-          <p id="formStatus" class="form-status" aria-live="polite"></p>
         </form>
       </div>
-    </section>
-  
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="cards-3">
-          <article class="card">
-            <h3>Do you work with individuals and SMEs?</h3>
-            <p>Yes. I handle individual cases (data recovery, account compromises) and SME projects like SOC setup, firewall deployments, and incident response planning.</p>
-          </article>
-          <article class="card">
-            <h3>How quickly can you start?</h3>
-            <p>For urgent incidents, I can usually start within 24 hours. For planned projects, we’ll schedule a discovery call and a scoped kickoff.</p>
-          </article>
-          <article class="card">
-            <h3>What tools and stacks do you use?</h3>
-            <p>pfSense/OPNsense, Wazuh/SIEM, Sysmon, MITRE ATT&amp;CK mapping, and standard forensic toolchains—always documented and reproducible.</p>
-          </article>
-          <article class="card">
-            <h3>Do you provide reports and documentation?</h3>
-            <p>Yes—every engagement includes clear deliverables: a summary, detailed steps taken, and recommended next actions.</p>
-          </article>
-          <article class="card">
-            <h3>How do I get a quote?</h3>
-            <p>Use the contact form to describe your need. After the discovery call, I’ll share a fixed-scope proposal with timelines and pricing.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 Kartheek Sakinala</p>
-      <nav aria-label="Footer">
-        <a href="#home"> Home </a>
-        <a href="#expertise"> Expertise </a>
-        <a href="#results"> Results </a>
-        <a href="#contact"> Contact </a>
-      </nav>
-      <p class="muted">Exposure & Monitoring powered by <a href="https://digitalmonk.example" target="_blank" rel="noopener">Digital Monk</a></p>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+</main>
+
+<footer style="padding:18px 0;border-top:1px solid var(--border);color:var(--muted)">
+  <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div>© <span id="year"></span> Kartheek Sakinala. All rights reserved.</div>
+    <div><a href="#services">Services</a> · <a href="#trainings">Trainings</a> · <a href="#contact">Contact</a></div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // sync header height to CSS var and main padding (in case header changes size)
+  (function(){
+    const header = document.querySelector('header');
+    function syncHeader() {
+      const h = Math.round(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+      document.querySelector('main').style.paddingTop = (h + 12) + 'px';
+    }
+    window.addEventListener('resize', syncHeader);
+    window.addEventListener('load', syncHeader);
+    syncHeader();
+  })();
+
+  // Services tabs
+  (function(){
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.svc-panel');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const id = t.getAttribute('data-tab');
+      tabs.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+      t.classList.add('active'); t.setAttribute('aria-selected','true');
+      panels.forEach(p => p.dataset.panel === id ? p.classList.add('active') : p.classList.remove('active'));
+      const services = document.getElementById('services');
+      if(services) services.scrollIntoView({behavior: 'smooth', block:'start'});
+    }));
+  })();
+
+  // Service preview map for contact
+  (function(){
+    const map = {
+      "Firewall Installation & Setup (SME)": "Firewall architecture, segmentation, HA, VPN – plus logging & backups.",
+      "SOC Setup (SME)": "SIEM onboarding, log onboarding, alert tuning, runbooks and monitoring.",
+      "Brand & Dark Web Monitoring": "Credential exposure alerts, domain spoofing detection and takedown coordination.",
+      "Remote Data Recovery": "PC-3000/MRT/Dolphin remote guidance for safe imaging and recovery.",
+      "Lab Setup / Guidance": "Lab planning, ESD, SOPs, donor inventory and QA workflows.",
+      "Ransomware Recovery": "Forensic imaging, decryptor feasibility checks, containment advice.",
+      "DVR Recovery": "Proprietary format extraction, timestamp repair, court-ready exports.",
+      "Damaged Drive Forensics": "Forensically-sound imaging, artifact triage and documentation.",
+      "OSINT Investigations": "Targeted OSINT investigations, attribution support and evidence preservation."
+    };
+    const sel = document.getElementById('service');
+    const preview = document.getElementById('servicePreview');
+    if(sel && preview){
+      sel.addEventListener('change', () => {
+        const v = sel.value;
+        preview.textContent = v ? (map[v] || v) : 'Choose a service to see a short summary here.';
+      });
+    }
+  })();
+
+  // Contact form: validation & placeholder submission (no-cors)
+  (function(){
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    function isEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      status.textContent = ''; status.className = 'note';
+      const data = Object.fromEntries(new FormData(form).entries());
+      const errors = [];
+      if(!data.name) errors.push('Name is required');
+      if(!data.email || !isEmail(data.email)) errors.push('Valid email required');
+      if(!data.subject) errors.push('Subject is required');
+      if(!data.service) errors.push('Please select a service');
+      if(!data.message) errors.push('Message is required');
+      if(errors.length){ status.textContent = 'Error: ' + errors.join(' • '); status.className='note error'; return; }
+      status.textContent = 'Sending...'; status.className='note';
+      try{
+        await fetch('YOUR_WEB_APP_URL_HERE', { method:'POST', mode:'no-cors', body: JSON.stringify({...data, source:'site'}) });
+        status.textContent = 'Thank you — your request has been sent.'; status.className='note success';
+        form.reset();
+        document.getElementById('servicePreview').textContent = 'Choose a service to see a short summary here.';
+      }catch(err){
+        console.error(err);
+        status.textContent = 'Submission failed — please email us directly.'; status.className='note error';
+      }
+    });
+  })();
+
+  // Small anchor offset helper for browsers that ignore scroll-margin-top
+  (function(){
+    function offsetAnchor() {
+      if(location.hash.length !== 0){
+        const headerHeight = document.querySelector('header').getBoundingClientRect().height;
+        window.scrollTo(window.scrollX, window.scrollY - (headerHeight + 6));
+      }
+    }
+    window.addEventListener('hashchange', offsetAnchor);
+    window.setTimeout(offsetAnchor, 50);
+  })();
+
+  // Custom dark dropdown (replaces native #service visually)
+  (function(){
+    const nativeSelect = document.getElementById('service');
+    if(!nativeSelect) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'custom-select-wrap';
+
+    const display = document.createElement('div');
+    display.className = 'custom-select-display';
+    display.tabIndex = 0;
+
+    const label = document.createElement('span');
+    label.textContent = nativeSelect.options[nativeSelect.selectedIndex]?.text || nativeSelect.getAttribute('placeholder') || 'Select a service';
+    const caret = document.createElement('span');
+    caret.innerHTML = '▾';
+    caret.style.opacity = '0.9';
+    caret.style.marginLeft = '12px';
+
+    display.appendChild(label);
+    display.appendChild(caret);
+    wrap.appendChild(display);
+
+    const list = document.createElement('div');
+    list.className = 'custom-select-list';
+    list.style.display = 'none';
+
+    Array.from(nativeSelect.options).forEach(opt => {
+      const item = document.createElement('div');
+      item.className = 'custom-select-item';
+      item.textContent = opt.textContent;
+      item.dataset.value = opt.value;
+      if(!opt.value){ item.style.opacity = '0.6'; item.style.cursor = 'default'; }
+      list.appendChild(item);
+
+      item.addEventListener('click', () => {
+        if(!opt.value) return;
+        nativeSelect.value = opt.value;
+        nativeSelect.dispatchEvent(new Event('change', { bubbles:true }));
+        label.textContent = opt.textContent;
+        list.style.display = 'none';
+      });
+    });
+
+    nativeSelect.style.display = 'none';
+    nativeSelect.parentNode.insertBefore(wrap, nativeSelect.nextSibling);
+    wrap.appendChild(list);
+
+    display.addEventListener('click', ()=> {
+      list.style.display = list.style.display === 'none' ? 'block' : 'none';
+    });
+
+    display.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); display.click(); }
+      if(ev.key === 'Escape') list.style.display = 'none';
+    });
+
+    document.addEventListener('click', (ev) => {
+      if(!wrap.contains(ev.target)) list.style.display = 'none';
+    });
+  })();
+
+  // Keep the photo-wrap square (guards against layout/CSS overrides)
+  (function(){
+    function forceSquare() {
+      const wrap = document.querySelector('.photo-wrap');
+      if(!wrap) return;
+      const w = wrap.clientWidth;
+      wrap.style.height = w + 'px';
+    }
+    window.addEventListener('load', forceSquare);
+    window.addEventListener('resize', forceSquare);
+    setTimeout(forceSquare, 300);
+  })();
+
+  // Set footer year
+  (function(){ const y = new Date().getFullYear(); const el = document.getElementById('year'); if(el) el.textContent = y; })();
+
+</script>
+
 </body>
 </html>

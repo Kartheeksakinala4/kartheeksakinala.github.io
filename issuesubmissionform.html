@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Land Issue - Telangana Land Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .step-indicator {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-body {
+            padding: 2rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-step {
+            flex: 1;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .progress-step.active {
+            background: #667eea;
+        }
+
+        .progress-step.completed {
+            background: #28a745;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .form-section h3 {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .required::after {
+            content: " *";
+            color: #ff6b6b;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .help-text {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            margin-bottom: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: #667eea;
+        }
+
+        /* File Upload Section */
+        .file-upload {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 2rem;
+            border: 2px dashed #667eea;
+            border-radius: 5px;
+            text-align: center;
+            background: #f8f9ff;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .file-upload-label:hover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+
+        .file-upload-label.dragover {
+            background: #e8ebff;
+            border-color: #764ba2;
+            transform: scale(1.02);
+        }
+
+        .file-upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-upload-text {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .file-upload-hint {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .uploaded-files {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .file-item {
+            background: linear-gradient(135deg, #e8ebff 0%, #f0f2ff 100%);
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.9rem;
+            border: 1px solid #667eea;
+        }
+
+        .file-icon {
+            font-size: 1.2rem;
+        }
+
+        .file-name {
+            flex: 1;
+            color: #333;
+        }
+
+        .file-size {
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .file-item .remove {
+            cursor: pointer;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .file-item .remove:hover {
+            transform: scale(1.2);
+        }
+
+        /* Document Info Box */
+        .doc-info {
+            background: #e8f4f8;
+            border-left: 4px solid #0099cc;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #006699;
+        }
+
+        .doc-info strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Message Alerts */
+        .alert {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border-left: 4px solid;
+        }
+
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border-left-color: #28a745;
+        }
+
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left-color: #f5c6cb;
+        }
+
+        .alert.warning {
+            background: #fff3cd;
+            color: #856404;
+            border-left-color: #ffc107;
+        }
+
+        .alert.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left-color: #17a2b8;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .action-left {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-draft {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-draft:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: #666;
+            border: 2px solid #ddd;
+        }
+
+        .btn-reset:hover {
+            background: #f5f5f5;
+        }
+
+        /* Character Counter */
+        .char-counter {
+            text-align: right;
+            color: #999;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .char-counter.warning {
+            color: #ff6b6b;
+        }
+
+        /* Document Checklist */
+        .doc-checklist {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .doc-checklist h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .form-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+
+            .action-left {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Submit Your Land Issue</h1>
+            <p>Provide complete details about your land-related problem. Our experts will review and guide you.</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Issue Submission Form</h2>
+                <div class="step-indicator">Complete Form - All Steps Required</div>
+            </div>
+
+            <div class="form-body">
+                <!-- Alerts -->
+                <div class="alert success" id="successAlert">
+                    ✅ Your issue has been submitted successfully!
+                </div>
+                <div class="alert error" id="errorAlert">
+                    ❌ Please fix the errors above before submitting.
+                </div>
+
+                <form id="issueForm">
+                    <!-- Progress Bar -->
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                        <div class="progress-step"></div>
+                    </div>
+
+                    <!-- SECTION 1: Personal Information -->
+                    <div class="form-section">
+                        <h3>👤 Personal Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName" class="required">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required 
+                                       placeholder="Enter your full name as per documents">
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhaar" class="required">Aadhaar Number</label>
+                                <input type="text" id="aadhaar" name="aadhaar" required 
+                                       placeholder="XXXX XXXX XXXX XXXX" maxlength="16" pattern="[0-9 ]{16}">
+                                <span class="help-text">12-digit Aadhaar number (with or without spaces)</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mobile" class="required">Mobile Number</label>
+                                <input type="tel" id="mobile" name="mobile" required 
+                                       placeholder="10-digit mobile number" maxlength="10" pattern="[0-9]{10}">
+                                <span class="help-text">We'll send updates via SMS and WhatsApp</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="required">Email Address</label>
+                                <input type="email" id="email" name="email" required 
+                                       placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: Property Details -->
+                    <div class="form-section">
+                        <h3>🏠 Property Details</h3>
+                        
+                        <div class="doc-info">
+                            <strong>💡 Tip:</strong> You can find this information in your RTC (Record of Title Certificate), ROR (Record of Rights), or property deed.
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surveyNumber" class="required">Survey Number</label>
+                                <input type="text" id="surveyNumber" name="surveyNumber" required 
+                                       placeholder="e.g., 123-A/1 or 456/B">
+                                <span class="help-text">Enter as shown in your property documents</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="propertyArea" class="required">Total Area (in sq.meters)</label>
+                                <input type="number" id="propertyArea" name="propertyArea" required 
+                                       placeholder="e.g., 1500" min="1">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="village" class="required">Village/Town</label>
+                                <input type="text" id="village" name="village" required 
+                                       placeholder="Village name">
+                            </div>
+                            <div class="form-group">
+                                <label for="mandal" class="required">Mandal</label>
+                                <input type="text" id="mandal" name="mandal" required 
+                                       placeholder="Mandal name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="district" class="required">District</label>
+                                <select id="district" name="district" required>
+                                    <option value="">-- Select District --</option>
+                                    <option value="hyderabad">Hyderabad</option>
+                                    <option value="ranga_reddy">Ranga Reddy</option>
+                                    <option value="medchal">Medchal-Malkajgiri</option>
+                                    <option value="vikarabad">Vikarabad</option>
+                                    <option value="sangareddy">Sangareddy</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="propertyType" class="required">Property Classification</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="agricultural" name="propertyType" value="agricultural" required>
+                                        <label for="agricultural">🌾 Agricultural</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="nonAgricultural" name="propertyType" value="non-agricultural" required>
+                                        <label for="nonAgricultural">🏢 Non-Agricultural</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: Issue Details -->
+                    <div class="form-section">
+                        <h3>🔍 Issue Details</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueCategory" class="required">Issue Category</label>
+                                <select id="issueCategory" name="issueCategory" required onchange="updateDocuments()">
+                                    <option value="">-- Select Issue Type --</option>
+                                    <option value="dharani_registration">🔧 Dharani Registration Issues</option>
+                                    <option value="mutation_succession">📝 Mutation/Succession Problems</option>
+                                    <option value="land_conversion">🔄 Land Conversion (NALA)</option>
+                                    <option value="ror_pahani">📄 ROR 1B/Pahani Corrections</option>
+                                    <option value="boundary_dispute">🚩 Boundary Disputes</option>
+                                    <option value="encroachment">⛔ Encroachment Issues</option>
+                                    <option value="survey_number">🗺️ Survey Number Issues</option>
+                                    <option value="classification">🌾 Agriculture/Non-Agriculture</option>
+                                    <option value="court_matters">⚖️ Court-Related Matters</option>
+                                    <option value="property_tax">💰 Property Tax/Layout Approval</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priorityLevel" class="required">Priority Level</label>
+                                <select id="priorityLevel" name="priorityLevel" required>
+                                    <option value="">-- Select Priority --</option>
+                                    <option value="low">🟢 Low - Can wait 30+ days</option>
+                                    <option value="medium">🟡 Medium - Within 15-30 days</option>
+                                    <option value="high">🔴 High - Within 7 days</option>
+                                    <option value="critical">⛔ Critical - Urgent (ASAP)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueDescription" class="required">Detailed Issue Description</label>
+                                <textarea id="issueDescription" name="issueDescription" required 
+                                         placeholder="Describe your issue in detail. Include what problems you're facing and what you've tried so far. (Minimum 50 characters)"
+                                         minlength="50" maxlength="1000"></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span>/1000 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="issueStartDate" class="required">When Did This Issue Start?</label>
+                                <input type="date" id="issueStartDate" name="issueStartDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="previousAttempts">Any Previous Resolution Attempts?</label>
+                                <textarea id="previousAttempts" name="previousAttempts" 
+                                         placeholder="Describe any steps you've already taken (optional)"
+                                         maxlength="500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: Service Preference -->
+                    <div class="form-section">
+                        <h3>🛠️ Service Preference</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required">How Would You Like Support?</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="remoteSupport" name="serviceType" value="remote">
+                                        <label for="remoteSupport">💻 Remote Support (Chat/Video/Phone)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="onsiteSupport" name="serviceType" value="onsite">
+                                        <label for="onsiteSupport">👨‍💼 On-Site Service (Professional Visit)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date for Service</label>
+                                <input type="date" id="preferredDate" name="preferredDate">
+                                <span class="help-text">Leave blank if any time is fine</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time Slot</label>
+                                <select id="preferredTime" name="preferredTime">
+                                    <option value="">-- Any Time --</option>
+                                    <option value="morning">🌅 Morning (6 AM - 12 PM)</option>
+                                    <option value="afternoon">☀️ Afternoon (12 PM - 5 PM)</option>
+                                    <option value="evening">🌆 Evening (5 PM - 9 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 5: Document Upload -->
+                    <div class="form-section">
+                        <h3>📎 Upload Supporting Documents</h3>
+
+                        <div class="doc-info">
+                            <strong>📋 Required Documents:</strong>
+                            <span id="docChecklist">Select an issue category above to see required documents</span>
+                        </div>
+
+                        <div class="doc-checklist" id="documentChecklist" style="display:none;">
+                            <h4>Documents to upload:</h4>
+                            <div id="checklistItems"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label class="required">Upload Documents (Max 5 files, 10MB each)</label>
+                                <div class="file-upload">
+                                    <label for="fileInput" class="file-upload-label" id="fileLabel">
+                                        <div class="file-upload-icon">📁</div>
+                                        <div class="file-upload-text">Click to upload or drag files here</div>
+                                        <div class="file-upload-hint">Supported formats: PDF, JPG, PNG (Max 10MB per file)</div>
+                                    </label>
+                                    <input type="file" id="fileInput" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png">
+                                </div>
+                                <div class="uploaded-files" id="uploadedFiles"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 6: Acknowledgment -->
+                    <div class="form-section">
+                        <h3>✅ Acknowledgment</h3>
+
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="termsAgree" name="termsAgree" required>
+                                <label for="termsAgree">I confirm all information provided is accurate and complete</label>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-group" style="margin-top: 1rem;">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                                <label for="dataConsent">I consent to share my documents with government officials for resolution</label>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-group" style="margin-top: 1rem;">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="communicationConsent" name="communicationConsent" checked>
+                                <label for="communicationConsent">I want to receive SMS/Email/WhatsApp updates about my issue</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <div class="action-left">
+                            <button type="reset" class="btn btn-reset">
+                                🔄 Clear Form
+                            </button>
+                        </div>
+                        <button type="button" class="btn btn-draft" onclick="saveDraft()">
+                            💾 Save as Draft
+                        </button>
+                        <button type="submit" class="btn btn-submit" id="submitBtn">
+                            ✉️ Submit Issue
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Character counter for textarea
+        const descriptionField = document.getElementById('issueDescription');
+        const charCount = document.getElementById('charCount');
+
+        descriptionField.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            if (this.value.length > 900) {
+                charCount.parentElement.classList.add('warning');
+            } else {
+                charCount.parentElement.classList.remove('warning');
+            }
+        });
+
+        // Document checklist based on issue category
+        const documentRequirements = {
+            dharani_registration: ['Aadhaar Card', 'Property ID', 'Recent RTC', 'Mobile Screenshot'],
+            mutation_succession: ['Death Certificate', 'Succession Affidavit', 'Old Property Deed', 'RTC'],
+            land_conversion: ['Land Ownership Document', 'NALA Application Form', 'Survey Report', 'Revenue Officer Certificate'],
+            ror_pahani: ['RTC', 'ROR Extract', 'Affidavit', 'Application Form'],
+            boundary_dispute: ['Survey Report', 'Property Deed', 'Boundary Map', 'Witness Statements'],
+            encroachment: ['Ownership Proof', 'Police Complaint Copy', 'Photos of Encroachment', 'Boundary Stones'],
+            survey_number: ['Survey Map', 'Old Documents', 'RTC', 'Application Form'],
+            classification: ['Land Certificate', 'Revenue Record', 'Survey Map', 'Classification Certificate'],
+            court_matters: ['Court Order', 'Legal Documentation', 'Judgment Copy', 'Decree'],
+            property_tax: ['Property Card', 'Layout Approved Plan', 'Tax Receipts', 'Application']
+        };
+
+        function updateDocuments() {
+            const category = document.getElementById('issueCategory').value;
+            const checklistDiv = document.getElementById('documentChecklist');
+            const docChecklistText = document.getElementById('docChecklist');
+            
+            if (category && documentRequirements[category]) {
+                const docs = documentRequirements[category];
+                let checklistHTML = '';
+                docs.forEach(doc => {
+                    checklistHTML += `
+                        <div class="checklist-item">
+                            <input type="checkbox" id="doc_${doc}">
+                            <label for="doc_${doc}">${doc}</label>
+                        </div>
+                    `;
+                });
+                document.getElementById('checklistItems').innerHTML = checklistHTML;
+                checklistDiv.style.display = 'block';
+                docChecklistText.innerHTML = `<strong>Required:</strong> ${docs.join(', ')}`;
+            } else {
+                checklistDiv.style.display = 'none';
+                docChecklistText.textContent = 'Select an issue category above to see require*_

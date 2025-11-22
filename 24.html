@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LandCare Services – Prototype 3 (Orbit Navigation)</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e0f2fe 0%, #f9fafb 40%, #e5e7eb 100%);
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 14px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #e5e7eb;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7eb;
+      opacity: 0.8;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: #f9fafb;
+    }
+
+    .nav-cta {
+      margin-left: 22px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: #38bdf8;
+      color: #0b1120;
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding-inline: 8vw;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #0284c7;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      color: #0ea5e9;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .hero-points {
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 18px;
+    }
+
+    .hero-points li {
+      margin-left: 20px;
+      margin-bottom: 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .primary-btn {
+      background: #0ea5e9;
+      color: #0b1120;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .primary-btn:hover {
+      background: #0284c7;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(8, 47, 73, 0.6);
+    }
+
+    .secondary-btn {
+      background: #ffffff;
+      color: #0ea5e9;
+      border: 1px solid #bae6fd;
+    }
+
+    .secondary-btn:hover {
+      background: #e0f2fe;
+      transform: translateY(-1px);
+    }
+
+    .hero-footnote {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* ORBIT AREA */
+    .hero-orbit {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .orbit-wrapper {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at 30% 0%, #e0f2fe 0%, #bfdbfe 40%, #0f172a 100%);
+      box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.5),
+        0 0 0 14px rgba(255, 255, 255, 0.8),
+        0 0 0 30px rgba(191, 219, 254, 0.6);
+      overflow: visible;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px dashed rgba(248, 250, 252, 0.45);
+      animation: orbit-spin 18s linear infinite;
+    }
+
+    .orbit-ring::before,
+    .orbit-ring::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes orbit-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .center-core {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top, #f9fafb 0%, #e0f2fe 40%, #0f172a 100%);
+      box-shadow:
+        0 0 0 2px rgba(248, 250, 252, 0.9),
+        0 14px 36px rgba(15, 23, 42, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 14px;
+      color: #f9fafb;
+    }
+
+    .center-core span:first-child {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #bae6fd;
+      margin-bottom: 4px;
+    }
+
+    .center-core span:last-child {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .orbit-node {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #f9fafb;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.6);
+      transition: transform 0.24s ease, box-shadow 0.24s ease, filter 0.24s ease;
+    }
+
+    .orbit-node:hover {
+      transform: scale(1.12) translateZ(0);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.8);
+      filter: brightness(1.1);
+    }
+
+    /* Positions */
+    .node-litigation {
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle at top, #fed7aa, #f97316);
+    }
+
+    .node-buysell {
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: radial-gradient(circle at top, #bfdbfe, #2563eb);
+    }
+
+    .node-loans {
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle at top, #bbf7d0, #16a34a);
+    }
+
+    .node-rentals {
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: radial-gradient(circle at top, #f5d0fe, #a855f7);
+    }
+
+    /* SERVICE SECTIONS */
+    section.service {
+      padding: 90px 8vw;
+      min-height: 100vh;
+      scroll-margin-top: 90px;
+    }
+
+    section.service:nth-of-type(odd) {
+      background: #f9fafb;
+    }
+
+    section.service:nth-of-type(even) {
+      background: #ffffff;
+    }
+
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: #0284c7;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 22px;
+      max-width: 720px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .feature {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 14px 14px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #111827;
+    }
+
+    .section-cta-row {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .section-cta-row small {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      padding: 90px 8vw 70px;
+      background: #020617;
+      color: #e5e7eb;
+      scroll-margin-top: 90px;
+    }
+
+    #contact .section-title {
+      color: #f9fafb;
+    }
+
+    #contact .section-sub {
+      color: #9ca3af;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .contact-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      font-size: 13px;
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .contact-card input,
+    .contact-card select,
+    .contact-card textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #4b5563;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .contact-card textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .contact-footer {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .contact-btn {
+      padding: 9px 20px;
+      border-radius: 999px;
+      border: none;
+      background: #22c55e;
+      color: #022c22;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(34, 197, 94, 0.5);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(21, 128, 61, 0.7);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 18px 8vw;
+      background: #020617;
+      color: #6b7280;
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer strong {
+      color: #e5e7eb;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero {
+        flex-direction: column;
+        padding-top: 90px;
+        padding-inline: 6vw;
+      }
+      .hero-text {
+        max-width: none;
+        width: 100%;
+      }
+      .hero-orbit {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding: 10px 16px;
+      }
+      nav a {
+        display: none; /* simple mobile behaviour for demo */
+      }
+      .nav-cta {
+        margin-left: 0;
+      }
+      .hero-title {
+        font-size: 26px;
+      }
+      .orbit-wrapper {
+        width: 320px;
+        height: 320px;
+      }
+      .orbit-node {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Land<span>Care</span></div>
+    <nav>
+      <a href="#litigation">Litigation</a>
+      <a href="#buysell">Buy / Sell</a>
+      <a href="#loans">Loans</a>
+      <a href="#rentals">Rentals</a>
+      <button class="nav-cta" onclick="scrollToSection('contact')">Talk to us</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-kicker">Orbit of Property Decisions</div>
+      <h1 class="hero-title">
+        All your land, loan and rental issues<br />
+        <span>orbit around one team.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Each circle on the right is a different journey – litigation, buy/sell,
+        finance or rentals. Click the one that matches your current situation.
+      </p>
+      <ul class="hero-points">
+        <li>Understand your current risk clearly.</li>
+        <li>See what documents you actually need.</li>
+        <li>Plan the next 2–3 steps with experts.</li>
+      </ul>
+      <div class="hero-actions">
+        <button class="primary-btn" onclick="scrollToSection('litigation')">
+          Start with litigation check
+        </button>
+        <button class="secondary-btn" onclick="scrollToSection('contact')">
+          I just want a call back
+        </button>
+      </div>
+      <div class="hero-footnote">
+        Hover over circles to see what we cover • Click to jump to that service.
+      </div>
+    </div>
+
+    <div class="hero-orbit">
+      <div class="orbit-wrapper">
+        <div class="orbit-ring"></div>
+
+        <div class="center-core">
+          <span>LandCare Hub</span>
+          <span>Select a circle to begin</span>
+        </div>
+
+        <div class="orbit-node node-litigation" onclick="scrollToSection('litigation')">
+          Land<br />Litigation
+        </div>
+        <div class="orbit-node node-buysell" onclick="scrollToSection('buysell')">
+          Buy / Sell<br />Property
+        </div>
+        <div class="orbit-node node-loans" onclick="scrollToSection('loans')">
+          Finance &amp;<br />House Loans
+        </div>
+        <div class="orbit-node node-rentals" onclick="scrollToSection('rentals')">
+          Rentals &amp;<br />Management
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="litigation" class="service">
+    <div class="section-inner">
+      <div class="section-tag">Service 01</div>
+      <h2 class="section-title">Land Litigation Assistance</h2>
+      <p class="section-sub">
+        Land disputes can get emotional and technical at the same time. We help you see
+        the matter in black and white – what’s on record, what’s missing and what path
+        is realistic for you.
+      </p>
+
+      <div class="section-grid">
+        <div class="feature">
+          <strong>Land Record Search</strong>
+          Title history, encumbrances, revenue records and court case checks.
+        </div>
+        <div class="feature">
+          <strong>Case File Review</strong>
+          Review of existing petitions, notices and responses by legal partners.
+        </div>
+        <div class="feature">
+          <strong>Options &amp; Risk Assessment</strong>
+          What happens if you file, settle, or wait – explained in simple language.
+        </div>
+        <div class="feature">
+          <strong>Document Preparation</strong>
+          Notices, responses, agreements and supporting documents drafted correctly.
+        </div>
+      </div>
+
+      <div class="section-cta-row">
+        <button class="primary-btn" onclick="scrollToSection('contact')">
+          Share my litigation details
+        </button>
+        <small>We keep your documents confidential and secure.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="buysell" class="service">
+    <div class="section-inner">
+      <div class="section-tag">Service 02</div>
+      <h2 class="section-title">Buy &amp; Sell Property Safely</h2>
+      <p class="section-sub">
+        Perfect for first-time buyers, investors and sellers who want to avoid future
+        legal surprises or buyer-seller conflicts.
+      </p>
+
+      <div class="section-grid">
+        <div class="feature">
+          <strong>Project &amp; Layout Check</strong>
+          Approvals, RERA status, bank approvals and legal history.
+        </div>
+        <div class="feature">
+          <strong>Valuation Guidance</strong>
+          Market-aligned price ranges based on area, demand and property type.
+        </div>
+        <div class="feature">
+          <strong>Agreement Review</strong>
+          Builder-buyer agreements, re-sale deeds and MoUs with fair clauses.
+        </div>
+        <div class="feature">
+          <strong>Registration Day Support</strong>
+          Checklist and coordination for smooth registration and handover.
+        </div>
+      </div>
+
+      <div class="section-cta-row">
+        <button class="primary-btn" onclick="scrollToSection('contact')">
+          Plan my property transaction
+        </button>
+        <small>From site visit to key handover, we stay on your side.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="loans" class="service">
+    <div class="section-inner">
+      <div class="section-tag">Service 03</div>
+      <h2 class="section-title">Finance &amp; Home Loan Support</h2>
+      <p class="section-sub">
+        Don’t let bank forms or jargon slow you down. We simplify the entire home loan
+        process and help you compare options.
+      </p>
+
+      <div class="section-grid">
+        <div class="feature">
+          <strong>Eligibility Snapshot</strong>
+          Early view of what amount and tenure work for your profile.
+        </div>
+        <div class="feature">
+          <strong>Offer Comparison</strong>
+          Compare rates, fees, hidden charges and special schemes.
+        </div>
+        <div class="feature">
+          <strong>Application Assistance</strong>
+          Correctly filled forms, correct attachments, and on-time submission.
+        </div>
+        <div class="feature">
+          <strong>Disbursement Follow-up</strong>
+          Coordination until the last rupee is disbursed as planned.
+        </div>
+      </div>
+
+      <div class="section-cta-row">
+        <button class="primary-btn" onclick="scrollToSection('contact')">
+          Check my loan choices
+        </button>
+        <small>We work with multiple lenders – you choose who to go with.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="rentals" class="service">
+    <div class="section-inner">
+      <div class="section-tag">Service 04</div>
+      <h2 class="section-title">Rentals &amp; Property Management</h2>
+      <p class="section-sub">
+        For owners who don’t live near their property or don’t want day-to-day hassles,
+        we make sure the home is occupied, protected and documented.
+      </p>
+
+      <div class="section-grid">
+        <div class="feature">
+          <strong>Tenant Screening</strong>
+          Background, employment and basic credit checks.
+        </div>
+        <div class="feature">
+          <strong>Agreement &amp; Deposit</strong>
+          Clear, enforceable rental agreements and documented deposits.
+        </div>
+        <div class="feature">
+          <strong>Condition Reports</strong>
+          Move-in &amp; move-out photos and checklist to avoid disputes.
+        </div>
+        <div class="feature">
+          <strong>Ongoing Help</strong>
+          Periodic checks, rent reminders and escalation handling when needed.
+        </div>
+      </div>
+
+      <div class="section-cta-row">
+        <button class="primary-btn" onclick="scrollToSection('contact')">
+          Help me manage my rental
+        </button>
+        <small>Best for NRI owners or multiple-property owners.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-tag">Get Started</div>
+      <h2 class="section-title">Tell us where you are stuck</h2>
+      <p class="section-sub">
+        Share a few details about your situation. We’ll route your request to the
+        relevant desk – litigation, transaction, finance or rentals.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <strong>Your Details</strong>
+          <input type="text" placeholder="Full name" />
+          <input type="tel" placeholder="Phone / WhatsApp" style="margin-top:8px;" />
+          <input type="email" placeholder="Email (optional)" style="margin-top:8px;" />
+        </div>
+
+        <div class="contact-card">
+          <strong>What do you need?</strong>
+          <select>
+            <option>Land Litigation</option>
+            <option>Buy / Sell Land or Flat</option>
+            <option>Finance &amp; House Loan</option>
+            <option>Rental / Property Management</option>
+            <option>Not sure – need guidance</option>
+          </select>
+          <textarea placeholder="Tell us about your case or plan in 2–3 lines…" style="margin-top:8px;"></textarea>
+        </div>
+      </div>
+
+      <div class="contact-footer">
+        <button class="contact-btn">Submit Request</button>
+        <span>We usually respond within one working day during business hours.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>&copy; <strong>LandCare Services</strong> – Prototype 3 (Orbit Navigation)</span>
+    <span>Design concept for client review.</span>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  </script>
+</body>
+</html>

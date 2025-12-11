@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Land Litigation Services – LandCare</title>
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:system-ui,-apple-system,'Segoe UI';
+    background:#ffffff;
+    color:#1f2937;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    padding:18px 6vw;
+    background:#ffffffee;
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+a.logo{
+    font-size:34px;
+    font-weight:900;
+    color:#111827;
+    text-decoration:none;
+}
+a.logo span{color:#f97316;}
+
+nav a{
+    margin-left:26px;
+    text-decoration:none;
+    font-weight:600;
+    color:#374151;
+    transition:0.2s;
+}
+nav a:hover{color:#f97316;}
+nav a.active{
+    color:#f97316;
+    font-weight:700;
+}
+.nav-cta{
+    padding:8px 18px;
+    background:#f97316;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    margin-left:26px;
+}
+
+/* HERO IMAGE */
+.hero-img{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+    margin-top:80px;
+    filter:brightness(0.85);
+    border-bottom:1px solid #e5e7eb;
+}
+
+/* CONTENT SECTIONS */
+.section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    padding:70px 8vw;
+    align-items:center;
+}
+
+.section img{
+    width:100%;
+    border-radius:16px;
+}
+
+.section h2{
+    font-size:32px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.section p{
+    font-size:17px;
+    color:#4b5563;
+    margin-bottom:12px;
+}
+
+ul{padding-left:18px;margin-top:10px;}
+ul li{margin-bottom:8px;}
+
+.cta-button{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 22px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* FOOTER */
+footer{
+    background:#f9fafb;
+    padding:70px 8vw;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+    gap:40px;
+    border-top:1px solid #e5e7eb;
+}
+.footer-brand{font-size:26px;font-weight:900;}
+.footer-tagline{margin-top:10px;color:#4b5563;}
+.footer-title{font-size:18px;font-weight:700;margin-bottom:18px;}
+.footer-link{display:block;color:#475569;margin-bottom:12px;text-decoration:none;}
+.footer-link:hover{color:#f97316;}
+
+.footer-bottom{
+    text-align:center;
+    background:#f3f4f6;
+    padding:18px;
+    font-size:14px;
+    color:#6b7280;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .section{grid-template-columns:1fr;text-align:center;}
+    .section img{margin:auto;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Land<span>Care</span></a>
+
+  <nav>
+    <a href="index.html#about">About us</a>
+    <a href="litigation.html" class="active">Litigation</a>
+    <a href="buysell.html">Buy / Sell</a>
+    <a href="loans.html">Loans</a>
+    <a href="rentals.html">Rentals</a>
+    <a class="nav-cta" href="#">Book Appointment</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="hero-img"/>
+
+<!-- SECTION 1 -->
+<section class="section">
+  <div>
+    <h2>Expert Land Litigation Support</h2>
+    <p>We assist in resolving disputes legally with correct documentation, surveys, and court representation guidance.</p>
+    <ul>
+      <li>Boundary & Encroachment Issues</li>
+      <li>Dharani Corrections & Errors</li>
+      <li>Wrong Mutations</li>
+      <li>Civil Case Support</li>
+    </ul>
+    <a href="#" class="cta-button">Resolve Your Dispute</a>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa"/>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section">
+  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"/>
+
+  <div>
+    <h2>How We Work</h2>
+    <p>Our experts verify your property’s history, conduct onsite checks, and prepare strong legal strategies.</p>
+    <ul>
+      <li>Document Investigation</li>
+      <li>Legal Case Assessment</li>
+      <li>On-field Survey Support</li>
+      <li>Strategy & Execution</li>
+    </ul>
+    <a href="#" class="cta-button">Talk to Legal Expert</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">LandCare</div>
+    <div class="footer-tagline">Your trusted partner for land & property services.</div>
+  </div>
+
+  <div>
+    <div class="footer-title">Product</div>
+    <a class="footer-link" href="litigation.html">Litigation</a>
+    <a class="footer-link" href="buysell.html">Buy / Sell</a>
+    <a class="footer-link" href="loans.html">Loans</a>
+    <a class="footer-link" href="rentals.html">Rentals</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Company</div>
+    <a class="footer-link" href="index.html#about">About Us</a>
+    <a class="footer-link" href="privacy.html">Privacy Policy</a>
+    <a class="footer-link" href="terms.html">Terms & Conditions</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Support</div>
+    <a class="footer-link" href="#">FAQ</a>
+    <a class="footer-link" href="#">Report Issue</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Contact</div>
+    <a class="footer-link" href="mailto:consult@landcare.com">consult@landcare.com</a>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  © 2025 LandCare. All Rights Reserved.
+</div>
+
+</body>
+</html>

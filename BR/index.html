@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LandCare Services – Land Litigation • Verification • Rentals • Loans</title>
+
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #1f2937;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0; left: 0;
+      padding: 18px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffffee;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 1000;
+    }
+
+    a.logo {
+      font-size: 34px;
+      font-weight: 900;
+      color: #111827;
+      text-decoration: none;
+    }
+    a.logo span { color: #f97316; }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      transition: 0.2s;
+      font-size: 15px;
+    }
+    nav a:hover { color: #f97316; }
+
+    .nav-cta {
+      padding: 8px 20px;
+      margin-left: 30px;
+      background: #f97316;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* SERVICES – NEW CARDS */
+    .services {
+      padding: 120px 6vw 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 22px;
+      height: 420px;
+      perspective: 1000px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 22px;
+    }
+
+    .service-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 22px;
+      padding: 20px 20px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: #f8fafc;
+    }
+
+    .service-image {
+      width: 100%;
+      height: 150px;
+      border-radius: 14px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #4b5563;
+    }
+
+    .card-back h4 {
+      margin-bottom: 10px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .card-back ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .card-back ul li {
+      margin-bottom: 6px;
+      color: #1f2937;
+    }
+
+    .outline-btn {
+      margin-top: 16px;
+      padding: 10px 20px;
+      border: 2px solid #2563eb;
+      background: transparent;
+      color: #2563eb;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s ease;
+    }
+
+    .outline-btn:hover {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* ABOUT SECTION */
+    #about {
+      padding: 100px 8vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    .about-text p {
+      margin-top: 16px;
+      font-size: 17px;
+      color: #374151;
+    }
+
+    /* WHY US */
+    .why-box {
+      background: #f9fafb;
+      padding: 26px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* FAQ */
+    details {
+      background: #f9fafb;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    /* VIDEO REVIEWS */
+    .video-section h2 {
+      padding: 0 8vw;
+      font-size: 28px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .video-grid {
+      padding: 0 8vw 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 26px;
+    }
+
+    .video-grid iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #f9fafb;
+      padding: 70px 8vw;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-brand { font-size: 26px; font-weight: 900; }
+    .footer-tagline { margin-top: 12px; color: #4b5563; }
+
+    .footer-title { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
+
+    .footer-link {
+      display: block;
+      margin-bottom: 14px;
+      text-decoration: none;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .footer-link:hover { color: #f97316; }
+
+    .footer-bottom {
+      background: #f3f4f6;
+      padding: 18px 8vw;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1024px){
+      .services { grid-template-columns: repeat(2,1fr); }
+      #about { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    @media(max-width: 600px){
+      .services { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Land<span>Care</span></a>
+
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="litigation.html">Litigation</a>
+    <a href="buysell.html">Buy / Sell</a>
+    <a href="loans.html">Loans</a>
+    <a href="rentals.html">Rentals</a>
+
+    <a class="nav-cta"
+       href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
+       target="_blank">
+       Book Appointment
+    </a>
+  </nav>
+</header>
+
+<!-- MODERN SERVICE CARDS WITH STOCK IMAGES -->
+<section class="services">
+
+  <div class="service-card" onclick="flipCard(this)">
+    <div class="card-inner">
+
+      <!-- FRONT -->
+      <div class="card-front">
+        <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6e1a"
+             class="service-image">
+        <h3>Land Litigation</h3>
+        <p>Disputes • Boundaries • Dharani corrections.</p>
+        <div class="outline-btn">Learn More</div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-back">
+        <h4>We help with:</h4>
+        <ul>
+          <li>Land Disputes</li>
+          <li>Mutation Issues</li>
+          <li>Dharani Problems</li>
+          <li>Boundary Fixing</li>
+        </ul>
+        <a href="litigation.html" class="outline-btn">Go to Page</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="service-card" onclick="flipCard(this)">
+    <div class="card-inner">
+
+      <div class="card-front">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+             class="service-image">
+        <h3>Buy / Sell</h3>
+        <p>Safe verification before token or agreement.</p>
+        <div class="outline-btn">Learn More</div>
+      </div>
+
+      <div class="card-back">
+        <h4>Includes:</h4>
+        <ul>
+          <li>Title Verification</li>
+          <li>Market Value Check</li>
+          <li>Document Validation</li>
+          <li>Survey Cross-check</li>
+        </ul>
+        <a href="buysell.html" class="outline-btn">Go to Page</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="service-card" onclick="flipCard(this)">
+    <div class="card-inner">
+
+      <div class="card-front">
+        <img src="https://images.unsplash.com/photo-1603921326210-6edd2d60ca68"
+             class="service-image">
+        <h3>Loans & Finance</h3>
+        <p>Loan guidance, eligibility, documentation.</p>
+        <div class="outline-btn">Learn More</div>
+      </div>
+
+      <div class="card-back">
+        <h4>We support:</h4>
+        <ul>
+          <li>Home Loans</li>
+          <li>Mortgage Loans</li>
+          <li>Bank Documentation</li>
+          <li>Eligibility Check</li>
+        </ul>
+        <a href="loans.html" class="outline-btn">Go to Page</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="service-card" onclick="flipCard(this)">
+    <div class="card-inner">
+
+      <div class="card-front">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156"
+             class="service-image">
+        <h3>Rentals</h3>
+        <p>Tenant checks • Agreements • Inspections.</p>
+        <div class="outline-btn">Learn More</div>
+      </div>
+
+      <div class="card-back">
+        <h4>Services:</h4>
+        <ul>
+          <li>Tenant Verification</li>
+          <li>Rental Agreements</li>
+          <li>Property Inspection</li>
+          <li>Dispute Handling</li>
+        </ul>
+        <a href="rentals.html" class="outline-btn">Go to Page</a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <img src="assets/about/about-image.png" class="about-image">
+  <div class="about-text">
+    <h2>About LandCare</h2>
+    <p>
+      LandCare helps people across Telangana resolve land issues, verify properties,
+      manage rentals, and get proper financial guidance.
+    </p>
+  </div>
+</section>
+
+<!-- WHY US SECTION -->
+<section style="padding:70px 8vw;">
+  <h2 style="font-size:32px; font-weight:900; margin-bottom:30px;">Why Choose LandCare?</h2>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px;">
+
+    <div class="why-box">
+      <h3 style="font-size:20px; font-weight:800;">✔ Verified Expertise</h3>
+      <p style="margin-top:10px; color:#4b5563;">Professionals experienced in land, property, verification & legal support.</p>
+    </div>
+
+    <div class="why-box">
+      <h3 style="font-size:20px; font-weight:800;">✔ Transparent Workflow</h3>
+      <p style="margin-top:10px; color:#4b5563;">Clear reporting, documented process & end-to-end clarity.</p>
+    </div>
+
+    <div class="why-box">
+      <h3 style="font-size:20px; font-weight:800;">✔ Fast Turnaround</h3>
+      <p style="margin-top:10px; color:#4b5563;">Verification & support done within defined timelines.</p>
+    </div>
+
+    <div class="why-box">
+      <h3 style="font-size:20px; font-weight:800;">✔ 100% Confidential</h3>
+      <p style="margin-top:10px; color:#4b5563;">Your property details & documents are always safe.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section style="padding:70px 8vw;">
+  <h2 style="font-size:32px; font-weight:900; margin-bottom:30px;">Frequently Asked Questions</h2>
+
+  <div style="max-width:900px; margin:auto;">
+
+    <details>
+      <summary style="font-weight:700;">How do I know which service I need?</summary>
+      <p style="margin-top:10px;">Explain your problem to our team – we guide you to the correct service.</p>
+    </details>
+
+    <details>
+      <summary style="font-weight:700;">Do you offer on-ground verification?</summary>
+      <p style="margin-top:10px;">Yes – surveys, boundary checks, and owner verification.</p>
+    </details>
+
+    <details>
+      <summary style="font-weight:700;">How long does a verification take?</summary>
+      <p style="margin-top:10px;">Usually 24–72 hours depending on document availability.</p>
+    </details>
+
+    <details>
+      <summary style="font-weight:700;">Are my documents safe?</summary>
+      <p style="margin-top:10px;">100% secure & confidential handling of all files.</p>
+    </details>
+
+  </div>
+</section>
+
+<!-- VIDEO REVIEWS -->
+<section class="video-section">
+  <h2>Video Reviews</h2>
+
+  <div class="video-grid">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">LandCare</div>
+    <div class="footer-tagline">Your trusted partner for land & property services.</div>
+  </div>
+
+  <div>
+    <div class="footer-title">Product</div>
+    <a class="footer-link" href="litigation.html">Litigation</a>
+    <a class="footer-link" href="buysell.html">Buy / Sell</a>
+    <a class="footer-link" href="loans.html">Loans</a>
+    <a class="footer-link" href="rentals.html">Rentals</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Company</div>
+    <a class="footer-link" href="#about">About Us</a>
+    <a class="footer-link" href="privacy.html">Privacy Policy</a>
+    <a class="footer-link" href="terms.html">Terms & Conditions</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Support</div>
+    <a class="footer-link" href="#">FAQ</a>
+    <a class="footer-link" href="#">Report Issue</a>
+  </div>
+
+  <div>
+    <div class="footer-title">Contact</div>
+    <a class="footer-link" href="mailto:consult@landcare.com">consult@landcare.com</a>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  © 2025 LandCare. All Rights Reserved.
+</div>
+
+<script>
+function flipCard(card) {
+  card.classList.toggle("flipped");
+}
+</script>
+
+</body>
+</html>

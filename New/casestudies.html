@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Case Studies — Kartheek Sakinala</title>
+
+  <meta name="description"
+    content="Real-world digital forensics, OSINT, cybersecurity, and data recovery case studies handled by Kartheek Sakinala.">
+  <link rel="canonical" href="https://kartheeksakinala.me/case-studies.html">
+
+  <!-- Preconnect + Preload Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+  <!-- Prefetch internal pages -->
+  <link rel="prefetch" href="index.html">
+  <link rel="prefetch" href="about.html">
+  <link rel="prefetch" href="services.html">
+  <link rel="prefetch" href="certifications.html">
+  <link rel="prefetch" href="blog.html">
+
+  <!-- Minified CSS -->
+  <link rel="stylesheet" href="assets/css/style.min.css">
+
+  <!-- Dark Mode Optimization -->
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Critical CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .header {
+      width: 100%;
+      background: #FFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
+      position: fixed;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .navbar {
+      width: min(90%, 1200px);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .6s ease-out;
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Case Studies",
+      "itemListElement": [
+        {
+          "@type": "CaseStudy",
+          "position": 1,
+          "name": "DVR Video Recovery for Legal Dispute",
+          "description": "Recovered corrupted DVR footage with forensic reconstruction."
+        },
+        {
+          "@type": "CaseStudy",
+          "position": 2,
+          "name": "SSD Recovery for Corporate Team",
+          "description": "Restored critical financial records from a firmware damaged SSD."
+        },
+        {
+          "@type": "CaseStudy",
+          "position": 3,
+          "name": "OSINT Mapping in Online Fraud",
+          "description": "Correlated digital identities and footprints for investigation."
+        },
+        {
+          "@type": "CaseStudy",
+          "position": 4,
+          "name": "SME Firewall & SOC Deployment",
+          "description": "Improved threat detection and reduced cyber incidents."
+        }
+      ]
+    }
+  </script>
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Main JS -->
+  <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">Kartheek Sakinala</div>
+
+      <nav id="navMenu">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Services ▾</button>
+          <div class="dropdown-content">
+            <a href="services.html#group-recovery">Data Recovery</a>
+            <a href="services.html#group-forensics">Digital Forensics</a>
+            <a href="services.html#group-cyber">Cybersecurity</a>
+          </div>
+        </div>
+
+        <a href="about.html">About</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </nav>
+
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
+
+
+
+  <!-- PAGE HEADER -->
+  <section class="section-white" style="padding-top:140px;">
+    <div class="container fade-up">
+      <h1 class="section-title">Case Studies</h1>
+      <div class="divider"></div>
+
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Case Studies</span>
+      </div>
+
+      <p style="text-align:center; max-width:800px; margin:auto; color:#555;">
+        A collection of anonymized case studies demonstrating my work across data recovery, 
+        digital forensics, OSINT investigations, and cybersecurity consulting.
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- CASE STUDIES CONTENT -->
+  <section class="section-grey">
+    <div class="container">
+
+      <!-- CASE STUDY 1 -->
+      <div class="card fade-up">
+        <h2>DVR Video Recovery for a Legal Dispute</h2>
+        <p><strong>Industry:</strong> Law Enforcement / Legal</p>
+
+        <h3>Situation</h3>
+        <p>A corrupted DVR contained evidence needed for a civil case.</p>
+
+        <h3>Challenge</h3>
+        <p>The filesystem was unreadable; metadata blocks were corrupted.</p>
+
+        <h3>Approach</h3>
+        <ul>
+          <li>Bit-by-bit forensic imaging</li>
+          <li>Fragment reconstruction</li>
+          <li>Timeline recovery</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Recovered 95% of the video footage and created admissible exports.</p>
+      </div>
+
+
+      <!-- CASE STUDY 2 -->
+      <div class="card fade-up">
+        <h2>SSD Recovery for Corporate Accounting Team</h2>
+        <p><strong>Industry:</strong> Finance</p>
+
+        <h3>Situation</h3>
+        <p>SSD had firmware-level corruption blocking logical access.</p>
+
+        <h3>Challenge</h3>
+        <p>Translator and firmware modules were inaccessible.</p>
+
+        <h3>Approach</h3>
+        <ul>
+          <li>PC-3000 SSD tools</li>
+          <li>Translator reconstruction</li>
+          <li>File system rebuild</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>100% financial data successfully restored.</p>
+      </div>
+
+
+      <!-- CASE STUDY 3 -->
+      <div class="card fade-up">
+        <h2>OSINT Mapping in Online Fraud</h2>
+        <p><strong>Industry:</strong> Law Enforcement</p>
+
+        <h3>Situation</h3>
+        <p>Fraud suspect using multiple masked identities online.</p>
+
+        <h3>Challenge</h3>
+        <p>Use of VPNs, throwaway accounts, anonymized channels.</p>
+
+        <h3>Approach</h3>
+        <ul>
+          <li>Digital footprint correlation</li>
+          <li>Alias clustering</li>
+          <li>Metadata extraction</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Investigative agencies received actionable intelligence.</p>
+      </div>
+
+
+      <!-- CASE STUDY 4 -->
+      <div class="card fade-up">
+        <h2>SME Firewall & SOC Setup</h2>
+        <p><strong>Industry:</strong> Small/Medium Enterprise</p>
+
+        <h3>Situation</h3>
+        <p>Frequent phishing attempts and no internal monitoring.</p>
+
+        <h3>Challenge</h3>
+        <p>No segmentation, no detection, and untrained staff.</p>
+
+        <h3>Approach</h3>
+        <ul>
+          <li>Enterprise firewall deployment</li>
+          <li>SIEM configuration</li>
+          <li>Security hygiene training</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Reduced incidents by 80% and improved cyber maturity.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Kartheek Sakinala — All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

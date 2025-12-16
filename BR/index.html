@@ -72,7 +72,7 @@
     .service-card {
       background: #ffffff;
       border-radius: 22px;
-      height: 520px;
+      min-height: 520px;
       perspective: 1000px;
       cursor: pointer;
       transition: 0.3s ease;
@@ -121,6 +121,12 @@
       object-fit: cover;
       margin-bottom: 12px;
     }
+    .service-card img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 14px;
+    }
 
     h3 {
       font-size: 20px;
@@ -168,6 +174,8 @@
       background: #2563eb;
       color: white;
     }
+    
+     
 
     /* ABOUT SECTION */
     #about {
@@ -279,6 +287,47 @@
     @media(max-width: 600px){
       .services { grid-template-columns: 1fr; }
     }
+    
+    @media (max-width: 768px) {
+   
+      header {
+        flex-wrap: wrap;
+        padding: 14px 4vw;
+       }
+ 
+      nav {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+       }
+      
+      nav a {
+        margin: 0;
+        font-size: 14px;
+       }
+       
+      .nav-cta{
+        margin-left: 0;
+        padding: 8px 16px;
+        font-size: 13px;
+       }
+      }
+
+     @media (max-width: 600px) {
+       .services {
+         padding-top: 90px;
+        }
+       }
+
+     @media (max-width: 600px) {
+       .service-card {
+         perspective: none;
+        }
+       }
+         
   </style>
 </head>
 
@@ -315,8 +364,6 @@
          alt="Land and property services"
          loading="eager"
          fetchpriority="high"
-         width="275"
-         height="230"
          />
         <h3>Property Disputes</h3>
         <p>Property ownership is based on accurate land papers.  We assist you in obtaining, confirming, and interpreting crucial land records from government departments.</p>

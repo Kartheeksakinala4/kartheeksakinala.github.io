@@ -521,17 +521,20 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-nav a:hover { color: #f97316; }
 .nav-cta {
-   padding: 8px 20px;
-   margin-left: 30px;
-   background: #f97316;
-   color: white;
-   text-decoration: none;
-   border-radius: 30px;
-   font-weight: 600;
-   font-size: 14px;
- }
+  display: inline-flex;          /* KEY FIX */
+  align-items: center;           /* vertical centering */
+  padding: 6px 18px;             /* slightly reduced */
+  margin-left: 30px;
+  background: #f97316;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;                /* IMPORTANT */
+}
+
 
 
 

@@ -521,14 +521,17 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-.cta-button{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 22px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:600;
-}
+nav a:hover { color: #f97316; }
+.nav-cta {
+   padding: 8px 20px;
+   margin-left: 30px;
+   background: #f97316;
+   color: white;
+   text-decoration: none;
+   border-radius: 30px;
+   font-weight: 600;
+   font-size: 14px;
+ }
+
+
 

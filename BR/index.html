@@ -61,6 +61,55 @@
       font-size: 14px;
     }
 
+    /* HEADER ACTIONS */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111827;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  nav a {
+    padding: 14px 20px;
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 15px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
     /* SERVICES – NEW CARDS */
     .services {
       padding: 120px 6vw 60px;
@@ -331,26 +380,40 @@
   </style>
 </head>
 
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
+
+
 <body>
 
 <!-- HEADER -->
 <header>
   <a href="index.html" class="logo">Land<span>Care</span></a>
 
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="property.html">Property Disputes</a>
-    <a href="buysell.html">Buy / Sell</a>
-    <a href="land.html">Land Documents</a>
-    <a href="finance.html">Finance and Loans</a>
-
+  <!-- MOBILE RIGHT SIDE -->
+  <div class="header-actions">
     <a class="nav-cta"
        href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
        target="_blank">
        Book Appointment
     </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <!-- NAV LINKS -->
+  <nav id="mobileMenu">
+    <a href="#about">About Us</a>
+    <a href="property.html">Property Disputes</a>
+    <a href="buysell.html">Buy / Sell</a>
+    <a href="land.html">Land Documents</a>
+    <a href="finance.html">Finance and Loans</a>
   </nav>
 </header>
+
 
 <!-- MODERN SERVICE CARDS WITH STOCK IMAGES -->
 <section class="services">

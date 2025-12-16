@@ -522,23 +522,11 @@ footer {
   transform: translateY(0);
 }
 .nav-cta {
-  display: inline-flex;
-  align-items: center;
-
-  width: auto;          /* 🔑 IMPORTANT */
-  flex: none;           /* 🔑 IMPORTANT */
-  white-space: nowrap;  /* prevent stretching */
-
-  padding: 6px 18px;
-  margin-left: 30px;
-  background: #f97316;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  display: inline-flex !important;
 }
+
 
 
 

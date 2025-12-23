@@ -1,5 +1,5 @@
 .menu-toggle {
-  display: 
+  display: flex;
 }
 
 /* MOBILE NAVBAR */
@@ -45,4 +45,5 @@ nav a {
 .about-image {
   width: 100%;
 }
+
 

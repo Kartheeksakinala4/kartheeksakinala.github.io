@@ -1,47 +1,82 @@
-/* ===============================
-   MOBILE SAFETY RESET
-================================ */
+/* =================================================
+   MOBILE CSS — CLEAN & SAFE
+   Applies only below 900px
+================================================= */
+
+/* -------------------------------
+   GLOBAL SAFETY
+-------------------------------- */
 html, body {
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* ===============================
-   MOBILE HEADER & NAV – FIXED
-================================ */
-
-/* Header layout */
+/* -------------------------------
+   HEADER (MOBILE)
+-------------------------------- */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   padding: 14px 5vw;
+  background: #ffffffee;
+  backdrop-filter: blur(12px);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+
+  z-index: 1000;
 }
 
-/* Toggle visible */
+/* Logo stays left (already in base.css) */
+
+/* Toggle visible on mobile */
 .menu-toggle {
   display: block;
   font-size: 26px;
   cursor: pointer;
 }
 
-/* NAV dropdown */
+/* -------------------------------
+   BOOK APPOINTMENT (MOBILE)
+-------------------------------- */
+/* Show CTA next to toggle */
+.nav-cta {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 6px 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* -------------------------------
+   NAV DROPDOWN (MOBILE)
+-------------------------------- */
 nav {
   position: absolute;
   top: 100%;
   left: 0;
+
   width: 100vw;
-  background: #fff;
+  max-width: 100vw;
+
+  background: #ffffff;
   display: none;
+
   flex-direction: column;
   align-items: center;
+
   padding: 18px 0 12px;
   border-bottom: 1px solid #e5e7eb;
-  z-index: 999;
+
+  overflow-x: hidden;
 }
 
-/* Open menu */
+/* Open state */
 nav.open {
   display: flex;
 }
@@ -52,48 +87,41 @@ nav a {
   font-size: 16px;
 }
 
-/* ===============================
-   BOOK APPOINTMENT – MOBILE
-================================ */
-
-/* Show CTA in header (NOT inside menu flow) */
-.nav-cta {
-  position: absolute;
-  right: 5vw;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 6px 14px;
-  font-size: 14px;
-  white-space: nowrap;
-  z-index: 1000;
-}
-
-/* Hide CTA inside opened menu */
+/* Hide CTA inside dropdown menu */
 nav.open .nav-cta {
   display: none;
 }
 
+/* -------------------------------
+   PAGE CONTENT OFFSET
+-------------------------------- */
+/* Prevent content hiding under fixed header */
+.hero-img,
+.services,
+.section {
+  margin-top: 80px;
+}
 
-/* ===============================
-   SECTIONS
-================================ */
+/* -------------------------------
+   SECTIONS STACK
+-------------------------------- */
 .section {
   grid-template-columns: 1fr;
   text-align: center;
 }
 
-/* ===============================
-   SERVICES
-================================ */
+/* -------------------------------
+   SERVICES STACK
+-------------------------------- */
 .services {
   grid-template-columns: 1fr;
   padding-left: 5vw;
   padding-right: 5vw;
 }
 
-/* ===============================
-   ABOUT
-================================ */
+/* -------------------------------
+   ABOUT STACK
+-------------------------------- */
 #about {
   grid-template-columns: 1fr;
   text-align: center;
@@ -104,22 +132,9 @@ nav.open .nav-cta {
   max-width: 100%;
 }
 
-.trust-stats {
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.trust-box {
-  padding: 40px 20px;
-}
-
-.trust-title {
-  font-size: 24px;
-}
-
-/* ===============================
+/* -------------------------------
    FOOTER (NO OVERFLOW)
-================================ */
+-------------------------------- */
 footer {
   grid-template-columns: 1fr;
   padding: 50px 5vw;
@@ -131,10 +146,7 @@ footer {
   text-align: center;
 }
 
-/* Footer bottom */
 .footer-bottom {
   padding: 14px;
   font-size: 13px;
 }
-
-

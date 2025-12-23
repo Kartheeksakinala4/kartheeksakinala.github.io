@@ -1,148 +1,61 @@
-/* =================================================
-   MOBILE CSS — FINAL, SAFE VERSION
-   (Visibility-first, no hidden dependencies)
-================================================= */
-
-/* FORCE HEADER VISIBILITY & CLICK */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  z-index: 99999;
-}
-
-.menu-toggle {
-  display: block;
-  z-index: 100000;
-}
-
-
-/* -------- GLOBAL SAFETY -------- */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  padding-top: 64px;
-}
-
+/* ===== MOBILE BASELINE ===== */
 html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  max-width: 100%;
   overflow-x: hidden;
 }
 
-/* -------- HEADER -------- */
-header {
+/* HEADER */
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
-
-  padding: 14px 5vw;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  z-index: 9999;
+  padding: 14px 5vw;
+  z-index: 10000;
 }
 
-/* -------- TOGGLE -------- */
+/* TOGGLE */
 .menu-toggle {
   display: block;
   font-size: 26px;
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
-/* MOBILE NAV */
-nav {
+/* NAV */
+.site-nav {
   position: fixed;
-  top: 64px; /* below header */
+  top: 64px;
   left: 0;
   width: 100%;
-  background: #ffffff;
-
+  background: #fff;
   display: none;
   flex-direction: column;
   align-items: center;
-
-  padding: 16px 0;
   border-bottom: 1px solid #e5e7eb;
-
-  z-index: 99998;
+  z-index: 9999;
 }
 
-nav.open {
+.site-nav.open {
   display: flex;
 }
 
-nav a {
-  display: block;
+.site-nav a {
   padding: 12px 0;
-  width: 100%;
-  text-align: center;
   font-size: 16px;
-}
-
-
-/* -------- BOOK APPOINTMENT -------- */
-.nav-cta {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 8px 16px;
-  font-size: 14px;
-}
-
-/* -------- PAGE OFFSET -------- */
-/* Prevent content hiding behind fixed header */
-body {
-  padding-top: 80px;
-}
-
-/* -------- SECTIONS -------- */
-.section {
-  grid-template-columns: 1fr;
-  text-align: center;
-}
-
-/* -------- SERVICES -------- */
-.services {
-  grid-template-columns: 1fr;
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-/* -------- ABOUT -------- */
-#about {
-  grid-template-columns: 1fr;
-  text-align: center;
-}
-
-.about-image {
   width: 100%;
-  max-width: 100%;
-}
-
-/* -------- FOOTER -------- */
-footer {
-  grid-template-columns: 1fr;
-  padding: 50px 5vw;
-}
-
-.footer-brand,
-.footer-title,
-.footer-link {
   text-align: center;
 }
 
-.footer-bottom {
-  padding: 14px;
-  font-size: 13px;
+/* CONTENT OFFSET */
+body {
+  padding-top: 64px;
 }
-

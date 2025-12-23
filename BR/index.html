@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LandCare Services – Property Disputes • Buy/Sell • Land Documents • Finance and Loans</title>
+<title>LandCare Services – Property, Buy/Sell, Land Documents & Finance</title>
+
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/desktop.css" media="(min-width: 901px)">
+<link rel="stylesheet" href="css/desktop.css" media="(min-width:901px)">
+<link rel="stylesheet" href="css/mobile.css" media="(max-width:900px)">
 <script defer src="js/main.js"></script>
 </head>
-  
+
 <body>
 
-<!-- HEADER -->
 <header>
   <a href="index.html" class="logo">Land<span>Care</span></a>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav>
     <a href="#about">About us</a>
@@ -21,250 +23,110 @@
     <a href="buysell.html">Buy / Sell</a>
     <a href="land.html">Land Documents</a>
     <a href="finance.html">Finance and Loans</a>
-    <a class="nav-cta"
-       href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
-       target="_blank">
-       Book Appointment
-    </a>
+    <a class="nav-cta" href="#">Book Appointment</a>
   </nav>
 </header>
 
-<!-- MODERN SERVICE CARDS WITH STOCK IMAGES -->
 <section class="services">
 
   <div class="service-card" onclick="flipCard(this)">
     <div class="card-inner">
-
-      <!-- FRONT -->
       <div class="card-front">
-        <img src="assets/images/property.webp"
-         alt="Land and property services"
-         loading="eager"
-         fetchpriority="high"
-         width="275"
-         height="230"
-         />
+        <img src="assets/images/property.webp">
         <h3>Property Disputes</h3>
-        <p>Property ownership is based on accurate land papers.  We assist you in obtaining, confirming, and interpreting crucial land records from government departments.</p>
+        <p>Resolve ownership, record, and revenue disputes efficiently.</p>
         <div class="outline-btn">Learn More</div>
       </div>
-
-      <!-- BACK -->
       <div class="card-back">
-        <h4>We help with:</h4>
         <ul>
           <li>Revenue Court Disputes</li>
-          <li>Pending Succesion/Mutation</li>
-          <li>Protected Tenancy Disputes</li>
-          <li>Land Records Errors</li>
-          <li>Encroachments</li>
+          <li>Succession / Mutation</li>
+          <li>Tenancy Issues</li>
         </ul>
         <a href="property.html" class="outline-btn">Go to Page</a>
       </div>
-
     </div>
   </div>
 
   <div class="service-card" onclick="flipCard(this)">
     <div class="card-inner">
-
       <div class="card-front">
-        <img src="assets/images/buysell.webp"
-         alt="Land and property services"
-         loading="eager"
-         fetchpriority="high"
-         width="275"
-         height="230"
-         />
+        <img src="assets/images/buysell.webp">
         <h3>Buy / Sell</h3>
-        <p>Buying or selling property requires thorough verification and legally compliant documentation. We provide complete assistance to ensure your transaction is safe, transparent, and legally sound.</p>
+        <p>Safe and legally verified property transactions.</p>
         <div class="outline-btn">Learn More</div>
       </div>
-
       <div class="card-back">
-        <h4>Includes:</h4>
         <ul>
           <li>Title Verification</li>
-          <li>On-Site Documentation Assistance</li>
-          <li>Saledeed / Gift / Exchange</li>
-          <li>NRI Buy / Sell</li>
+          <li>Documentation</li>
+          <li>NRI Support</li>
         </ul>
         <a href="buysell.html" class="outline-btn">Go to Page</a>
       </div>
-
     </div>
   </div>
 
   <div class="service-card" onclick="flipCard(this)">
     <div class="card-inner">
-
       <div class="card-front">
-        <img src="assets/images/land.webp"
-         alt="Land and property services"
-         loading="eager"
-         fetchpriority="high"
-         width="275"
-         height="230"
-         />
+        <img src="assets/images/land.webp">
         <h3>Land Documents</h3>
-        <p>Accurate land documents are the foundation of property ownership. We help you obtain, verify, and interpret essential land records from government departments</p>
+        <p>Accurate land records from verified sources.</p>
         <div class="outline-btn">Learn More</div>
       </div>
-
       <div class="card-back">
-        <h4>We support:</h4>
         <ul>
-          <li>Pahanis / Adangal</li>
-          <li>Encumberance Certificate</li>
-          <li>Tippons</li>
+          <li>Pahanis</li>
+          <li>EC</li>
           <li>Land Maps</li>
         </ul>
         <a href="land.html" class="outline-btn">Go to Page</a>
       </div>
-
     </div>
   </div>
 
   <div class="service-card" onclick="flipCard(this)">
     <div class="card-inner">
-
       <div class="card-front">
-        <img src="assets/images/finance.webp"
-         alt="Land and property services"
-         loading="eager"
-         fetchpriority="high"
-         width="275"
-         height="230"
-         />
-
+        <img src="assets/images/finance.webp">
         <h3>Finance & Loans</h3>
-        <p>We provide reliable assistance for property-related financial needs through trusted banking and financial partners</p>
+        <p>Trusted financial assistance for property needs.</p>
         <div class="outline-btn">Learn More</div>
       </div>
-
       <div class="card-back">
-        <h4>Services:</h4>
         <ul>
-          <li>Loan for Buying Properties</li>
-          <li>Verified Banking Partners</li>
-          <li>Loan Support</li>
-          <li>Mortgage/AGP Support</li>
+          <li>Property Loans</li>
+          <li>Mortgage</li>
+          <li>Bank Support</li>
         </ul>
-        <a href="rentals.html" class="outline-btn">Go to Page</a>
+        <a href="finance.html" class="outline-btn">Go to Page</a>
       </div>
-
     </div>
   </div>
 
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <img src="assets/images/LandCare.webp" class="about-image">
   <div class="about-text">
     <h2>About LandCare</h2>
-    <p>
-      LandCare helps people across Telangana resolve land issues, verify properties,
-      manage rentals, and get proper financial guidance.
-    </p>
+    <p>LandCare helps individuals and NRIs resolve land issues, verify properties and manage legal documentation across Telangana.</p>
   </div>
 </section>
 
-<!-- WHY US SECTION -->
-<section style="padding:70px 8vw;">
-  <h2 style="font-size:32px; font-weight:900; margin-bottom:30px;">Why Choose LandCare?</h2>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px;">
-
-    <div class="why-box">
-      <h3 style="font-size:20px; font-weight:800;">✔ Verified Expertise</h3>
-      <p style="margin-top:10px; color:#4b5563;">Professionals experienced in land, property, verification & legal support.</p>
-    </div>
-
-    <div class="why-box">
-      <h3 style="font-size:20px; font-weight:800;">✔ Transparent Workflow</h3>
-      <p style="margin-top:10px; color:#4b5563;">Clear reporting, documented process & end-to-end clarity.</p>
-    </div>
-
-    <div class="why-box">
-      <h3 style="font-size:20px; font-weight:800;">✔ Fast Turnaround</h3>
-      <p style="margin-top:10px; color:#4b5563;">Verification & support done within defined timelines.</p>
-    </div>
-
-    <div class="why-box">
-      <h3 style="font-size:20px; font-weight:800;">✔ 100% Confidential</h3>
-      <p style="margin-top:10px; color:#4b5563;">Your property details & documents are always safe.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
-<section style="padding:70px 8vw;">
-  <h2 style="font-size:32px; font-weight:900; margin-bottom:30px;">Frequently Asked Questions</h2>
-
-  <div style="max-width:900px; margin:auto;">
-
-    <details>
-      <summary style="font-weight:700;">What is Passbook Correction?</summary>
-      <p style="margin-top:10px;">It is the process of correcting errors in the land passbook details.</p>
-    </details>
-
-    <details>
-      <summary style="font-weight:700;">What is a survey number mismatch?</summary>
-      <p style="margin-top:10px;">It occurs when the survey number in records does not match the actual land details.</p>
-    </details>
-
-    <details>
-      <summary style="font-weight:700;">What is extent correction?</summary>
-      <p style="margin-top:10px;">It is the correction of the recorded land area to match the actual extent.</p>
-    </details>
-
-    <details>
-      <summary style="font-weight:700;">What is nature of land correction?</summary>
-      <p style="margin-top:10px;">It is updating the land classification in official records.</p>
-    </details>
-
-  </div>
-</section>
-
-<!-- VIDEO REVIEWS -->
-<section class="video-section">
-  <h2>Video Reviews</h2>
-
-  <div class="video-grid">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-brand">LandCare</div>
-    <div class="footer-tagline">Your trusted partner for land & property services.</div>
+    <p>Your trusted partner for land & property services.</p>
   </div>
 
   <div>
-    <div class="footer-title">Product</div>
+    <div class="footer-title">Services</div>
     <a class="footer-link" href="property.html">Property Disputes</a>
     <a class="footer-link" href="buysell.html">Buy / Sell</a>
     <a class="footer-link" href="land.html">Land Documents</a>
-    <a class="footer-link" href="finance.html">Finance and Loans</a>
-  </div>
-
-  <div>
-    <div class="footer-title">Company</div>
-    <a class="footer-link" href="#about">About Us</a>
-    <a class="footer-link" href="privacy.html">Privacy Policy</a>
-    <a class="footer-link" href="terms.html">Terms & Conditions</a>
-  </div>
-
-  <div>
-    <div class="footer-title">Support</div>
-    <a class="footer-link" href="#">FAQ</a>
-    <a class="footer-link" href="#">Report Issue</a>
+    <a class="footer-link" href="finance.html">Finance</a>
   </div>
 
   <div>
@@ -279,11 +141,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-

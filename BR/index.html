@@ -61,55 +61,6 @@
       font-size: 14px;
     }
 
-    /* HEADER ACTIONS */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* HAMBURGER */
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #111827;
-}
-
-/* MOBILE MENU */
-@media (max-width: 768px) {
-
-  nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background: #ffffff;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    border-top: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  }
-
-  nav a {
-    padding: 14px 20px;
-    margin: 0;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 15px;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-
-
     /* SERVICES – NEW CARDS */
     .services {
       padding: 120px 6vw 60px;
@@ -121,7 +72,7 @@
     .service-card {
       background: #ffffff;
       border-radius: 22px;
-      min-height: 520px;
+      height: 520px;
       perspective: 1000px;
       cursor: pointer;
       transition: 0.3s ease;
@@ -170,12 +121,6 @@
       object-fit: cover;
       margin-bottom: 12px;
     }
-    .service-card img {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      border-radius: 14px;
-    }
 
     h3 {
       font-size: 20px;
@@ -223,8 +168,6 @@
       background: #2563eb;
       color: white;
     }
-    
-     
 
     /* ABOUT SECTION */
     #about {
@@ -336,56 +279,8 @@
     @media(max-width: 600px){
       .services { grid-template-columns: 1fr; }
     }
-    
-    @media (max-width: 768px) {
-   
-      header {
-        flex-wrap: wrap;
-        padding: 14px 4vw;
-       }
- 
-      nav {
-        width: 100%;
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-       }
-      
-      nav a {
-        margin: 0;
-        font-size: 14px;
-       }
-       
-      .nav-cta{
-        margin-left: 0;
-        padding: 8px 16px;
-        font-size: 13px;
-       }
-      }
-
-     @media (max-width: 600px) {
-       .services {
-         padding-top: 90px;
-        }
-       }
-
-     @media (max-width: 600px) {
-       .service-card {
-         perspective: none;
-        }
-       }
-         
   </style>
 </head>
-
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("show");
-}
-</script>
-
 
 <body>
 
@@ -393,27 +288,20 @@ function toggleMenu() {
 <header>
   <a href="index.html" class="logo">Land<span>Care</span></a>
 
-  <!-- MOBILE RIGHT SIDE -->
-  <div class="header-actions">
-    <a class="nav-cta"
-       href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
-       target="_blank">
-       Book Appointment
-    </a>
-
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </div>
-
-  <!-- NAV LINKS -->
-  <nav id="mobileMenu">
+  <nav>
     <a href="#about">About Us</a>
     <a href="property.html">Property Disputes</a>
     <a href="buysell.html">Buy / Sell</a>
     <a href="land.html">Land Documents</a>
     <a href="finance.html">Finance and Loans</a>
+
+    <a class="nav-cta"
+       href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
+       target="_blank">
+       Book Appointment
+    </a>
   </nav>
 </header>
-
 
 <!-- MODERN SERVICE CARDS WITH STOCK IMAGES -->
 <section class="services">
@@ -427,6 +315,8 @@ function toggleMenu() {
          alt="Land and property services"
          loading="eager"
          fetchpriority="high"
+         width="275"
+         height="230"
          />
         <h3>Property Disputes</h3>
         <p>Property ownership is based on accurate land papers.  We assist you in obtaining, confirming, and interpreting crucial land records from government departments.</p>

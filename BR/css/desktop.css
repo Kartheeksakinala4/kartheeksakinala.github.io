@@ -1,13 +1,12 @@
-.menu-toggle {
-  display: none;
+.menu-toggle{
+  display:none;
 }
 
-nav {
-  position: static;
-  display: flex;
-  flex-direction: row;
+nav{
+  position:static;
+  flex-direction:row;
 }
 
-.services {
-  grid-template-columns: repeat(4, 1fr);
+.services{
+  grid-template-columns:repeat(4,1fr);
 }

@@ -1,59 +1,46 @@
-/* =================================================
-   MOBILE CSS — FINAL (STABLE)
+/* ===============================
+   MOBILE CSS (CLEAN & SAFE)
    Applies below 900px
-================================================= */
-
-/* ---------- GLOBAL SAFETY ---------- */
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
+================================ */
 
 html, body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   overflow-x: hidden;
 }
 
-/* ---------- HEADER ---------- */
+/* HEADER */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   padding: 14px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 10000;
 }
 
-/* ---------- TOGGLE ---------- */
+/* TOGGLE */
 .menu-toggle {
   display: block;
   font-size: 26px;
   background: none;
   border: none;
-  cursor: pointer;
 }
 
-/* ---------- NAV (MOBILE) ---------- */
+/* NAV */
 .site-nav {
   position: fixed;
   top: 64px;
   left: 0;
   width: 100%;
-  background: #ffffff;
-
+  background: #fff;
   display: none;
   flex-direction: column;
   align-items: center;
-
   border-bottom: 1px solid #e5e7eb;
   z-index: 9999;
 }
@@ -64,56 +51,29 @@ html, body {
 
 .site-nav a {
   padding: 12px 0;
-  font-size: 16px;
   width: 100%;
   text-align: center;
 }
 
-/* ---------- PAGE OFFSET ---------- */
+/* PAGE OFFSET */
 body {
   padding-top: 64px;
 }
 
-/* ---------- SERVICES (HOME) ---------- */
+/* SERVICES */
 .services {
-  display: grid !important;
   grid-template-columns: 1fr !important;
-  gap: 24px;
   padding: 40px 5vw;
+  gap: 24px;
 }
 
-.service-card {
-  
-}
-
-.card-inner,
-.card-front,
-.card-back {
-  
-}
-
-/* Card images */
+/* CARD IMAGES */
 .service-card img {
-  width: 100% !important;
-  height: 180px !important;
+  height: 180px;
   object-fit: cover;
-  border-radius: 14px;
 }
 
-/* Card text */
-.card-front p,
-.card-back li {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.card-back ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-/* ---------- SECTIONS (ALL INNER PAGES) ---------- */
+/* SECTIONS */
 .section {
   display: block !important;
   padding: 40px 5vw;
@@ -121,161 +81,24 @@ body {
 }
 
 .section img {
-  width: 100%;
-  height: 220px !important;
-  object-fit: cover;
-  border-radius: 14px;
+  height: 220px;
   margin-bottom: 20px;
 }
 
-/* ---------- ABOUT ---------- */
+/* ABOUT */
 #about {
   display: block;
   padding: 40px 5vw;
   text-align: center;
 }
 
-.about-image {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-
-/* ---------- TRUST SECTION ---------- */
-.trust-section {
-  padding: 50px 5vw;
-  background: #f9fafb;
-}
-
-.trust-box {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 30px 20px;
-}
-
-.trust-title {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 900;
-  margin-bottom: 24px;
-}
-/* ===============================
-   FIX SERVICE CARD STACKING
-   (CRITICAL MOBILE OVERRIDE)
-================================ */
-
-/* Reset any positioning from desktop */
-.services,
-.service-card,
-.card-inner,
-.card-front,
-.card-back {
-  top: auto !important;
-}
-
-/* Ensure proper spacing between cards */
-.service-card {
-  margin-bottom: 32px !important;
-}
-
-/* Prevent cards from collapsing into each other */
-.card-inner {
-  display: block !important;
-}
-
-/* Safety: avoid negative margins */
-.service-card,
-.card-front,
-.card-back {
-  margin-top: 0 !important;
-}
-
-/* Ensure container grows with content */
-.services {
-  align-items: stretch !important;
-}
-
-
+/* TRUST */
 .trust-stats {
-  display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  text-align: center;
 }
 
-.stat h3 {
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.stat p {
-  font-size: 14px;
-  color: #4b5563;
-}
-
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
   grid-template-columns: 1fr;
   padding: 40px 5vw;
 }
-
-.footer-brand,
-.footer-title,
-.footer-link {
-  text-align: center;
-}
-
-.footer-bottom {
-  padding: 14px;
-  font-size: 13px;
-}
-/* ===============================
-   DISABLE FLIP CARDS ON MOBILE
-   (CRITICAL FIX)
-================================ */
-
-/* Stop 3D behavior */
-.card-inner {
-  transform-style: flat !important;
-}
-
-/* Hide back side completely */
-.card-back {
-}
-
-/* Ensure front is normal */
-.card-front {
-  position: relative !important;
-  backface-visibility: visible !important;
-}
-/* ===============================
-   MOBILE: DISABLE FLIP ANIMATION
-   (INTENTIONAL UX DECISION)
-================================ */
-
-.service-card {
-  cursor: default;
-}
-
-/* Learn More looks like CTA */
-.learn-more {
-  width: 100%;
-}
-/* ===== MOBILE FLIP SAFE ===== */
-
-.service-card {
-  height: 520px;              /* same as desktop */
-}
-
-.card-front,
-.card-back {
-  overflow-y: auto;
-  padding-bottom: 20px;
-}
-
-
-
-
-
-

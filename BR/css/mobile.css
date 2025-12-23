@@ -262,18 +262,10 @@ footer {
   cursor: default;
 }
 
-/* Ensure only front is visible */
-.card-back {
-  display: none !important;
-}
-
-.card-inner {
-  transform: none !important;
-}
-
 /* Learn More looks like CTA */
 .learn-more {
   width: 100%;
 }
+
 
 

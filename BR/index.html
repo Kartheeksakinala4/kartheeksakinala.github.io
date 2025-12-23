@@ -314,11 +314,7 @@
   .nav-menu.active {
     display: flex;
   }
-
-  /* Hide Book Appointment in mobile menu */
-  .nav-cta {
-    display: none;
-  }
+  
 }
 
 /* DESKTOP – no change */
@@ -347,9 +343,6 @@
 <!-- HEADER -->
 <header>
   <!-- MOBILE TOGGLE -->
-  <button class="nav-toggle" aria-label="Toggle Menu">
-    ☰
-  </button>
 
   <a href="index.html" class="logo">Land<span>Care</span></a>
 
@@ -361,6 +354,9 @@
     <a href="finance.html">Finance and Loans</a>
   </nav>
 
+  <button class="nav-toggle" aria-label="Toggle Menu">
+    ☰
+  </button>
     <a class="nav-cta"
        href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20book%20an%20appointment"
        target="_blank">
@@ -633,6 +629,7 @@ const menu = document.querySelector('.nav-menu');
 
 </body>
 </html>
+
 
 
 

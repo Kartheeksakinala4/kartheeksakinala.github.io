@@ -313,6 +313,57 @@ footer{
   text-align:center;
   font-size:14px;
 }
+/* =========================================
+   HARD RESET FLIP SYSTEM (FINAL)
+========================================= */
+
+/* grid stays intact */
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* flip container */
+.service-card {
+  position: relative;
+  height: 520px;
+  perspective: 1200px;
+}
+
+/* inner wrapper */
+.service-card > .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* flip trigger */
+.service-card.flipped > .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* faces */
+.service-card .card-front,
+.service-card .card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* back face */
+.service-card .card-back {
+  transform: rotateY(180deg);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+
 
 
 

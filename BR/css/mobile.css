@@ -105,6 +105,19 @@ nav.open .nav-cta {
   max-width: 100%;
 }
 
+.trust-stats {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.trust-box {
+  padding: 40px 20px;
+}
+
+.trust-title {
+  font-size: 24px;
+}
+
 /* ===============================
    FOOTER (NO OVERFLOW)
 ================================ */
@@ -124,3 +137,4 @@ footer {
   padding: 14px;
   font-size: 13px;
 }
+

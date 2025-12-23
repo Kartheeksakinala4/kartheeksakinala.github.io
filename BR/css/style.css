@@ -58,6 +58,13 @@ nav a.active{color:#f97316}
   margin-left:30px;
   white-space:nowrap;
 }
+/* MOBILE TOGGLE */
+.nav-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#111827;
+}
 
 /* HERO (UNCHANGED) */
 .hero-img{

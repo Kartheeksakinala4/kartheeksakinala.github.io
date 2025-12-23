@@ -276,7 +276,7 @@ footer{
 }
 
 @media(max-width:900px){
-  .menu-toggle{display:block}
+  .menu-toggle
 
   nav{
     position:absolute;

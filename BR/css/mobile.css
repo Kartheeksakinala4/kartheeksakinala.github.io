@@ -253,4 +253,27 @@ footer {
   position: relative !important;
   backface-visibility: visible !important;
 }
+/* ===============================
+   MOBILE: DISABLE FLIP ANIMATION
+   (INTENTIONAL UX DECISION)
+================================ */
+
+.service-card {
+  cursor: default;
+}
+
+/* Ensure only front is visible */
+.card-back {
+  display: none !important;
+}
+
+.card-inner {
+  transform: none !important;
+}
+
+/* Learn More looks like CTA */
+.learn-more {
+  width: 100%;
+}
+
 

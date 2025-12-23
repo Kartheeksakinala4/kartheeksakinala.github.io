@@ -35,10 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Flip on Learn More
     if (learnMore) {
       learnMore.addEventListener("click", (e) => {
-        e.stopPropagation();
-        card.classList.add("flipped");
-      });
-    }
+  e.preventDefault();
+  e.stopPropagation();
+
+  const isMobile = window.innerWidth <= 900;
+
+  if (isMobile && link) {
+    window.location.href = link;
+  } else {
+    card.classList.add("flipped");
+  }
+});
 
     // Navigate on Go to Page
     if (goToPage && link) {

@@ -204,28 +204,28 @@ nav a.active{color:#f97316}
     }
 
 /* ===============================
-   TRUST SECTION
+   TRUST SECTION (THEME MATCHED)
 ================================ */
 .trust-section {
   padding: 80px 6vw;
-  background: #eef2ff;
+  background: #f9fafb; /* matches footer / light sections */
 }
 
 .trust-box {
-  background: #fffaf5;
+  background: #ffffff;
   border-radius: 18px;
   padding: 50px 40px;
   max-width: 1200px;
   margin: auto;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb; /* same as header/footer */
 }
 
 .trust-title {
   text-align: center;
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 40px;
-  color: #1f2937;
+  color: #111827;
 }
 
 .trust-stats {
@@ -246,6 +246,7 @@ nav a.active{color:#f97316}
   font-size: 16px;
   color: #4b5563;
 }
+
 
 
     /* FAQ */
@@ -307,5 +308,6 @@ footer{
   text-align:center;
   font-size:14px;
 }
+
 
 

@@ -22,26 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // -------- SERVICE CARD FLIP --------
   document.querySelectorAll(".service-card").forEach(card => {
+  const learnMore = card.querySelector(".learn-more");
+  const goToPage = card.querySelector(".go-to-page");
+  const link = card.getAttribute("data-link");
 
-    const learnMore = card.querySelector(".learn-more");
-    const goToPage = card.querySelector(".go-to-page");
-    const link = card.getAttribute("data-link");
+  if (learnMore) {
+    learnMore.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      card.classList.add("flipped");
+    });
+  }
 
-    if (learnMore) {
-      learnMore.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        card.classList.add("flipped");
-      });
-    }
-
-    if (goToPage && link) {
-      goToPage.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.href = link;
-      });
-    }
-  });
-
+  if (goToPage && link) {
+    goToPage.addEventListener("click", e => {
+      e.preventDefault();
+      window.location.href = link;
+    });
+  }
 });

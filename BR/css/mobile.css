@@ -7,13 +7,16 @@ html, body {
 }
 
 /* ===============================
-   HEADER (MOBILE)
+   MOBILE HEADER & NAV – FIXED
 ================================ */
+
+/* Header layout */
 header {
   padding: 14px 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 /* Toggle visible */
@@ -23,26 +26,19 @@ header {
   cursor: pointer;
 }
 
-/* ===============================
-   NAV (MOBILE)
-================================ */
+/* NAV dropdown */
 nav {
   position: absolute;
   top: 100%;
   left: 0;
-
   width: 100vw;
-  max-width: 100vw;
-
   background: #fff;
   display: none;
   flex-direction: column;
   align-items: center;
-
-  padding: 18px 0 10px;
+  padding: 18px 0 12px;
   border-bottom: 1px solid #e5e7eb;
-
-  overflow-x: hidden;
+  z-index: 999;
 }
 
 /* Open menu */
@@ -51,29 +47,32 @@ nav.open {
 }
 
 /* Menu links */
-nav a:not(.nav-cta) {
+nav a {
   margin: 10px 0;
   font-size: 16px;
 }
 
 /* ===============================
-   BOOK APPOINTMENT (MOBILE)
+   BOOK APPOINTMENT – MOBILE
 ================================ */
-/* Pull CTA next to toggle */
-nav .nav-cta {
+
+/* Show CTA in header (NOT inside menu flow) */
+.nav-cta {
   position: absolute;
-  top: 50%;
   right: 5vw;
+  top: 50%;
   transform: translateY(-50%);
   padding: 6px 14px;
   font-size: 14px;
   white-space: nowrap;
+  z-index: 1000;
 }
 
-/* Hide CTA inside dropdown */
+/* Hide CTA inside opened menu */
 nav.open .nav-cta {
   display: none;
 }
+
 
 /* ===============================
    SECTIONS
@@ -137,4 +136,5 @@ footer {
   padding: 14px;
   font-size: 13px;
 }
+
 

@@ -2,6 +2,9 @@
    MOBILE CSS — CLEAN & SAFE
    Applies only below 900px
 ================================================= */
+body {
+  background: red !important;
+}
 
 /* -------------------------------
    GLOBAL SAFETY
@@ -150,3 +153,4 @@ footer {
   padding: 14px;
   font-size: 13px;
 }
+

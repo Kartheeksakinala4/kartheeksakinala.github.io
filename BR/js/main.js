@@ -18,38 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------------------------
-     SERVICE CARD FLIP + NAV
-  --------------------------- */
+  document.addEventListener("DOMContentLoaded", () => {
+
+  // -------- SERVICE CARD FLIP --------
   document.querySelectorAll(".service-card").forEach(card => {
+
     const learnMore = card.querySelector(".learn-more");
     const goToPage = card.querySelector(".go-to-page");
-    const link = card.dataset.link;
+    const link = card.getAttribute("data-link");
 
-    // Flip when card is clicked (except buttons)
-    card.addEventListener("click", (e) => {
-      if (e.target.closest("button")) return;
-      card.classList.add("flipped");
-    });
-
-    // Flip on Learn More
     if (learnMore) {
       learnMore.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
+        card.classList.add("flipped");
+      });
+    }
 
-  const isMobile = window.innerWidth <= 900;
-
-  if (isMobile && link) {
-    window.location.href = link;
-  } else {
-    card.classList.add("flipped");
-  }
-});
-
-    // Navigate on Go to Page
     if (goToPage && link) {
       goToPage.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
         window.location.href = link;
       });

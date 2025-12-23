@@ -130,6 +130,18 @@ nav a.active{color:#f97316}
   color: white;
  }
 
+/* ===============================
+   OUTER SERVICE CARD (RESTORED)
+================================ */
+
+.service-card {
+  background: #ffffff;              /* card shell */
+  border-radius: 28px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  padding: 18px;
+  overflow: hidden;                 /* IMPORTANT for flip */
+}
+
 /* SERVICES */
 .services{
   padding:120px 6vw 60px;
@@ -313,6 +325,7 @@ footer{
   text-align:center;
   font-size:14px;
 }
+
 
 
 

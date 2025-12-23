@@ -83,13 +83,13 @@ body {
 }
 
 .service-card {
-  height: auto !important;
+  
 }
 
 .card-inner,
 .card-front,
 .card-back {
-  height: auto !important;
+  
 }
 
 /* Card images */
@@ -171,9 +171,7 @@ body {
 .card-inner,
 .card-front,
 .card-back {
-  position: static !important;
   top: auto !important;
-  transform: none !important;
 }
 
 /* Ensure proper spacing between cards */
@@ -239,13 +237,11 @@ footer {
 
 /* Stop 3D behavior */
 .card-inner {
-  transform: none !important;
   transform-style: flat !important;
 }
 
 /* Hide back side completely */
 .card-back {
-  display: none !important;
 }
 
 /* Ensure front is normal */
@@ -277,6 +273,7 @@ footer {
   overflow-y: auto;
   padding-bottom: 20px;
 }
+
 
 
 

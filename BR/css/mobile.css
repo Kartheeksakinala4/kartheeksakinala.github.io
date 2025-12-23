@@ -1,49 +1,40 @@
-.menu-toggle {
-  display: flex;
+.menu-toggle{
+  display:block;
 }
 
-/* MOBILE NAVBAR */
-nav {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  flex-direction: column;
-  align-items: center;
-  display: none;
-  padding: 20px 0;
-  border-bottom: 1px solid #e5e7eb;
+/* MOBILE NAV */
+nav{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:#fff;
+  flex-direction:column;
+  align-items:center;
+  display:none;
+  padding:20px 0;
+  border-bottom:1px solid #e5e7eb;
 }
 
-nav.open {
-  display: flex;
+nav.open{
+  display:flex;
 }
 
-nav a {
-  margin: 12px 0;
-  font-size: 16px;
+nav a{
+  margin:12px 0;
+  font-size:16px;
 }
 
-/* LAYOUT STACKING */
-.section {
-  grid-template-columns: 1fr;
-  text-align: center;
+.section{
+  grid-template-columns:1fr;
+  text-align:center;
 }
 
-/* SERVICES */
-.services {
-  grid-template-columns: 1fr;
+.services{
+  grid-template-columns:1fr;
 }
 
-/* ABOUT FIX */
-#about {
-  grid-template-columns: 1fr;
-  text-align: center;
+#about{
+  grid-template-columns:1fr;
+  text-align:center;
 }
-
-.about-image {
-  width: 100%;
-}
-
-

@@ -1,40 +1,137 @@
-.menu-toggle{
-  display:block;
+/* =========================
+   MOBILE HEADER FIXES
+========================= */
+
+/* Show toggle */
+.menu-toggle {
+  display: block;
 }
 
-/* MOBILE NAV */
-nav{
-  position:absolute;
-  top:100%;
-  left:0;
-  width:100%;
-  background:#fff;
-  flex-direction:column;
-  align-items:center;
-  display:none;
-  padding:20px 0;
-  border-bottom:1px solid #e5e7eb;
+/* Header alignment */
+header {
+  padding: 14px 5vw;
 }
 
-nav.open{
-  display:flex;
+/* Place toggle + CTA together */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav a{
-  margin:12px 0;
-  font-size:16px;
+/* CTA beside toggle */
+.nav-cta {
+  margin-left: 12px;
+  padding: 6px 14px;
+  font-size: 14px;
 }
 
-.section{
-  grid-template-columns:1fr;
-  text-align:center;
+/* Wrap toggle + CTA */
+.menu-toggle,
+.nav-cta {
+  flex-shrink: 0;
 }
 
-.services{
-  grid-template-columns:1fr;
+/* =========================
+   MOBILE NAV MENU FIX
+========================= */
+
+nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100vw;
+  max-width: 100vw;
+
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+
+  overflow-x: hidden;
 }
 
-#about{
-  grid-template-columns:1fr;
-  text-align:center;
+/* Open state */
+nav.open {
+  display: flex;
+}
+
+/* Nav links */
+nav a {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Hide CTA inside menu (important) */
+nav .nav-cta {
+  display: none;
+}
+
+/* =========================
+   SECTIONS STACK
+========================= */
+
+.section {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+/* =========================
+   SERVICES STACK
+========================= */
+
+.services {
+  grid-template-columns: 1fr;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* =========================
+   ABOUT STACK
+========================= */
+
+#about {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================
+   FOOTER FIX (NO OVERFLOW)
+========================= */
+
+footer {
+  grid-template-columns: 1fr;
+  padding: 50px 5vw;
+  overflow-x: hidden;
+}
+
+.footer-link,
+.footer-title,
+.footer-brand {
+  text-align: center;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  padding: 14px;
+  font-size: 13px;
+}
+
+/* =========================
+   GLOBAL SAFETY
+========================= */
+
+body,
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
 }

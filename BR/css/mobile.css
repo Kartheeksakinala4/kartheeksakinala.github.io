@@ -160,6 +160,44 @@ body {
   font-weight: 900;
   margin-bottom: 24px;
 }
+/* ===============================
+   FIX SERVICE CARD STACKING
+   (CRITICAL MOBILE OVERRIDE)
+================================ */
+
+/* Reset any positioning from desktop */
+.services,
+.service-card,
+.card-inner,
+.card-front,
+.card-back {
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+/* Ensure proper spacing between cards */
+.service-card {
+  margin-bottom: 32px !important;
+}
+
+/* Prevent cards from collapsing into each other */
+.card-inner {
+  display: block !important;
+}
+
+/* Safety: avoid negative margins */
+.service-card,
+.card-front,
+.card-back {
+  margin-top: 0 !important;
+}
+
+/* Ensure container grows with content */
+.services {
+  align-items: stretch !important;
+}
+
 
 .trust-stats {
   display: grid;
@@ -194,3 +232,4 @@ footer {
   padding: 14px;
   font-size: 13px;
 }
+

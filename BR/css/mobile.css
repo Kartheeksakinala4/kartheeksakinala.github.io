@@ -232,4 +232,25 @@ footer {
   padding: 14px;
   font-size: 13px;
 }
+/* ===============================
+   DISABLE FLIP CARDS ON MOBILE
+   (CRITICAL FIX)
+================================ */
+
+/* Stop 3D behavior */
+.card-inner {
+  transform: none !important;
+  transform-style: flat !important;
+}
+
+/* Hide back side completely */
+.card-back {
+  display: none !important;
+}
+
+/* Ensure front is normal */
+.card-front {
+  position: relative !important;
+  backface-visibility: visible !important;
+}
 

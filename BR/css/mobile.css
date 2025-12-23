@@ -266,6 +266,19 @@ footer {
 .learn-more {
   width: 100%;
 }
+/* ===== MOBILE FLIP SAFE ===== */
+
+.service-card {
+  height: 520px;              /* same as desktop */
+}
+
+.card-front,
+.card-back {
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+
 
 
 

@@ -138,8 +138,9 @@ nav a.active{color:#f97316}
   background: #ffffff;              /* card shell */
   border-radius: 28px;
   box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-  padding: 18px;
   overflow: hidden;                 /* IMPORTANT for flip */
+  perspective: 1000px;
+  height: 520px;
 }
 
 /* SERVICES */
@@ -175,12 +176,10 @@ nav a.active{color:#f97316}
 
 .card-front,
 .card-back {
+  position: absolute;
+  inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-}
-
-.card-front,
-.card-back {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,6 +377,7 @@ footer{
   text-align:center;
   font-size:14px;
 }
+
 
 
 

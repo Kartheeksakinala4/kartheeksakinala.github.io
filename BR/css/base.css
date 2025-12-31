@@ -176,11 +176,11 @@ nav a.active{color:#f97316}
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  paddding: 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
-.card-back {
+.card-back > * {
   transform: rotateY(180deg);
 }
 .card-front img {
@@ -371,6 +371,7 @@ footer{
   text-align:center;
   font-size:14px;
 }
+
 
 
 

@@ -544,6 +544,13 @@ footer {
   color: #444;
 }
 
+/* BLOG LIST - VERTICAL */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 
 
 

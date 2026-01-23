@@ -543,6 +543,25 @@ footer {
   gap: 40px;
 }
 
+/* BLOG TITLE LINK HIGHLIGHT */
+.blog-title a {
+  color: #111827;              /* dark readable */
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.25s ease;
+}
+
+.blog-title a:hover {
+  color: #2563eb;              /* theme blue */
+  text-decoration: underline;
+}
+
+.blog-card:hover {
+  background: #f9fafb;
+  transition: background 0.25s ease;
+}
+
+
 
 
 

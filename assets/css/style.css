@@ -561,6 +561,34 @@ footer {
   transition: background 0.25s ease;
 }
 
+/* BLOG CATEGORY TAGS */
+.blog-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+}
+
+/* Category colors */
+.tag-cyber {
+  background: #e0e7ff;
+  color: #1e40af;
+}
+
+.tag-recovery {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tag-forensics {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+
 
 
 

@@ -561,8 +561,9 @@ footer {
   transition: background 0.25s ease;
 }
 
-
-
+.blog-tag {
+   color: #1e40af;
+}
 
 
 

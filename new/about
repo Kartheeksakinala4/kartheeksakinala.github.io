@@ -1,0 +1,33 @@
+<section class="hero">
+  <div class="container">
+    <h1>About Me</h1>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="display:flex; gap:40px; align-items:center;">
+    <div style="flex:1;">
+      <p>
+        I specialize in cybersecurity intelligence, digital forensics, and professional 
+        data recovery consulting. My focus is delivering structured, practical solutions 
+        for organizations navigating digital risk and investigative challenges.
+      </p>
+    </div>
+
+    <div style="flex:1;">
+      <div style="background:#ddd; height:250px;"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-grey">
+  <div class="container">
+    <h2>Core Expertise</h2>
+    <ul>
+      <li>Dark Web Intelligence & Brand Monitoring</li>
+      <li>Digital Evidence Analysis</li>
+      <li>CCTV & DVR Forensics</li>
+      <li>Advanced Data Recovery Consulting</li>
+    </ul>
+  </div>
+</section>

@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Blog | Cybersecurity, Forensics & Data Recovery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <title>Blog | Kartheek Sakinala</title>
   <meta name="description" content="Practical cybersecurity, digital forensics, and data recovery insights for SMEs. Clear explanations without fear-based selling." />
 
   <link rel="stylesheet" href="assets/css/style.css">
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRG98LK5LV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QRG98LK5LV');
+  </script>
 </head>
 
 <body>
@@ -23,103 +31,104 @@
       <a href="blog.html" class="active">Blog</a>
       <a href="index.html#contact">Contact</a>
     </nav>
-    <div id="menuToggle" class="menu-toggle">☰</div>
+    <div id="menuToggle" class="menu-toggle">&#9776;</div>
   </div>
 </header>
 
-<!-- ================= BLOG LIST ================= -->
-<section class="section-white fade-up">
+<!-- PAGE HEADER -->
+<section class="svc-page-header fade-up">
   <div class="container">
-
+    <p class="about-eyebrow">Insights</p>
     <h1 class="section-title">Blog</h1>
     <div class="divider"></div>
-
-    <p class="hero-sub">
-      Practical insights on cybersecurity, digital forensics, and data recovery —
-      written for SMEs and growing businesses.
+    <p class="svc-page-lead">
+      Practical cybersecurity, digital forensics, and data recovery insights —
+      written for SMEs and growing businesses. Clear explanations without fear-based selling.
     </p>
-
-    <!-- BLOG ITEM -->
-    <div class="blog-list">
-
-      <div class="service-block blog-card">
-        <div class="blog-image">
-          <img src="assets/images/blog/firewall-phishing.jpg" alt="Why firewalls don't stop phishing">
-        </div>
-
-        <div class="service-left">
-          <span class="blog-tag"><strong>Cybersecurity</strong></span>
-          <h3>Why Firewalls Don’t Stop Phishing Attacks</h3>
-          <p>
-            Firewalls are important — but phishing bypasses them entirely.
-            This article explains why perimeter defenses fail and what SMEs
-            should focus on instead.
-          </p>
-
-          <h3 class="blog-title">
-  <a href="blog/article-firewall.html">
-    Read more
-  </a>
-</h3>
-
-        </div>
-      </div>
-
-      <!-- BLOG ITEM -->
-      <div class="service-block blog-card">
-        <div class="blog-image">
-          <img src="assets/images/blog/sd-card-wipe.jpg" alt="SD card format and data recovery">
-        </div>
-
-        <div class="service-left">
-          <span class="blog-tag"><strong>Data Recovery</strong></span>
-          <h3>What Happens After You Format an SD Card?</h3>
-          <p>
-            Formatting doesn’t always mean data is gone.
-            Learn how modern cameras and devices handle wipes
-            and why recovery is becoming harder.
-          </p>
-
-          <h3 class="blog-title">
-  <a href="blog/article-sd_card.html">
-    Read more
-  </a>
-</h3>
-        </div>
-      </div>
-
-      <!-- BLOG ITEM -->
-      <div class="service-block blog-card">
-        <div class="blog-image">
-          <img src="assets/images/blog/internal-threats.jpg" alt="Internal threats in organizations">
-        </div>
-
-        <div class="service-left">
-          <span class="blog-tag"><strong>Digital Forensics</strong></span>
-          <h3>Why Internal Traffic Is More Dangerous Than External</h3>
-          <p>
-            Most incidents don’t start from outside attackers.
-            This article breaks down insider risk and visibility gaps
-            in real business environments.
-          </p>
-
-         <h3 class="blog-title">
-  <a href="blog/article-firewall.html">
-    Read more
-  </a>
-</h3>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
+<!-- BLOG POSTS -->
+<section class="section-grey fade-up">
+  <div class="container">
+    <div class="blog-post-list">
 
+      <!-- POST 1 -->
+      <article class="blog-post-card">
+        <a href="blog/article-firewall.html" class="blog-post-thumb" aria-label="Read: Why Firewalls Don't Stop Phishing Attacks">
+          <img src="assets/images/blog/firewall-phishing.jpg" alt="Firewall and phishing">
+        </a>
+        <div class="blog-post-body">
+          <div class="blog-post-meta">
+            <span class="blog-post-tag">Cybersecurity</span>
+            <span class="blog-post-date">Jan 2026 &middot; 6 min read</span>
+          </div>
+          <h2 class="blog-post-title">
+            <a href="blog/article-firewall.html">Why Firewalls Don't Stop Phishing Attacks</a>
+          </h2>
+          <p class="blog-post-excerpt">
+            Firewalls are important — but phishing bypasses them entirely.
+            This article explains why perimeter defenses fail against social engineering
+            and what SMEs should focus on instead to reduce real-world risk.
+          </p>
+          <a href="blog/article-firewall.html" class="blog-read-more">Read article &#8594;</a>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="blog-post-card">
+        <a href="blog/article-sd_card.html" class="blog-post-thumb" aria-label="Read: What Happens After You Format an SD Card?">
+          <img src="assets/images/blog/sd-card-wipe.jpg" alt="SD card formatting and data recovery">
+        </a>
+        <div class="blog-post-body">
+          <div class="blog-post-meta">
+            <span class="blog-post-tag">Data Recovery</span>
+            <span class="blog-post-date">Jan 2026 &middot; 5 min read</span>
+          </div>
+          <h2 class="blog-post-title">
+            <a href="blog/article-sd_card.html">What Happens After You Format an SD Card?</a>
+          </h2>
+          <p class="blog-post-excerpt">
+            Formatting doesn't always mean data is gone. Learn how modern cameras
+            and devices handle storage wipes, and why recovery is becoming
+            harder with newer card generations.
+          </p>
+          <a href="blog/article-sd_card.html" class="blog-read-more">Read article &#8594;</a>
+        </div>
+      </article>
+
+      <!-- POST 3 -->
+      <article class="blog-post-card">
+        <a href="blog/article-firewall.html" class="blog-post-thumb" aria-label="Read: Why Internal Traffic Is More Dangerous Than External">
+          <img src="assets/images/blog/internal-threats.jpg" alt="Internal threats in organisations">
+        </a>
+        <div class="blog-post-body">
+          <div class="blog-post-meta">
+            <span class="blog-post-tag">Digital Forensics</span>
+            <span class="blog-post-date">Jan 2026 &middot; 7 min read</span>
+          </div>
+          <h2 class="blog-post-title">
+            <a href="blog/article-firewall.html">Why Internal Traffic Is More Dangerous Than External</a>
+          </h2>
+          <p class="blog-post-excerpt">
+            Most incidents don't start from outside attackers. This article breaks
+            down insider risk, visibility gaps, and why lateral movement inside
+            your network often goes undetected in real business environments.
+          </p>
+          <a href="blog/article-firewall.html" class="blog-read-more">Read article &#8594;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 <footer>
-  © 2025 Kartheek Sakinala - All Rights Reserved.
+  <div class="footer-inner">
+    <p class="footer-name">Kartheek Sakinala</p>
+    <p class="footer-tagline">Cybersecurity &bull; Digital Forensics &bull; OSINT &bull; Data Recovery</p>
+    <p style="margin-top:10px; font-size:13px; color:#888;">&copy; 2025 Kartheek Sakinala &mdash; All Rights Reserved.</p>
+  </div>
 </footer>
 
 </body>

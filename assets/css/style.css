@@ -473,6 +473,498 @@ footer {
   transform: translateY(0);
 }
 
+/* ======================================================================
+   SECTION EYEBROW LABELS
+====================================================================== */
+.section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.section-eyebrow-light {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+/* ======================================================================
+   HERO DARK
+====================================================================== */
+.hero-dark {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1a2e 50%, #0f0a1e 100%);
+  overflow: hidden;
+}
+
+/* subtle grid pattern overlay */
+.hero-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,115,232,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,115,232,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(220,38,38,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-dark-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(220,38,38,0.15);
+  border: 1px solid rgba(220,38,38,0.35);
+  color: #f87171;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.hero-dark-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  max-width: 760px;
+}
+
+.accent-red { color: #f87171; }
+
+.hero-sub-dark {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid rgba(148,163,184,0.4);
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: #94a3b8;
+  color: #f1f5f9;
+  background: rgba(148,163,184,0.1);
+}
+
+.btn-danger {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(220,38,38,0.35);
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(220,38,38,0.45);
+}
+
+.hero-note {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ======================================================================
+   STATS STRIP
+====================================================================== */
+.stats-strip {
+  background: #0f172a;
+  padding: 36px 0;
+}
+
+.stats-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.stat-strip-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-right: 1px solid rgba(148,163,184,0.12);
+}
+
+.stat-strip-item:last-child { border-right: none; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #60a5fa;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ======================================================================
+   THREAT INTELLIGENCE SECTION
+====================================================================== */
+.ti-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.ti-intro-text p {
+  color: var(--subtext);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.ti-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ti-feature-card {
+  background: var(--light-grey);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--grey);
+  transition: box-shadow 0.25s ease;
+}
+
+.ti-feature-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.ti-feature-card h3 {
+  font-size: 0.95rem;
+  margin: 10px 0 6px 0;
+  color: var(--text);
+}
+
+.ti-feature-card p {
+  font-size: 0.88rem;
+  color: var(--subtext);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ti-icon {
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ti-icon-orange { background: #fff7ed; }
+.ti-icon-red    { background: #fef2f2; }
+.ti-icon-blue   { background: #eff6ff; }
+.ti-icon-purple { background: #faf5ff; }
+
+/* ======================================================================
+   DARK WEB SECTION
+====================================================================== */
+.section-dark {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #0f172a 0%, #0a0f1e 100%);
+}
+
+.section-title-light {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+}
+
+.divider-red {
+  background: #dc2626;
+}
+
+.dark-section-lead {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+
+.darkweb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.darkweb-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(148,163,184,0.12);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.darkweb-card:hover {
+  border-color: rgba(220,38,38,0.35);
+  background: rgba(220,38,38,0.05);
+}
+
+.darkweb-card-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.darkweb-card h3 {
+  color: #e2e8f0;
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+}
+
+.darkweb-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ======================================================================
+   PROCESS STEPS
+====================================================================== */
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.process-step {
+  flex: 1;
+  min-width: 180px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  box-shadow: var(--shadow);
+}
+
+.step-num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.25;
+}
+
+.process-step h3 {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.process-step p {
+  font-size: 0.88rem;
+  color: var(--subtext);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.process-arrow {
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin-top: 28px;
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+/* ======================================================================
+   KEY SERVICES — WIDE GRID (6 cards)
+====================================================================== */
+.key-services-wide {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.key-card {
+  position: relative;
+  display: block;
+}
+
+.key-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.key-card-featured {
+  border: 2px solid var(--blue);
+}
+
+.key-card-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--blue);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ======================================================================
+   CONTACT HIGHLIGHTS
+====================================================================== */
+.contact-highlights {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--subtext);
+}
+
+.ch-icon {
+  font-size: 1.1rem;
+  width: 28px;
+  text-align: center;
+}
+
+/* ======================================================================
+   FOOTER
+====================================================================== */
+.footer-inner {
+  text-align: center;
+}
+
+.footer-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 0 0 6px 0;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: var(--subtext);
+  margin: 0;
+}
+
+/* ======================================================================
+   RESPONSIVE — NEW SECTIONS
+====================================================================== */
+@media (max-width: 1024px) {
+  .ti-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .darkweb-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .key-services-wide {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-strip-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(148,163,184,0.12);
+  }
+
+  .stat-strip-item:nth-child(even) { border-right: none; }
+  .stat-strip-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .ti-features {
+    grid-template-columns: 1fr;
+  }
+
+  .darkweb-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    flex-direction: column;
+  }
+
+  .process-arrow {
+    transform: rotate(90deg);
+    margin: 0 auto;
+  }
+
+  .key-services-wide {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* BLOG CARD WITH IMAGE */
 .blog-card {
   display: flex;

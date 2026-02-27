@@ -1064,3 +1064,577 @@ footer {
 
 
 
+
+/* ======================================================================
+   ABOUT PAGE — HERO DARK
+====================================================================== */
+.about-hero-dark {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1a2e 60%, #0f0a1e 100%);
+  padding: 80px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,115,232,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,115,232,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero-text h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1.2;
+  margin: 12px 0 0 0;
+}
+
+.about-lead {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 16px 0 0 0;
+}
+
+.about-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.about-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #93c5fd;
+  background: rgba(96,165,250,0.1);
+  border: 1px solid rgba(96,165,250,0.25);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.about-hero-img {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-frame .profile-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(96,165,250,0.3);
+  display: block;
+}
+
+.profile-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ======================================================================
+   ABOUT PAGE — EXPERTISE GRID
+====================================================================== */
+.expertise-grid-wide {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.expertise-card {
+  background: var(--light-grey);
+  border: 1px solid var(--grey);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.expertise-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.expertise-card-featured {
+  border-color: var(--blue);
+  background: #eff6ff;
+}
+
+.expertise-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.expertise-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--text);
+}
+
+.expertise-card p {
+  font-size: 0.9rem;
+  color: var(--subtext);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ======================================================================
+   ABOUT PAGE — TIMELINE (enhanced)
+====================================================================== */
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-year {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.timeline-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: var(--text);
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  color: var(--subtext);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dot-featured {
+  background: #dc2626 !important;
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.2) !important;
+}
+
+/* ======================================================================
+   ABOUT PAGE — VALUES GRID
+====================================================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  background: var(--light-grey);
+  border: 1px solid var(--grey);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  transition: box-shadow 0.25s ease;
+}
+
+.value-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.value-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.value-card p {
+  font-size: 0.88rem;
+  color: var(--subtext);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ======================================================================
+   SERVICES PAGE — HERO
+====================================================================== */
+.services-page-hero {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1a2e 60%, #0f0a1e 100%);
+  padding: 72px 0 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,115,232,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,115,232,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.services-page-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1.25;
+  margin: 12px 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.services-hero-lead {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.services-nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  display: inline-block;
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid rgba(148,163,184,0.3);
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  border-color: #94a3b8;
+  color: #e2e8f0;
+}
+
+.pill-featured {
+  background: rgba(220,38,38,0.12);
+  border-color: rgba(220,38,38,0.4);
+  color: #f87171;
+}
+
+.pill-featured:hover {
+  background: rgba(220,38,38,0.2);
+  color: #fca5a5;
+}
+
+/* ======================================================================
+   SERVICES PAGE — SECTION HEADERS
+====================================================================== */
+.svc-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.svc-section-header-dark {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.svc-featured-badge {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  text-align: center;
+  flex-shrink: 0;
+  min-width: 130px;
+}
+
+.svc-featured-badge span {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.svc-featured-badge p {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.svc-featured-badge-dark {
+  background: rgba(96,165,250,0.08);
+  border: 1px solid rgba(96,165,250,0.2);
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  text-align: center;
+  flex-shrink: 0;
+  min-width: 130px;
+}
+
+.svc-featured-badge-dark span {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.svc-featured-badge-dark p {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.svc-intro {
+  color: var(--subtext);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0;
+}
+
+.svc-intro-dark {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ======================================================================
+   SERVICES PAGE — CARDS
+====================================================================== */
+.services-grid-new {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.service-card-new {
+  background: white;
+  border: 1px solid var(--grey);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-card-new:hover {
+  box-shadow: var(--shadow);
+  border-color: #bfdbfe;
+}
+
+.scn-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.service-card-new h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--text);
+}
+
+.service-card-new p {
+  font-size: 0.9rem;
+  color: var(--subtext);
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.service-card-new ul {
+  margin: 0 0 12px 0;
+  padding-left: 18px;
+}
+
+.service-card-new ul li {
+  font-size: 0.88rem;
+  color: var(--subtext);
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.svc-note {
+  font-size: 0.84rem !important;
+  font-style: italic;
+  color: #6b7280 !important;
+}
+
+/* Dark variant */
+.services-grid-dark {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.service-card-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(148,163,184,0.12);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.service-card-dark:hover {
+  border-color: rgba(220,38,38,0.35);
+  background: rgba(220,38,38,0.05);
+}
+
+.scn-icon-dark {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.service-card-dark h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #e2e8f0;
+}
+
+.service-card-dark p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.service-card-dark ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.service-card-dark ul li {
+  font-size: 0.88rem;
+  color: #475569;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* Dark CTA bar */
+.dark-cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(220,38,38,0.08);
+  border: 1px solid rgba(220,38,38,0.2);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.dark-cta-text {
+  color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.dark-cta-sub {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ======================================================================
+   RESPONSIVE — ABOUT & SERVICES PAGES
+====================================================================== */
+@media (max-width: 1024px) {
+  .expertise-grid-wide {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid-dark {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .svc-section-header,
+  .svc-section-header-dark {
+    flex-direction: column;
+  }
+
+  .svc-featured-badge,
+  .svc-featured-badge-dark {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-img {
+    order: -1;
+  }
+
+  .profile-frame .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .expertise-grid-wide {
+    grid-template-columns: 1fr !important;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid-dark {
+    grid-template-columns: 1fr;
+  }
+
+  .dark-cta-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-nav-pills {
+    gap: 8px;
+  }
+}

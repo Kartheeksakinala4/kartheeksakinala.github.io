@@ -356,13 +356,7 @@ footer {
    ABOUT PAGE
 ====================================================================== */
 
-/* About hero layout (old class – kept for backwards compat) */
-.about-hero {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 40px;
-  align-items: center;
-}
+/* .about-hero — now used by the dark hero section; grid + columns moved to .about-hero-grid */
 
 /* Generic profile image – intentionally NOT setting width/height here
    so page-specific classes can control dimensions without conflict */
@@ -2371,6 +2365,7 @@ footer {
 
 /* Hero */
 .about-hero {
+  display: block;       /* explicitly override any older grid rule */
   background: #0c1117;
   color: white;
   padding: 80px 0;

@@ -866,7 +866,104 @@ footer {
 }
 
 /* ======================================================================
-   CONTACT HIGHLIGHTS
+   CONTACT — NEW DIRECT CONTACT SECTION
+====================================================================== */
+.contact-lead {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 48px;
+  color: var(--subtext);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.contact-method-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--light-grey);
+  border-radius: var(--radius);
+  border: 1px solid var(--grey);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+  gap: 6px;
+  color: var(--text);
+}
+
+.contact-method-card:hover {
+  background: white;
+  box-shadow: 0 12px 32px rgba(8,10,15,0.10);
+  transform: translateY(-3px);
+}
+
+.cm-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.cm-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--subtext);
+}
+
+.cm-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue);
+  word-break: break-all;
+  margin-top: 2px;
+}
+
+.contact-trust-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin: 0 auto 36px;
+  font-size: 0.88rem;
+  color: var(--subtext);
+}
+
+.contact-trust-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.contact-social-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.contact-social-row a img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.contact-social-row a:hover img {
+  opacity: 1;
+}
+
+/* ======================================================================
+   CONTACT HIGHLIGHTS (legacy — kept for compatibility)
 ====================================================================== */
 .contact-highlights {
   margin: 20px 0;
@@ -964,6 +1061,22 @@ footer {
   .hero-cta-group {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-trust-row {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .contact-methods {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

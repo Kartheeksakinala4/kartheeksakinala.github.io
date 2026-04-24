@@ -1,370 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kartheek Sakinala — Threat Intelligence & Dark Web Monitoring</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartheek Sakinala — Cybersecurity Consultant</title>
+  <meta name="description" content="Kartheek Sakinala — UK-based cybersecurity consultant specialising in threat intelligence, digital forensics, and data recovery for businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/main.js"></script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRG98LK5LV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QRG98LK5LV');
-  </script>
 </head>
-
 <body>
 
-<header class="header">
-  <div class="navbar">
-    <div class="logo">Kartheek Sakinala</div>
-
-    <nav id="navMenu">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="services.html">Services</a>
-      <a href="blog.html">Blog</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div id="menuToggle" class="menu-toggle">&#9776;</div>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero-dark fade-up">
-  <div class="hero-dark-overlay"></div>
-  <div class="container hero-dark-content">
-    <div class="hero-badge">Threat Intelligence &amp; Dark Web Monitoring</div>
-    <h1>
-      Your Data Is Likely Already<br>
-      <span class="accent-red">Exposed on the Dark Web.</span>
-    </h1>
-    <p class="hero-sub-dark">
-      Leaked credentials, breached customer records, and stolen intellectual property are traded daily in underground markets.
-      I help businesses find out what's out there — and stop it from becoming a crisis.
-    </p>
-    <div class="hero-cta-group">
-      <a href="#contact" class="btn-primary">Request a Dark Web Scan</a>
-      <a href="#services" class="btn-ghost">View All Services</a>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo">KS</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#contact" class="nav__cta">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav__burger" id="nav-burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <p class="hero-note">Confidential &bull; No obligation &bull; Results within 48 hours</p>
-  </div>
-</section>
+  </header>
 
-<!-- STATS STRIP -->
-<section class="stats-strip fade-up">
-  <div class="container stats-strip-grid">
-    <div class="stat-strip-item">
-      <span class="stat-num">24/7</span>
-      <span class="stat-label">Dark Web Monitoring</span>
-    </div>
-    <div class="stat-strip-item">
-      <span class="stat-num">48h</span>
-      <span class="stat-label">Initial Scan Turnaround</span>
-    </div>
-    <div class="stat-strip-item">
-      <span class="stat-num">5+</span>
-      <span class="stat-label">Years in Cybersecurity</span>
-    </div>
-    <div class="stat-strip-item">
-      <span class="stat-num">100%</span>
-      <span class="stat-label">Confidential Engagements</span>
-    </div>
-  </div>
-</section>
-
-<!-- THREAT INTELLIGENCE -->
-<section class="section-white fade-up" id="threat-intel">
-  <div class="container">
-    <div class="ti-intro-grid">
-      <div class="ti-intro-text">
-        <div class="section-eyebrow">Threat Intelligence</div>
-        <h2 class="section-title">Know Your Adversaries Before They Strike</h2>
-        <div class="divider"></div>
-        <p>
-          Reactive security is no longer enough. Threat intelligence gives your business
-          advance warning — who is targeting your sector, what tactics they use, and
-          which vulnerabilities they exploit — so you can act before an incident occurs.
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__noise" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="hero__eyebrow">Cybersecurity Consultant &middot; UK</span>
+        <h1 class="hero__name">
+          Kartheek<br>
+          <span class="hero__accent">Sakinala</span>
+        </h1>
+        <p class="hero__bio">
+          Protecting businesses through dark web threat intelligence, digital forensics,
+          and data recovery &mdash; with 9+ years of hands-on experience.
         </p>
-        <p>
-          I collect, analyse, and translate raw intelligence from open sources (OSINT),
-          closed forums, and underground channels into clear, prioritised action plans
-          your team can actually use.
-        </p>
-        <a href="services.html" class="btn-primary" style="margin-top:10px;">Explore Threat Intel Services</a>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Get in Touch</a>
+          <a href="#journey" class="btn btn--ghost">My Journey</a>
+        </div>
       </div>
-      <div class="ti-features">
-        <div class="ti-feature-card">
-          <div class="ti-icon ti-icon-orange">&#128270;</div>
-          <h3>OSINT Investigations</h3>
-          <p>Deep-dive open-source research on threat actors, infrastructure, and TTPs targeting your industry.</p>
+      <div class="hero__stats" aria-label="Key statistics">
+        <div class="stat-card">
+          <span class="stat-card__num">9+</span>
+          <span class="stat-card__label">Years Experience</span>
         </div>
-        <div class="ti-feature-card">
-          <div class="ti-icon ti-icon-red">&#9888;</div>
-          <h3>Early Warning Alerts</h3>
-          <p>Proactive notification when your brand, domain, or executives appear in threat actor chatter.</p>
+        <div class="stat-card">
+          <span class="stat-card__num">500+</span>
+          <span class="stat-card__label">Data Recoveries</span>
         </div>
-        <div class="ti-feature-card">
-          <div class="ti-icon ti-icon-blue">&#128196;</div>
-          <h3>Intelligence Reports</h3>
-          <p>Actionable reports tailored for leadership and technical teams — no jargon, just decisions.</p>
+        <div class="stat-card">
+          <span class="stat-card__num">200+</span>
+          <span class="stat-card__label">Forensic Cases</span>
         </div>
-        <div class="ti-feature-card">
-          <div class="ti-icon ti-icon-purple">&#127760;</div>
-          <h3>Sector-Specific Feeds</h3>
-          <p>Curated threat feeds focused on your industry — finance, healthcare, retail, or manufacturing.</p>
+        <div class="stat-card">
+          <span class="stat-card__num">150+</span>
+          <span class="stat-card__label">Professionals Trained</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
 
-<!-- DARK WEB MONITORING -->
-<section class="section-dark fade-up" id="dark-web">
-  <div class="container">
-    <div class="section-eyebrow-light">Dark Web Monitoring</div>
-    <h2 class="section-title-light">What's Being Sold About Your Business Right Now?</h2>
-    <div class="divider divider-red"></div>
-    <p class="dark-section-lead">
-      Criminal marketplaces, ransomware leak sites, and private Telegram channels trade stolen data every hour.
-      Most businesses don't find out until it's too late — a customer complaint, a regulator's notice, or a ransom demand.
-    </p>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__head fade-up">
+        <span class="eyebrow">About Me</span>
+        <h2>Who I Am</h2>
+      </div>
+      <div class="about__grid">
 
-    <div class="darkweb-grid">
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#128274;</div>
-        <h3>Credential Leak Detection</h3>
-        <p>
-          Continuously scan paste sites, breach databases, and underground forums for your employees'
-          email addresses, usernames, and passwords.
+        <div class="about__img-col fade-up">
+          <div class="profile-wrap">
+            <img src="assets/images/profile-placeholder.jpg" alt="Kartheek Sakinala" class="profile-wrap__img">
+            <div class="profile-wrap__badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Verified Consultant
+            </div>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Threat Intelligence</span>
+            <span class="tag">Digital Forensics</span>
+            <span class="tag">Data Recovery</span>
+            <span class="tag">OSINT</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">Cybersecurity</span>
+          </div>
+        </div>
+
+        <div class="about__text-col fade-up">
+          <p class="about__lead">
+            I&rsquo;m a UK-based independent cybersecurity consultant with over nine years of real-world
+            experience helping businesses and individuals protect, investigate, and recover their digital assets.
+          </p>
+          <p>
+            My work spans dark web threat intelligence, digital forensics investigations, and physical data recovery.
+            I work directly with SMEs, legal professionals, and organisations that need practical, confidential
+            guidance &mdash; not just compliance paperwork.
+          </p>
+          <p>
+            I began my career as an Operations Engineer in critical infrastructure, which instilled a deep respect
+            for reliability and precision &mdash; values I carry into every security engagement today.
+          </p>
+
+          <div class="values-list">
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div>
+                <strong>Confidential</strong>
+                <p>Every engagement is handled with absolute discretion. Your data never leaves a secure environment.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <strong>Practical</strong>
+                <p>Clear findings and actionable recommendations &mdash; not jargon-heavy reports that sit on a shelf.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-item__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong>Responsive</strong>
+                <p>Cyber incidents don&rsquo;t wait. I respond within 24 hours and can mobilise rapidly when needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <div class="section__head fade-up">
+        <span class="eyebrow">Expertise</span>
+        <h2>Skills &amp; Capabilities</h2>
+        <p class="section__sub">A broad skill set built across years of real-world engagements.</p>
+      </div>
+      <div class="skills__grid">
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Cybersecurity</h3>
+          <ul>
+            <li>Dark Web Monitoring</li>
+            <li>Threat Intelligence</li>
+            <li>Firewall Review &amp; Hardening</li>
+            <li>Ransomware Preparedness</li>
+            <li>Incident Response</li>
+            <li>Security Awareness Training</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Digital Forensics</h3>
+          <ul>
+            <li>Evidence Acquisition &amp; Preservation</li>
+            <li>File System Analysis</li>
+            <li>Employee Misuse Investigations</li>
+            <li>CCTV &amp; DVR Forensics</li>
+            <li>Email &amp; Chat Forensics</li>
+            <li>Chain of Custody Management</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>Data Recovery</h3>
+          <ul>
+            <li>HDD &amp; SSD Recovery</li>
+            <li>RAID Reconstruction</li>
+            <li>Flash &amp; SD Card Recovery</li>
+            <li>Mobile Device Recovery</li>
+            <li>Firmware-Level Recovery</li>
+            <li>Remote Data Recovery</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+          </div>
+          <h3>OSINT &amp; Intelligence</h3>
+          <ul>
+            <li>Social Media Intelligence</li>
+            <li>Brand Exposure Monitoring</li>
+            <li>Credential Leak Detection</li>
+            <li>Digital Footprint Analysis</li>
+            <li>Threat Actor Profiling</li>
+            <li>Deep &amp; Dark Web Scanning</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Tools &amp; Technology</h3>
+          <ul>
+            <li>EnCase / FTK / Autopsy</li>
+            <li>Maltego / Shodan</li>
+            <li>Kali Linux / Wireshark</li>
+            <li>Stormshield Network Security</li>
+            <li>SIEM Platforms</li>
+            <li>PC-3000 (Data Recovery)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-up">
+          <div class="skill-card__icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Consulting &amp; Advisory</h3>
+          <ul>
+            <li>Cybersecurity Readiness Assessments</li>
+            <li>Policy &amp; Procedure Writing</li>
+            <li>Staff Security Training</li>
+            <li>On-Call Advisory Retainer</li>
+            <li>UK &amp; GDPR Regulatory Guidance</li>
+            <li>Vendor Risk Assessment</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="section" id="journey">
+    <div class="container">
+      <div class="section__head fade-up">
+        <span class="eyebrow">Career</span>
+        <h2>My Journey</h2>
+        <p class="section__sub">From critical infrastructure engineering to specialist cybersecurity consulting &mdash; a decade of continuous growth.</p>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item fade-up">
+          <div class="tl-left">
+            <span class="tl-year">2024 &mdash; Present</span>
+          </div>
+          <div class="tl-dot tl-dot--active" aria-hidden="true"></div>
+          <div class="tl-right">
+            <h3>Independent Cybersecurity Consultant</h3>
+            <span class="tl-meta">Self-Employed &middot; UK</span>
+            <p>
+              Running a boutique consultancy serving global clients across threat intelligence, digital forensics,
+              data recovery, and on-call advisory. Working directly with business owners, legal professionals,
+              and IT teams to deliver practical, confidential outcomes.
+            </p>
+            <div class="tl-tags">
+              <span>Threat Intelligence</span>
+              <span>Digital Forensics</span>
+              <span>Data Recovery</span>
+              <span>Advisory</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item fade-up">
+          <div class="tl-left">
+            <span class="tl-year">2021</span>
+          </div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-right">
+            <h3>Digital Forensics &amp; Cybersecurity Specialist</h3>
+            <span class="tl-meta">UK</span>
+            <p>
+              Expanded into digital forensics &mdash; DVR/CCTV evidence analysis, employee misconduct investigations,
+              and pre-litigation evidence preservation. Deepened cybersecurity expertise including Stormshield
+              network security, firewall management, and advanced data recovery across HDD, SSD, and Flash storage.
+            </p>
+            <div class="tl-tags">
+              <span>Digital Forensics</span>
+              <span>Data Recovery</span>
+              <span>Firewall Management</span>
+              <span>OSINT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item fade-up">
+          <div class="tl-left">
+            <span class="tl-year">2015</span>
+          </div>
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-right">
+            <h3>Operations Engineer</h3>
+            <span class="tl-meta">GVK Thermal Power Plant &middot; India</span>
+            <p>
+              Began career in critical infrastructure, building a strong foundation in operational systems,
+              reliability engineering, and process management. This high-stakes environment shaped the
+              precision-first mindset I apply to cybersecurity and forensics work today.
+            </p>
+            <div class="tl-tags">
+              <span>Critical Infrastructure</span>
+              <span>Operations Engineering</span>
+              <span>Systems Management</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark" id="contact">
+    <div class="container">
+      <div class="section__head section__head--light fade-up">
+        <span class="eyebrow eyebrow--light">Get In Touch</span>
+        <h2>Contact Me</h2>
+        <p class="section__sub section__sub--light">
+          Whether you have an urgent incident or want to discuss proactive protection &mdash;
+          I&rsquo;m here to help. All enquiries are strictly confidential.
         </p>
       </div>
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#128202;</div>
-        <h3>Breach Data Monitoring</h3>
-        <p>
-          Detect when customer PII, financial records, or internal documents are listed for sale
-          on darknet markets or shared in private channels.
-        </p>
+      <div class="contact__grid">
+        <a href="mailto:consult@kartheeksakinala.me" class="contact-card fade-up">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>Email</h3>
+          <span>consult@kartheeksakinala.me</span>
+        </a>
+        <a href="tel:+919030356966" class="contact-card fade-up">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Phone</h3>
+          <span>+91 90303 56966</span>
+        </a>
+        <a href="https://linkedin.com/in/kartheek-sakinala" target="_blank" rel="noopener" class="contact-card fade-up">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <h3>LinkedIn</h3>
+          <span>kartheek-sakinala</span>
+        </a>
+        <a href="https://youtube.com/@kartheek.sakinala" target="_blank" rel="noopener" class="contact-card fade-up">
+          <div class="contact-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </div>
+          <h3>YouTube</h3>
+          <span>@kartheek.sakinala</span>
+        </a>
       </div>
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#127959;</div>
-        <h3>Brand &amp; Executive Protection</h3>
-        <p>
-          Monitor for impersonation domains, typosquat sites, and mentions of your executives
-          in threat actor communications.
-        </p>
-      </div>
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#128680;</div>
-        <h3>Ransomware Leak Site Watch</h3>
-        <p>
-          Automated monitoring of active ransomware gang leak sites — know immediately if your
-          organisation is named before public disclosure.
-        </p>
-      </div>
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#128736;</div>
-        <h3>Takedown &amp; Response</h3>
-        <p>
-          When exposure is found, I coordinate takedown requests, notify affected parties,
-          and provide a clear remediation roadmap.
-        </p>
-      </div>
-      <div class="darkweb-card">
-        <div class="darkweb-card-icon">&#128203;</div>
-        <h3>Monthly Intelligence Briefings</h3>
-        <p>
-          Plain-language monthly reports summarising findings, trends, and recommended next steps
-          for your leadership team.
-        </p>
-      </div>
+      <p class="contact__note fade-up">Response within 24 hours &middot; All enquiries strictly confidential</p>
     </div>
+  </section>
 
-    <div style="text-align:center; margin-top: 48px;">
-      <a href="#contact" class="btn-danger">Run a Free Dark Web Exposure Check</a>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__name">Kartheek Sakinala</span>
+      <span class="footer__sep">&middot;</span>
+      <span class="footer__copy">Cybersecurity Consultant &middot; &copy; 2026</span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- HOW IT WORKS -->
-<section class="section-grey fade-up">
-  <div class="container">
-    <div class="section-eyebrow">Process</div>
-    <h2 class="section-title">How It Works</h2>
-    <div class="divider"></div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <h3>Discovery Call</h3>
-        <p>We discuss your business, data types, and specific concerns. Completely confidential, no commitment required.</p>
-      </div>
-      <div class="process-arrow">&#8594;</div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <h3>Initial Scan</h3>
-        <p>I run a targeted scan of your domains, emails, and brand assets across dark web sources within 48 hours.</p>
-      </div>
-      <div class="process-arrow">&#8594;</div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <h3>Report &amp; Briefing</h3>
-        <p>You receive a clear findings report with risk ratings and a prioritised remediation checklist.</p>
-      </div>
-      <div class="process-arrow">&#8594;</div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <h3>Ongoing Monitoring</h3>
-        <p>Continuous 24/7 monitoring with real-time alerts and monthly intelligence briefings to keep you ahead of threats.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ALL SERVICES -->
-<section class="section-white fade-up" id="services">
-  <div class="container">
-    <div class="section-eyebrow">Full Service Range</div>
-    <h2 class="section-title">Core Services</h2>
-    <div class="divider"></div>
-
-    <div class="key-services-grid key-services-wide">
-      <a href="services.html?service=threat-intelligence" class="key-card key-card-featured">
-        <div class="key-card-icon">&#128270;</div>
-        <h3>Threat Intelligence</h3>
-        <p>OSINT investigations, adversary profiling, early warning alerts, and sector-specific threat feeds.</p>
-        <span class="key-card-tag">Featured</span>
-      </a>
-
-      <a href="services.html?service=dark-web-monitoring" class="key-card key-card-featured">
-        <div class="key-card-icon">&#127760;</div>
-        <h3>Dark Web Monitoring</h3>
-        <p>Continuous scanning of underground markets, leak sites, and private channels for your data.</p>
-        <span class="key-card-tag">Featured</span>
-      </a>
-
-      <a href="services.html?service=digital-forensics" class="key-card">
-        <div class="key-card-icon">&#128190;</div>
-        <h3>Digital Forensics</h3>
-        <p>Internal investigations, evidence preservation, CCTV audits, and online exposure monitoring.</p>
-      </a>
-
-      <a href="services.html?service=cybersecurity" class="key-card">
-        <div class="key-card-icon">&#128737;</div>
-        <h3>Cybersecurity Advisory</h3>
-        <p>Readiness assessments, firewall reviews, ransomware preparedness, and advisory support.</p>
-      </a>
-
-      <a href="services.html?service=data-recovery" class="key-card">
-        <div class="key-card-icon">&#128260;</div>
-        <h3>Data Recovery</h3>
-        <p>Professional recovery for HDDs, SSDs, flash storage, and complex failure scenarios.</p>
-      </a>
-
-      <a href="services.html?service=incident-response" class="key-card">
-        <div class="key-card-icon">&#128680;</div>
-        <h3>Incident Response</h3>
-        <p>Rapid response, containment, and post-incident analysis when a breach has already occurred.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY WORK WITH ME -->
-<section class="section-grey fade-up">
-  <div class="container">
-    <div class="section-eyebrow">Why Me</div>
-    <h2 class="section-title">Why Businesses Work With Me</h2>
-    <div class="divider"></div>
-
-    <div class="trust-grid">
-      <div class="trust-card">
-        <h3>Practical Experience</h3>
-        <p>Hands-on work across threat intelligence, dark web investigations, digital forensics, and security operations.</p>
-      </div>
-      <div class="trust-card">
-        <h3>SME-Focused</h3>
-        <p>Enterprise-grade intelligence capabilities scoped and priced for small and medium businesses.</p>
-      </div>
-      <div class="trust-card">
-        <h3>Low-Risk Entry</h3>
-        <p>Start with a free exposure check or a one-off assessment before any ongoing engagement.</p>
-      </div>
-      <div class="trust-card">
-        <h3>Independent &amp; Confidential</h3>
-        <p>Vendor-neutral advice. Your data and findings stay completely confidential — always.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section-white fade-up">
-  <div class="container">
-    <div class="section-eyebrow">Get in Touch</div>
-    <h2 class="section-title">Let's Have a Confidential Discussion</h2>
-    <div class="divider"></div>
-    <p class="contact-lead">
-      Reach out directly — every conversation is confidential and there's no obligation.
-      I respond within 4 business hours.
-    </p>
-
-    <div class="contact-methods">
-
-      <a href="mailto:consult@kartheeksakinala.me" class="contact-method-card">
-        <div class="cm-icon">&#128231;</div>
-        <div class="cm-label">Email</div>
-        <div class="cm-value">consult@kartheeksakinala.me</div>
-      </a>
-
-      <a href="tel:+919030356966" class="contact-method-card">
-        <div class="cm-icon">&#128222;</div>
-        <div class="cm-label">Phone / WhatsApp</div>
-        <div class="cm-value">+91 90303 56966</div>
-      </a>
-
-      <a href="https://linkedin.com/in/kartheek-sakinala" target="_blank" rel="noopener" class="contact-method-card">
-        <div class="cm-icon">&#128188;</div>
-        <div class="cm-label">LinkedIn</div>
-        <div class="cm-value">kartheek-sakinala</div>
-      </a>
-
-    </div>
-
-    <div class="contact-trust-row">
-      <span>&#128274; Strict NDA available on request</span>
-      <span>&#9201; Reply within 4 business hours</span>
-      <span>&#128200; Free initial exposure assessment</span>
-    </div>
-
-    <div class="contact-social-row">
-      <a href="https://linkedin.com/in/kartheek-sakinala" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <img src="assets/icons/linkedin.svg" alt="LinkedIn">
-      </a>
-      <a href="https://x.com/kartheeks11" target="_blank" rel="noopener" aria-label="X / Twitter">
-        <img src="assets/icons/x.svg" alt="X">
-      </a>
-      <a href="https://youtube.com/@kartheek.sakinala" target="_blank" rel="noopener" aria-label="YouTube">
-        <img src="assets/icons/youtube.svg" alt="YouTube">
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <p class="footer-name">Kartheek Sakinala</p>
-    <p class="footer-tagline">Threat Intelligence &bull; Dark Web Monitoring &bull; Digital Forensics &bull; Cybersecurity Advisory</p>
-    <p style="margin-top:10px; font-size:13px; color:#888;">&copy; 2025 Kartheek Sakinala &mdash; All Rights Reserved.</p>
-  </div>
-</footer>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

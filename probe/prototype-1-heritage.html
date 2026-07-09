@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>District Bar Association — Prototype 1 (Heritage)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#123a2c;       /* courtroom baize */
+    --green-deep:#0b271d;
+    --brass:#b98a2f;
+    --brass-light:#d9b465;
+    --ivory:#f7f4ec;
+    --ink:#22271f;
+    --line:#d8d2c2;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.6}
+
+  /* ===== Header ===== */
+  header{background:var(--green);color:var(--ivory);border-bottom:4px solid var(--brass)}
+  .masthead{max-width:1100px;margin:0 auto;padding:26px 20px 18px;display:flex;align-items:center;gap:18px}
+  .crest{width:64px;height:64px;border-radius:50%;background:var(--green-deep);border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .crest svg{width:34px;height:34px;fill:var(--brass-light)}
+  .masthead h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,3.5vw,2.2rem);letter-spacing:.5px}
+  .masthead p{font-size:.85rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass-light)}
+
+  nav{background:var(--green-deep)}
+  .tabs{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap}
+  .tabs button{background:none;border:none;color:#cfd8cd;font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:15px 22px;cursor:pointer;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
+  .tabs button:hover{color:#fff}
+  .tabs button.active{color:var(--brass-light);border-bottom-color:var(--brass)}
+  .tabs button:focus-visible{outline:2px solid var(--brass-light);outline-offset:-2px}
+
+  main{max-width:1100px;margin:0 auto;padding:44px 20px 70px}
+  section[role="tabpanel"]{display:none;animation:fade .35s ease}
+  section[role="tabpanel"].show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.page-title{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;color:var(--green);margin-bottom:6px}
+  .rule{width:70px;height:3px;background:var(--brass);margin:10px 0 28px}
+
+  /* ===== About ===== */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}
+  .about-grid p{margin-bottom:14px}
+  .factbox{background:#fff;border:1px solid var(--line);border-top:4px solid var(--brass);padding:24px}
+  .factbox h3{font-family:var(--serif);font-size:1.25rem;color:var(--green);margin-bottom:12px}
+  .factbox li{list-style:none;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.93rem;display:flex;justify-content:space-between;gap:12px}
+  .factbox li:last-child{border-bottom:none}
+  .factbox b{color:var(--green)}
+
+  /* ===== Executive flow ===== */
+  .exec-flow{display:flex;flex-direction:column;align-items:center}
+  .badge-2026{font-family:var(--serif);font-size:1.05rem;letter-spacing:3px;color:var(--green);border:1.5px solid var(--brass);padding:8px 26px;border-radius:40px;margin-bottom:26px;background:#fff}
+  .person{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .avatar{width:130px;height:130px;border-radius:50%;border:4px solid var(--brass);background:var(--green);color:var(--brass-light);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.1rem;font-weight:700;box-shadow:0 6px 16px rgba(11,39,29,.25)}
+  .person h3{font-family:var(--serif);font-size:1.3rem;color:var(--green);margin-top:12px}
+  .person .role{font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass);font-weight:700}
+  .arrow{margin:16px 0;color:var(--brass)}
+  .arrow svg{width:26px;height:44px}
+  .members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px;width:100%;max-width:820px;margin-top:6px}
+  .members-grid .avatar{width:96px;height:96px;font-size:1.5rem;border-width:3px}
+  .members-grid h3{font-size:1.05rem}
+
+  /* ===== Advocates table ===== */
+  .table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:720px}
+  thead th{background:var(--green);color:var(--ivory);font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:.78rem;padding:13px 16px;text-align:left}
+  tbody td{padding:11px 16px;border-bottom:1px solid var(--line)}
+  tbody tr:nth-child(even){background:#faf8f1}
+  tbody tr:hover{background:#f1ead6}
+  .search{margin-bottom:16px;display:flex;gap:10px}
+  .search input{flex:1;max-width:340px;padding:10px 14px;border:1px solid var(--line);background:#fff;font-family:var(--sans);font-size:.95rem}
+  .search input:focus{outline:2px solid var(--brass)}
+
+  /* ===== Gallery ===== */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .tile{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,var(--green),var(--green-deep));display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s}
+  .tile:hover{transform:translateY(-4px)}
+  .tile svg{width:52px;height:52px;fill:rgba(217,180,101,.55)}
+  .tile figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(11,39,29,.82);color:var(--ivory);font-size:.82rem;padding:8px 12px;letter-spacing:.5px}
+
+  /* ===== Contact ===== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
+  .contact-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brass);padding:26px}
+  .contact-card h3{font-family:var(--serif);color:var(--green);font-size:1.3rem;margin-bottom:14px}
+  .contact-card p{margin-bottom:12px;font-size:.95rem}
+  .contact-card b{color:var(--green)}
+  .cform label{display:block;font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin:14px 0 5px}
+  .cform input,.cform textarea{width:100%;padding:11px 13px;border:1px solid var(--line);background:#fff;font-family:var(--sans);font-size:.95rem}
+  .cform input:focus,.cform textarea:focus{outline:2px solid var(--brass)}
+  .cform button{margin-top:18px;background:var(--green);color:var(--ivory);border:none;padding:13px 34px;font-family:var(--sans);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.85rem;cursor:pointer;transition:background .2s}
+  .cform button:hover{background:var(--brass)}
+  .form-note{margin-top:12px;font-size:.85rem;color:var(--green);display:none}
+
+  footer{background:var(--green-deep);color:#b9c6ba;text-align:center;padding:22px;font-size:.82rem;letter-spacing:1px}
+
+  @media(max-width:760px){
+    .about-grid,.contact-grid{grid-template-columns:1fr}
+    .tabs{justify-content:flex-start;overflow-x:auto}
+    .tabs button{padding:13px 14px;font-size:.8rem}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead">
+    <div class="crest" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2 3 6v2h18V6l-9-4zm-7 8v7h3v-7H5zm5.5 0v7h3v-7h-3zm5.5 0v7h3v-7h-3zM3 19v3h18v-3H3z"/></svg>
+    </div>
+    <div>
+      <h1>The District Court Bar Association</h1>
+      <p>Est. 1962 &nbsp;·&nbsp; In Service of Justice</p>
+    </div>
+  </div>
+  <nav aria-label="Primary">
+    <div class="tabs" role="tablist">
+      <button role="tab" class="active" data-tab="about" aria-selected="true">About</button>
+      <button role="tab" data-tab="exec" aria-selected="false">Executive Body</button>
+      <button role="tab" data-tab="advocates" aria-selected="false">Advocates</button>
+      <button role="tab" data-tab="gallery" aria-selected="false">Gallery</button>
+      <button role="tab" data-tab="contact" aria-selected="false">Contact</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about" role="tabpanel" class="show">
+    <h2 class="page-title">About the Association</h2>
+    <div class="rule"></div>
+    <div class="about-grid">
+      <div>
+        <p>Founded in 1962, the District Court Bar Association represents the practising advocates of the district judiciary. For over six decades, the Association has stood for the independence of the Bar, the dignity of the profession, and access to justice for every citizen who enters the court complex.</p>
+        <p>The Association maintains the Bar library and reading rooms, conducts continuing legal education programmes, extends welfare support to member advocates and their families, and acts as the collective voice of the Bar before the Bench, the Bar Council, and the Government.</p>
+        <p>Membership is open to every advocate enrolled with the State Bar Council who ordinarily practises before the courts of this district. The affairs of the Association are managed by an Executive Body elected annually by the General Body.</p>
+      </div>
+      <aside class="factbox">
+        <h3>At a Glance</h3>
+        <ul>
+          <li><span>Founded</span><b>1962</b></li>
+          <li><span>Enrolled members</span><b>1,240+</b></li>
+          <li><span>Library volumes</span><b>18,000+</b></li>
+          <li><span>Welfare fund corpus</span><b>Active</b></li>
+          <li><span>Elections</span><b>Annual</b></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE BODY -->
+  <section id="exec" role="tabpanel">
+    <h2 class="page-title">Executive Body</h2>
+    <div class="rule"></div>
+    <div class="exec-flow">
+      <div class="badge-2026">EXECUTIVE BODY — 2026</div>
+
+      <div class="person">
+        <div class="avatar">RK</div>
+        <h3>Sri R. Krishna Murthy</h3>
+        <span class="role">President</span>
+      </div>
+
+      <div class="arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 44"><path d="M12 0v34m0 0l-7-8m7 8l7-8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="person">
+        <div class="avatar">SL</div>
+        <h3>Smt. S. Lakshmi Prasanna</h3>
+        <span class="role">Secretary</span>
+      </div>
+
+      <div class="arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 44"><path d="M12 0v34m0 0l-7-8m7 8l7-8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="person" style="margin-bottom:18px">
+        <span class="role">Executive Members</span>
+      </div>
+      <div class="members-grid">
+        <div class="person"><div class="avatar">VR</div><h3>V. Ramesh Babu</h3><span class="role">Vice President</span></div>
+        <div class="person"><div class="avatar">AK</div><h3>A. Karthik Reddy</h3><span class="role">Joint Secretary</span></div>
+        <div class="person"><div class="avatar">MS</div><h3>M. Srinivas Rao</h3><span class="role">Treasurer</span></div>
+        <div class="person"><div class="avatar">PD</div><h3>P. Divya</h3><span class="role">Library Secretary</span></div>
+        <div class="person"><div class="avatar">GN</div><h3>G. Naveen Kumar</h3><span class="role">Sports Secretary</span></div>
+        <div class="person"><div class="avatar">TB</div><h3>T. Bhavani</h3><span class="role">Member</span></div>
+        <div class="person"><div class="avatar">KV</div><h3>K. Venkatesh</h3><span class="role">Member</span></div>
+        <div class="person"><div class="avatar">JR</div><h3>J. Rajitha</h3><span class="role">Member</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVOCATES -->
+  <section id="advocates" role="tabpanel">
+    <h2 class="page-title">Roll of Advocates</h2>
+    <div class="rule"></div>
+    <div class="search">
+      <input type="text" id="advSearch" placeholder="Search by name or enrolment no…" aria-label="Search advocates">
+    </div>
+    <div class="table-wrap">
+      <table id="advTable">
+        <thead>
+          <tr><th>S. No.</th><th>Name of the Advocate</th><th>Enrolment No.</th><th>Year of Enrolment</th><th>Chamber / Contact</th></tr>
+        </thead>
+        <tbody><!-- rows injected by JS --></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" role="tabpanel">
+    <h2 class="page-title">Gallery</h2>
+    <div class="rule"></div>
+    <div class="gallery" id="galleryGrid"><!-- tiles injected by JS --></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" role="tabpanel">
+    <h2 class="page-title">Contact Us</h2>
+    <div class="rule"></div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Association Office</h3>
+        <p><b>Address:</b><br>Bar Association Building,<br>District Court Complex,<br>Hyderabad — 500 001, Telangana</p>
+        <p><b>Phone:</b> +91 40 2345 6789</p>
+        <p><b>Email:</b> office@districtbar.org</p>
+        <p><b>Office Hours:</b> Mon – Sat, 10:30 AM – 5:30 PM<br>(Closed on court holidays)</p>
+      </div>
+      <div class="contact-card cform">
+        <h3>Send a Message</h3>
+        <label for="c-name">Name</label>
+        <input id="c-name" type="text" placeholder="Your full name">
+        <label for="c-email">Email</label>
+        <input id="c-email" type="email" placeholder="you@example.com">
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" rows="4" placeholder="How can the Association help you?"></textarea>
+        <button id="c-send">Send Message</button>
+        <p class="form-note" id="c-note">Thank you — your message has been recorded (prototype only).</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 The District Court Bar Association · Prototype 1 — Heritage</footer>
+
+<script>
+/* ---- Tabs ---- */
+const tabs = document.querySelectorAll('.tabs button');
+const panels = document.querySelectorAll('section[role="tabpanel"]');
+tabs.forEach(btn => btn.addEventListener('click', () => {
+  tabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+  panels.forEach(p => p.classList.remove('show'));
+  document.getElementById(btn.dataset.tab).classList.add('show');
+  window.scrollTo({top:0});
+}));
+
+/* ---- Advocates table: 20 rows ---- */
+const advocates = [
+  ["R. Krishna Murthy","TS/1023/1998",1998,"Chamber 12 · 98490 11223"],
+  ["S. Lakshmi Prasanna","TS/2210/2003",2003,"Chamber 4 · 98491 22334"],
+  ["V. Ramesh Babu","TS/1877/2001",2001,"Chamber 21 · 90001 33445"],
+  ["A. Karthik Reddy","TS/3402/2009",2009,"Chamber 7 · 96660 44556"],
+  ["M. Srinivas Rao","TS/1456/1999",1999,"Chamber 15 · 98850 55667"],
+  ["P. Divya","TS/4521/2012",2012,"Chamber 9 · 90140 66778"],
+  ["G. Naveen Kumar","TS/3988/2010",2010,"Chamber 18 · 97010 77889"],
+  ["T. Bhavani","TS/5102/2014",2014,"Chamber 2 · 91820 88990"],
+  ["K. Venkatesh","TS/2655/2005",2005,"Chamber 25 · 98480 99001"],
+  ["J. Rajitha","TS/4890/2013",2013,"Chamber 11 · 90320 10112"],
+  ["B. Anil Chandra","TS/5677/2016",2016,"Chamber 6 · 96520 21223"],
+  ["D. Swapna Rani","TS/6012/2017",2017,"Chamber 14 · 98660 32334"],
+  ["N. Prakash Goud","TS/2301/2004",2004,"Chamber 19 · 90520 43445"],
+  ["Ch. Mahesh Yadav","TS/6534/2018",2018,"Chamber 3 · 97050 54556"],
+  ["Y. Sandhya","TS/7101/2019",2019,"Chamber 22 · 98120 65667"],
+  ["L. Ravi Teja","TS/7423/2020",2020,"Chamber 8 · 90980 76778"],
+  ["E. Suresh","TS/3120/2008",2008,"Chamber 16 · 96190 87889"],
+  ["U. Padmavathi","TS/7890/2021",2021,"Chamber 5 · 98440 98990"],
+  ["H. Farhan Ali","TS/8234/2022",2022,"Chamber 20 · 90740 09011"],
+  ["O. Vinay Sagar","TS/8677/2023",2023,"Chamber 10 · 97330 10121"]
+];
+const tbody = document.querySelector('#advTable tbody');
+advocates.forEach((a,i)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${i+1}</td><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td>`;
+  tbody.appendChild(tr);
+});
+
+/* ---- Table search ---- */
+document.getElementById('advSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    tr.style.display = tr.textContent.toLowerCase().includes(q)?'':'none';
+  });
+});
+
+/* ---- Gallery tiles ---- */
+const captions=["Annual Day 2025","Law Day Celebrations","New Library Wing Inauguration","Legal Aid Camp","Farewell to Hon'ble District Judge","Cricket Tournament","Independence Day","Blood Donation Drive","Senior Advocates Felicitation"];
+const grid=document.getElementById('galleryGrid');
+captions.forEach(c=>{
+  const f=document.createElement('figure');
+  f.className='tile';
+  f.innerHTML=`<svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5L19 18H5l3.5-4.5z"/></svg><figcaption>${c}</figcaption>`;
+  grid.appendChild(f);
+});
+
+/* ---- Contact form (prototype) ---- */
+document.getElementById('c-send').addEventListener('click',()=>{
+  document.getElementById('c-note').style.display='block';
+});
+</script>
+</body>
+</html>

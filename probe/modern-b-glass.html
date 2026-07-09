@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>District Bar Association — Modern B (Glass)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#4338ca;
+    --violet:#7c3aed;
+    --deep:#1e1b4b;
+    --tint:#eef1ff;
+    --ink:#1e2338;
+    --grey:#5b6178;
+    --white:#fff;
+    --glass:rgba(255,255,255,.72);
+    --line:rgba(67,56,202,.14);
+    --display:'Plus Jakarta Sans','Segoe UI',sans-serif;
+    --body:'Figtree','Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--body);color:var(--ink);line-height:1.65;min-height:100vh;
+    background:
+      radial-gradient(900px 500px at 12% -8%, rgba(124,58,237,.16), transparent 60%),
+      radial-gradient(800px 480px at 95% 8%, rgba(67,56,202,.14), transparent 55%),
+      radial-gradient(700px 500px at 50% 110%, rgba(124,58,237,.10), transparent 60%),
+      #f6f7fc;
+    background-attachment:fixed;
+  }
+
+  /* ===== Header ===== */
+  header{position:sticky;top:14px;z-index:60;padding:0 16px}
+  .bar{max-width:1080px;margin:0 auto;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 28px rgba(30,27,75,.10);display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1rem}
+  .logo .gem{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .tabs{display:flex;gap:2px;background:rgba(67,56,202,.07);border-radius:13px;padding:4px}
+  .tabs button{border:none;background:none;font-family:var(--body);font-weight:600;font-size:.86rem;color:var(--grey);padding:9px 15px;border-radius:10px;cursor:pointer;transition:.2s}
+  .tabs button:hover{color:var(--indigo)}
+  .tabs button.active{background:#fff;color:var(--indigo);box-shadow:0 2px 8px rgba(30,27,75,.12)}
+  .tabs button:focus-visible{outline:2px solid var(--violet)}
+
+  main{max-width:1080px;margin:0 auto;padding:52px 20px 90px}
+  .panel{display:none;animation:pop .35s ease}
+  .panel.show{display:block}
+  @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.995)}to{opacity:1;transform:none}}
+
+  .eyebrow{display:inline-block;background:linear-gradient(135deg,var(--indigo),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase}
+  h2.title{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.6vw,2.6rem);margin:8px 0 10px;letter-spacing:-.5px}
+  .sub{color:var(--grey);max-width:600px;margin-bottom:38px}
+
+  .glass{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:20px;box-shadow:0 6px 24px rgba(30,27,75,.07)}
+
+  /* ===== About ===== */
+  .stat4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:22px}
+  .stat{padding:22px}
+  .stat b{font-family:var(--display);font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--indigo),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+  .stat span{color:var(--grey);font-size:.87rem}
+  .about-body{padding:30px}
+  .about-body h3{font-family:var(--display);font-size:1.15rem;margin-bottom:8px}
+  .about-body p{color:#3a4059;margin-bottom:16px}
+  .about-body p:last-child{margin-bottom:0}
+
+  /* ===== Executive ===== */
+  .flow{display:flex;flex-direction:column;align-items:center}
+  .ycap{font-family:var(--display);font-weight:700;color:#fff;background:linear-gradient(135deg,var(--indigo),var(--violet));padding:10px 28px;border-radius:999px;letter-spacing:1.5px;font-size:.92rem;margin-bottom:34px;box-shadow:0 8px 20px rgba(124,58,237,.3)}
+  .pc{padding:26px 46px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .orb{width:118px;height:118px;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--indigo),var(--violet));box-shadow:0 10px 26px rgba(124,58,237,.28)}
+  .orb .fc{width:100%;height:100%;border-radius:50%;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:1.8rem;color:var(--indigo)}
+  .pc h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-top:13px}
+  .pc .role{font-size:.73rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet);margin-top:2px}
+  .arr{margin:16px 0}
+  .arr svg{width:24px;height:46px}
+  .arr path{stroke:url(#agrad);stroke-width:2.4;fill:none;stroke-linecap:round}
+  .glabel{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--grey);margin:8px 0 22px}
+  .mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;width:100%;max-width:860px}
+  .mg .pc{padding:20px 12px}
+  .mg .orb{width:82px;height:82px;padding:3px;box-shadow:0 6px 16px rgba(124,58,237,.2)}
+  .mg .fc{font-size:1.2rem}
+  .mg h3{font-size:.95rem}
+
+  /* ===== Advocates ===== */
+  .tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+  .tools input{flex:1;max-width:360px;padding:12px 16px;border:1px solid var(--line);border-radius:13px;background:var(--glass);backdrop-filter:blur(8px);font-family:var(--body);font-size:.93rem}
+  .tools input:focus{outline:2px solid var(--violet)}
+  .count{font-size:.84rem;color:var(--grey)}
+  .tcard{overflow:hidden}
+  .tscroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.91rem;min-width:730px}
+  thead th{font-family:var(--display);font-weight:700;font-size:.75rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--indigo);padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);background:rgba(238,241,255,.7)}
+  tbody td{padding:12px 16px;border-bottom:1px solid var(--line);color:#3a4059}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(124,58,237,.05)}
+  .ytag{display:inline-block;background:var(--tint);color:var(--indigo);font-size:.78rem;font-weight:700;padding:3px 11px;border-radius:999px}
+
+  /* ===== Gallery ===== */
+  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:18px}
+  .gph{aspect-ratio:4/3;border-radius:18px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s,box-shadow .25s;border:1px solid var(--line)}
+  .gph:nth-child(3n+1){background:linear-gradient(140deg,#4338ca,#312e81)}
+  .gph:nth-child(3n+2){background:linear-gradient(140deg,#7c3aed,#4c1d95)}
+  .gph:nth-child(3n){background:linear-gradient(140deg,#5b45d6,#3b2f8f)}
+  .gph:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(67,56,202,.28)}
+  .gph svg{width:44px;height:44px;fill:rgba(255,255,255,.4)}
+  .gph span{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:11px;color:#fff;font-size:.8rem;font-weight:600;padding:7px 12px}
+
+  /* ===== Contact ===== */
+  .cg{display:grid;grid-template-columns:1fr 1.25fr;gap:18px}
+  .cb{padding:30px}
+  .cb h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-bottom:16px}
+  .cb p{color:#3a4059;font-size:.93rem;margin-bottom:15px}
+  .cb b{color:var(--indigo)}
+  .cb label{display:block;font-size:.8rem;font-weight:600;color:#3a4059;margin:14px 0 5px}
+  .cb input,.cb textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.85);font-family:var(--body);font-size:.93rem}
+  .cb input:focus,.cb textarea:focus{outline:2px solid var(--violet)}
+  .cb button{margin-top:20px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;border:none;border-radius:12px;padding:13px 32px;font-family:var(--display);font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 8px 20px rgba(124,58,237,.3);transition:transform .18s}
+  .cb button:hover{transform:translateY(-2px)}
+  .ok{display:none;margin-top:12px;color:var(--indigo);font-weight:700;font-size:.87rem}
+
+  footer{text-align:center;color:var(--grey);font-size:.82rem;padding:26px}
+
+  @media(max-width:860px){
+    .bar{flex-direction:column;gap:10px;padding:12px}
+    .tabs{flex-wrap:wrap;justify-content:center}
+    .cg{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" aria-hidden="true"><defs><linearGradient id="agrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4338ca"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs></svg>
+
+<header>
+  <div class="bar">
+    <div class="logo"><span class="gem">DB</span> District Bar Association</div>
+    <nav class="tabs" aria-label="Primary">
+      <button class="active" data-tab="about">About</button>
+      <button data-tab="exec">Executive Body</button>
+      <button data-tab="advocates">Advocates</button>
+      <button data-tab="gallery">Gallery</button>
+      <button data-tab="contact">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABOUT -->
+  <div id="about" class="panel show">
+    <span class="eyebrow">The Association</span>
+    <h2 class="title">The collective voice of the district Bar</h2>
+    <p class="sub">Representing 1,200+ practising advocates since 1962 — upholding the independence of the Bar and the cause of justice.</p>
+    <div class="stat4">
+      <div class="glass stat"><b>1962</b><span>Established</span></div>
+      <div class="glass stat"><b>1,240+</b><span>Member advocates</span></div>
+      <div class="glass stat"><b>18,000+</b><span>Library volumes</span></div>
+      <div class="glass stat"><b>60+</b><span>Legal aid camps</span></div>
+    </div>
+    <div class="glass about-body">
+      <h3>Who we are</h3>
+      <p>The District Bar Association is the representative body of advocates practising before the courts of the district. It safeguards the professional interests of members, promotes ethical practice, and fosters cordial relations between the Bench and the Bar.</p>
+      <h3>What we do</h3>
+      <p>We maintain the Bar library and reading rooms, organise continuing legal education, administer a welfare fund for members and their families, and run legal aid and awareness camps across the district. Our affairs are managed by an Executive Body elected annually by the General Body.</p>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE -->
+  <div id="exec" class="panel">
+    <span class="eyebrow">Leadership</span>
+    <h2 class="title">Executive Body</h2>
+    <p class="sub">Office bearers elected by the General Body to manage the affairs of the Association.</p>
+    <div class="flow">
+      <div class="ycap">EXECUTIVE BODY — 2026</div>
+
+      <div class="glass pc">
+        <div class="orb"><div class="fc">RK</div></div>
+        <h3>Sri R. Krishna Murthy</h3>
+        <div class="role">President</div>
+      </div>
+
+      <div class="arr" aria-hidden="true"><svg viewBox="0 0 24 46"><path d="M12 0v36m0 0l-7-8m7 8l7-8"/></svg></div>
+
+      <div class="glass pc">
+        <div class="orb"><div class="fc">SL</div></div>
+        <h3>Smt. S. Lakshmi Prasanna</h3>
+        <div class="role">Secretary</div>
+      </div>
+
+      <div class="arr" aria-hidden="true"><svg viewBox="0 0 24 46"><path d="M12 0v36m0 0l-7-8m7 8l7-8"/></svg></div>
+
+      <div class="glabel">Executive Members</div>
+      <div class="mg">
+        <div class="glass pc"><div class="orb"><div class="fc">VR</div></div><h3>V. Ramesh Babu</h3><div class="role">Vice President</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">AK</div></div><h3>A. Karthik Reddy</h3><div class="role">Joint Secretary</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">MS</div></div><h3>M. Srinivas Rao</h3><div class="role">Treasurer</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">PD</div></div><h3>P. Divya</h3><div class="role">Library Secretary</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">GN</div></div><h3>G. Naveen Kumar</h3><div class="role">Sports Secretary</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">TB</div></div><h3>T. Bhavani</h3><div class="role">Member</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">KV</div></div><h3>K. Venkatesh</h3><div class="role">Member</div></div>
+        <div class="glass pc"><div class="orb"><div class="fc">JR</div></div><h3>J. Rajitha</h3><div class="role">Member</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVOCATES -->
+  <div id="advocates" class="panel">
+    <span class="eyebrow">Members</span>
+    <h2 class="title">Roll of Advocates</h2>
+    <p class="sub">Directory of member advocates practising before the courts of the district.</p>
+    <div class="tools">
+      <input type="text" id="advSearch" placeholder="Search advocates…" aria-label="Search advocates">
+      <span class="count" id="advCount"></span>
+    </div>
+    <div class="glass tcard"><div class="tscroll">
+      <table id="advTable">
+        <thead><tr><th>S. No.</th><th>Name</th><th>Enrolment No.</th><th>Year</th><th>Chamber / Contact</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="gallery" class="panel">
+    <span class="eyebrow">Moments</span>
+    <h2 class="title">Gallery</h2>
+    <p class="sub">Events, celebrations and milestones from the life of the Association.</p>
+    <div class="gal" id="galleryGrid"></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="panel">
+    <span class="eyebrow">Get in touch</span>
+    <h2 class="title">Contact the Association</h2>
+    <p class="sub">Visit the office at the court complex, or send us a message below.</p>
+    <div class="cg">
+      <div class="glass cb">
+        <h3>Association Office</h3>
+        <p><b>Address</b><br>Bar Association Building, District Court Complex,<br>Hyderabad — 500 001, Telangana</p>
+        <p><b>Phone</b><br>+91 40 2345 6789</p>
+        <p><b>Email</b><br>office@districtbar.org</p>
+        <p><b>Hours</b><br>Mon – Sat · 10:30 AM – 5:30 PM · Closed on court holidays</p>
+      </div>
+      <div class="glass cb">
+        <h3>Send a message</h3>
+        <label for="n-name">Name</label>
+        <input id="n-name" type="text" placeholder="Your full name">
+        <label for="n-email">Email</label>
+        <input id="n-email" type="email" placeholder="you@example.com">
+        <label for="n-msg">Message</label>
+        <textarea id="n-msg" rows="4" placeholder="How can we help?"></textarea>
+        <button id="n-send">Send message</button>
+        <p class="ok" id="n-ok">✓ Message recorded (prototype only).</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>© 2026 District Bar Association · Modern B — Glass</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tabs button');
+const panels=document.querySelectorAll('.panel');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  panels.forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.tab).classList.add('show');
+  window.scrollTo({top:0});
+}));
+
+const advocates=[
+  ["R. Krishna Murthy","TS/1023/1998",1998,"Ch. 12 · 98490 11223"],
+  ["S. Lakshmi Prasanna","TS/2210/2003",2003,"Ch. 4 · 98491 22334"],
+  ["V. Ramesh Babu","TS/1877/2001",2001,"Ch. 21 · 90001 33445"],
+  ["A. Karthik Reddy","TS/3402/2009",2009,"Ch. 7 · 96660 44556"],
+  ["M. Srinivas Rao","TS/1456/1999",1999,"Ch. 15 · 98850 55667"],
+  ["P. Divya","TS/4521/2012",2012,"Ch. 9 · 90140 66778"],
+  ["G. Naveen Kumar","TS/3988/2010",2010,"Ch. 18 · 97010 77889"],
+  ["T. Bhavani","TS/5102/2014",2014,"Ch. 2 · 91820 88990"],
+  ["K. Venkatesh","TS/2655/2005",2005,"Ch. 25 · 98480 99001"],
+  ["J. Rajitha","TS/4890/2013",2013,"Ch. 11 · 90320 10112"],
+  ["B. Anil Chandra","TS/5677/2016",2016,"Ch. 6 · 96520 21223"],
+  ["D. Swapna Rani","TS/6012/2017",2017,"Ch. 14 · 98660 32334"],
+  ["N. Prakash Goud","TS/2301/2004",2004,"Ch. 19 · 90520 43445"],
+  ["Ch. Mahesh Yadav","TS/6534/2018",2018,"Ch. 3 · 97050 54556"],
+  ["Y. Sandhya","TS/7101/2019",2019,"Ch. 22 · 98120 65667"],
+  ["L. Ravi Teja","TS/7423/2020",2020,"Ch. 8 · 90980 76778"],
+  ["E. Suresh","TS/3120/2008",2008,"Ch. 16 · 96190 87889"],
+  ["U. Padmavathi","TS/7890/2021",2021,"Ch. 5 · 98440 98990"],
+  ["H. Farhan Ali","TS/8234/2022",2022,"Ch. 20 · 90740 09011"],
+  ["O. Vinay Sagar","TS/8677/2023",2023,"Ch. 10 · 97330 10121"]
+];
+const tbody=document.querySelector('#advTable tbody');
+advocates.forEach((a,i)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${i+1}</td><td><b>${a[0]}</b></td><td>${a[1]}</td><td><span class="ytag">${a[2]}</span></td><td>${a[3]}</td>`;
+  tbody.appendChild(tr);
+});
+const countEl=document.getElementById('advCount');
+const setCount=n=>countEl.textContent=`${n} shown`;
+setCount(advocates.length);
+document.getElementById('advSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();let n=0;
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    const hit=tr.textContent.toLowerCase().includes(q);
+    tr.style.display=hit?'':'none'; if(hit)n++;
+  });
+  setCount(n);
+});
+
+const captions=["Annual Day 2025","Law Day Celebrations","Library Wing Inauguration","Legal Aid Camp","Farewell Function","Cricket Tournament","Independence Day","Blood Donation Drive","Felicitation Ceremony"];
+const grid=document.getElementById('galleryGrid');
+captions.forEach(c=>{
+  const d=document.createElement('div');
+  d.className='gph';
+  d.innerHTML=`<svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5L19 18H5l3.5-4.5z"/></svg><span>${c}</span>`;
+  grid.appendChild(d);
+});
+
+document.getElementById('n-send').addEventListener('click',()=>{
+  document.getElementById('n-ok').style.display='block';
+});
+</script>
+</body>
+</html>

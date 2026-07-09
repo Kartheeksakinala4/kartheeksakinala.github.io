@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>District Bar Association — Modern C (Bold Editorial)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0c0d10;
+    --paper:#f5f5f2;
+    --electric:#2f5cff;
+    --electric-dark:#1e3fbf;
+    --grey:#65686f;
+    --line:#d9d9d4;
+    --white:#fff;
+    --display:'Space Grotesk','Segoe UI',sans-serif;
+    --body:'IBM Plex Sans','Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--paper);color:var(--black);line-height:1.65}
+  ::selection{background:var(--electric);color:#fff}
+
+  /* ===== Header ===== */
+  header{border-bottom:2px solid var(--black);background:var(--paper);position:sticky;top:0;z-index:50}
+  .hrow{max-width:1160px;margin:0 auto;padding:0 22px;display:flex;align-items:stretch;justify-content:space-between}
+  .wordmark{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;padding:18px 0}
+  .wordmark .sq{width:14px;height:14px;background:var(--electric)}
+  .tabs{display:flex}
+  .tabs button{background:none;border:none;border-left:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.5px;color:var(--grey);padding:0 20px;cursor:pointer;transition:.15s}
+  .tabs button:last-child{border-right:1px solid var(--line)}
+  .tabs button:hover{color:var(--black)}
+  .tabs button.active{background:var(--black);color:var(--paper)}
+  .tabs button:focus-visible{outline:2px solid var(--electric);outline-offset:-2px}
+
+  main{max-width:1160px;margin:0 auto;padding:0 22px 90px}
+  .panel{display:none;animation:reveal .3s ease}
+  .panel.show{display:block}
+  @keyframes reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .pagehead{padding:54px 0 40px;border-bottom:1px solid var(--line);margin-bottom:44px}
+  .index{font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:2px;color:var(--electric)}
+  .pagehead h2{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5.5vw,3.6rem);letter-spacing:-1.5px;line-height:1.08;margin-top:8px}
+  .pagehead h2 em{font-style:normal;color:var(--electric)}
+  .pagehead p{color:var(--grey);max-width:560px;margin-top:14px;font-size:1.02rem}
+
+  /* ===== About ===== */
+  .bigstats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-right:none;margin-bottom:44px;background:var(--white)}
+  .bs{border-right:1px solid var(--line);padding:26px 22px}
+  .bs b{font-family:var(--display);font-weight:700;font-size:2rem;letter-spacing:-1px;display:block}
+  .bs span{color:var(--grey);font-size:.85rem}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  .cols h3{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:-.3px;margin-bottom:10px;padding-top:14px;border-top:3px solid var(--black)}
+  .cols p{color:#3b3e45;margin-bottom:14px}
+
+  /* ===== Executive ===== */
+  .marquee{font-family:var(--display);font-weight:700;font-size:.85rem;letter-spacing:3px;color:var(--paper);background:var(--black);display:inline-block;padding:11px 26px;margin-bottom:40px}
+  .marquee em{font-style:normal;color:var(--electric);filter:brightness(1.6)}
+  .flow{display:flex;flex-direction:column;align-items:center}
+  .figure{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .photo{width:126px;height:126px;border-radius:50%;background:var(--white);border:2px solid var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.9rem;position:relative}
+  .photo::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--electric);opacity:0;transition:opacity .2s}
+  .figure:hover .photo::after{opacity:1}
+  .figure h3{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.3px;margin-top:14px}
+  .figure .role{font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--electric);margin-top:3px}
+  .stem{margin:18px 0;color:var(--black)}
+  .stem svg{width:22px;height:48px}
+  .glabel{font-family:var(--display);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:.75rem;color:var(--grey);margin:10px 0 26px;display:flex;align-items:center;gap:14px}
+  .glabel::before,.glabel::after{content:"";width:48px;height:1px;background:var(--line)}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:30px 18px;width:100%;max-width:880px}
+  .mgrid .photo{width:88px;height:88px;font-size:1.3rem}
+  .mgrid h3{font-size:.98rem}
+
+  /* ===== Advocates ===== */
+  .tools{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+  .tools input{flex:1;max-width:360px;padding:12px 15px;border:1px solid var(--black);background:var(--white);font-family:var(--body);font-size:.93rem}
+  .tools input:focus{outline:2px solid var(--electric)}
+  .count{font-family:var(--display);font-weight:600;font-size:.83rem;color:var(--grey)}
+  .twrap{border:1px solid var(--black);background:var(--white);overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:.91rem;min-width:740px}
+  thead th{font-family:var(--display);font-weight:700;font-size:.76rem;letter-spacing:1.5px;text-transform:uppercase;padding:14px 16px;text-align:left;border-bottom:2px solid var(--black);background:var(--paper)}
+  tbody td{padding:12px 16px;border-bottom:1px solid var(--line);color:#2c2f36}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#eef2ff}
+  td.num{font-family:var(--display);font-weight:600;color:var(--electric)}
+
+  /* ===== Gallery ===== */
+  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0;border:1px solid var(--black);background:var(--white)}
+  .cell{aspect-ratio:4/3;border:1px solid var(--line);margin:-1px 0 0 -1px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;position:relative;transition:background .2s}
+  .cell:hover{background:var(--electric)}
+  .cell svg{width:42px;height:42px;fill:#c9cbd2;transition:fill .2s}
+  .cell:hover svg{fill:rgba(255,255,255,.7)}
+  .cell span{font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.5px;color:var(--grey);text-align:center;padding:0 14px;transition:color .2s}
+  .cell:hover span{color:#fff}
+  .cell i{position:absolute;top:10px;left:12px;font-style:normal;font-family:var(--display);font-weight:700;font-size:.72rem;color:var(--line)}
+  .cell:hover i{color:rgba(255,255,255,.6)}
+
+  /* ===== Contact ===== */
+  .cg{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:1px solid var(--black);background:var(--white)}
+  .cbL{background:var(--black);color:var(--paper);padding:34px}
+  .cbL h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.3px;margin-bottom:20px}
+  .cbL p{margin-bottom:16px;font-size:.93rem;color:#c6c8ce}
+  .cbL b{color:#fff;font-family:var(--display);letter-spacing:.5px;font-size:.8rem;text-transform:uppercase;display:block;margin-bottom:2px}
+  .cbL .accent{color:var(--electric);filter:brightness(1.7)}
+  .cbR{padding:34px}
+  .cbR h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.3px;margin-bottom:6px}
+  .cbR label{display:block;font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin:16px 0 6px}
+  .cbR input,.cbR textarea{width:100%;padding:12px 14px;border:1px solid var(--black);font-family:var(--body);font-size:.93rem;background:var(--paper)}
+  .cbR input:focus,.cbR textarea:focus{outline:2px solid var(--electric)}
+  .cbR button{margin-top:20px;background:var(--electric);color:#fff;border:none;padding:14px 34px;font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.5px;cursor:pointer;transition:background .2s}
+  .cbR button:hover{background:var(--electric-dark)}
+  .ok{display:none;margin-top:12px;color:var(--electric-dark);font-weight:600;font-size:.87rem}
+
+  footer{border-top:2px solid var(--black);text-align:center;font-family:var(--display);font-size:.8rem;letter-spacing:1.5px;color:var(--grey);padding:24px}
+
+  @media(max-width:900px){
+    .hrow{flex-direction:column}
+    .tabs{overflow-x:auto}
+    .tabs button{padding:13px 15px;white-space:nowrap}
+    .bigstats{grid-template-columns:repeat(2,1fr)}
+    .bs:nth-child(2n){border-right:1px solid var(--line)}
+    .cols,.cg{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <div class="wordmark"><span class="sq"></span>DISTRICT BAR ASSOCIATION</div>
+    <nav class="tabs" aria-label="Primary">
+      <button class="active" data-tab="about">About</button>
+      <button data-tab="exec">Executive Body</button>
+      <button data-tab="advocates">Advocates</button>
+      <button data-tab="gallery">Gallery</button>
+      <button data-tab="contact">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABOUT -->
+  <div id="about" class="panel show">
+    <div class="pagehead">
+      <div class="index">01 / ABOUT</div>
+      <h2>The Bar of the district,<br><em>organised.</em></h2>
+      <p>Since 1962, the collective body of practising advocates before the district judiciary — 1,240 members and growing.</p>
+    </div>
+    <div class="bigstats">
+      <div class="bs"><b>1962</b><span>Established</span></div>
+      <div class="bs"><b>1,240+</b><span>Member advocates</span></div>
+      <div class="bs"><b>18k+</b><span>Library volumes</span></div>
+      <div class="bs"><b>60+</b><span>Legal aid camps</span></div>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Who we are</h3>
+        <p>The District Bar Association is the representative body of advocates practising before the courts of the district. It safeguards the professional interests of its members, promotes ethical practice, and fosters cordial relations between the Bench and the Bar.</p>
+        <p>Every advocate enrolled with the State Bar Council and ordinarily practising in the district is eligible for membership.</p>
+      </div>
+      <div>
+        <h3>What we do</h3>
+        <p>The Association maintains the Bar library and reading rooms, organises continuing legal education, administers a welfare fund for members and their families, and coordinates legal aid and awareness camps across the district.</p>
+        <p>Its affairs are managed by an Executive Body elected each year by the General Body of members.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE -->
+  <div id="exec" class="panel">
+    <div class="pagehead">
+      <div class="index">02 / LEADERSHIP</div>
+      <h2>Executive Body <em>2026</em></h2>
+      <p>Office bearers elected by the General Body to manage the affairs of the Association for the year.</p>
+    </div>
+    <div class="flow">
+      <div class="marquee">EXECUTIVE BODY — <em>2026</em></div>
+
+      <div class="figure">
+        <div class="photo">RK</div>
+        <h3>Sri R. Krishna Murthy</h3>
+        <div class="role">President</div>
+      </div>
+
+      <div class="stem" aria-hidden="true"><svg viewBox="0 0 22 48"><path d="M11 0v38m0 0l-6-7m6 7l6-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+
+      <div class="figure">
+        <div class="photo">SL</div>
+        <h3>Smt. S. Lakshmi Prasanna</h3>
+        <div class="role">Secretary</div>
+      </div>
+
+      <div class="stem" aria-hidden="true"><svg viewBox="0 0 22 48"><path d="M11 0v38m0 0l-6-7m6 7l6-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+
+      <div class="glabel">Executive Members</div>
+      <div class="mgrid">
+        <div class="figure"><div class="photo">VR</div><h3>V. Ramesh Babu</h3><div class="role">Vice President</div></div>
+        <div class="figure"><div class="photo">AK</div><h3>A. Karthik Reddy</h3><div class="role">Joint Secretary</div></div>
+        <div class="figure"><div class="photo">MS</div><h3>M. Srinivas Rao</h3><div class="role">Treasurer</div></div>
+        <div class="figure"><div class="photo">PD</div><h3>P. Divya</h3><div class="role">Library Secretary</div></div>
+        <div class="figure"><div class="photo">GN</div><h3>G. Naveen Kumar</h3><div class="role">Sports Secretary</div></div>
+        <div class="figure"><div class="photo">TB</div><h3>T. Bhavani</h3><div class="role">Member</div></div>
+        <div class="figure"><div class="photo">KV</div><h3>K. Venkatesh</h3><div class="role">Member</div></div>
+        <div class="figure"><div class="photo">JR</div><h3>J. Rajitha</h3><div class="role">Member</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVOCATES -->
+  <div id="advocates" class="panel">
+    <div class="pagehead">
+      <div class="index">03 / MEMBERS</div>
+      <h2>Roll of <em>Advocates</em></h2>
+      <p>A directory of member advocates practising before the courts of the district.</p>
+    </div>
+    <div class="tools">
+      <input type="text" id="advSearch" placeholder="Search advocates…" aria-label="Search advocates">
+      <span class="count" id="advCount"></span>
+    </div>
+    <div class="twrap">
+      <table id="advTable">
+        <thead><tr><th>S. No.</th><th>Name</th><th>Enrolment No.</th><th>Year</th><th>Chamber / Contact</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="gallery" class="panel">
+    <div class="pagehead">
+      <div class="index">04 / MOMENTS</div>
+      <h2>Gallery</h2>
+      <p>Events, celebrations and milestones from the life of the Association.</p>
+    </div>
+    <div class="gal" id="galleryGrid"></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="panel">
+    <div class="pagehead">
+      <div class="index">05 / GET IN TOUCH</div>
+      <h2>Contact the <em>Association</em></h2>
+      <p>Visit the office at the court complex or write to us below.</p>
+    </div>
+    <div class="cg">
+      <div class="cbL">
+        <h3>Association Office</h3>
+        <p><b class="accent">Address</b>Bar Association Building, District Court Complex, Hyderabad — 500 001, Telangana</p>
+        <p><b class="accent">Phone</b>+91 40 2345 6789</p>
+        <p><b class="accent">Email</b>office@districtbar.org</p>
+        <p><b class="accent">Hours</b>Mon – Sat · 10:30 AM – 5:30 PM<br>Closed on court holidays</p>
+      </div>
+      <div class="cbR">
+        <h3>Send a message</h3>
+        <label for="p-name">Name</label>
+        <input id="p-name" type="text" placeholder="Your full name">
+        <label for="p-email">Email</label>
+        <input id="p-email" type="email" placeholder="you@example.com">
+        <label for="p-msg">Message</label>
+        <textarea id="p-msg" rows="4" placeholder="How can we help?"></textarea>
+        <button id="p-send">Send message</button>
+        <p class="ok" id="p-ok">✓ Message recorded (prototype only).</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>© 2026 DISTRICT BAR ASSOCIATION — MODERN C / BOLD EDITORIAL</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tabs button');
+const panels=document.querySelectorAll('.panel');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  panels.forEach(p=>p.classList.remove('show'));
+  document.getElementById(btn.dataset.tab).classList.add('show');
+  window.scrollTo({top:0});
+}));
+
+const advocates=[
+  ["R. Krishna Murthy","TS/1023/1998",1998,"Ch. 12 · 98490 11223"],
+  ["S. Lakshmi Prasanna","TS/2210/2003",2003,"Ch. 4 · 98491 22334"],
+  ["V. Ramesh Babu","TS/1877/2001",2001,"Ch. 21 · 90001 33445"],
+  ["A. Karthik Reddy","TS/3402/2009",2009,"Ch. 7 · 96660 44556"],
+  ["M. Srinivas Rao","TS/1456/1999",1999,"Ch. 15 · 98850 55667"],
+  ["P. Divya","TS/4521/2012",2012,"Ch. 9 · 90140 66778"],
+  ["G. Naveen Kumar","TS/3988/2010",2010,"Ch. 18 · 97010 77889"],
+  ["T. Bhavani","TS/5102/2014",2014,"Ch. 2 · 91820 88990"],
+  ["K. Venkatesh","TS/2655/2005",2005,"Ch. 25 · 98480 99001"],
+  ["J. Rajitha","TS/4890/2013",2013,"Ch. 11 · 90320 10112"],
+  ["B. Anil Chandra","TS/5677/2016",2016,"Ch. 6 · 96520 21223"],
+  ["D. Swapna Rani","TS/6012/2017",2017,"Ch. 14 · 98660 32334"],
+  ["N. Prakash Goud","TS/2301/2004",2004,"Ch. 19 · 90520 43445"],
+  ["Ch. Mahesh Yadav","TS/6534/2018",2018,"Ch. 3 · 97050 54556"],
+  ["Y. Sandhya","TS/7101/2019",2019,"Ch. 22 · 98120 65667"],
+  ["L. Ravi Teja","TS/7423/2020",2020,"Ch. 8 · 90980 76778"],
+  ["E. Suresh","TS/3120/2008",2008,"Ch. 16 · 96190 87889"],
+  ["U. Padmavathi","TS/7890/2021",2021,"Ch. 5 · 98440 98990"],
+  ["H. Farhan Ali","TS/8234/2022",2022,"Ch. 20 · 90740 09011"],
+  ["O. Vinay Sagar","TS/8677/2023",2023,"Ch. 10 · 97330 10121"]
+];
+const tbody=document.querySelector('#advTable tbody');
+advocates.forEach((a,i)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="num">${String(i+1).padStart(2,'0')}</td><td><b>${a[0]}</b></td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td>`;
+  tbody.appendChild(tr);
+});
+const countEl=document.getElementById('advCount');
+const setCount=n=>countEl.textContent=`${n} / ${advocates.length} SHOWN`;
+setCount(advocates.length);
+document.getElementById('advSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();let n=0;
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    const hit=tr.textContent.toLowerCase().includes(q);
+    tr.style.display=hit?'':'none'; if(hit)n++;
+  });
+  setCount(n);
+});
+
+const captions=["Annual Day 2025","Law Day Celebrations","Library Wing Inauguration","Legal Aid Camp","Farewell Function","Cricket Tournament","Independence Day","Blood Donation Drive","Felicitation Ceremony"];
+const grid=document.getElementById('galleryGrid');
+captions.forEach((c,i)=>{
+  const d=document.createElement('div');
+  d.className='cell';
+  d.innerHTML=`<i>${String(i+1).padStart(2,'0')}</i><svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5L19 18H5l3.5-4.5z"/></svg><span>${c}</span>`;
+  grid.appendChild(d);
+});
+
+document.getElementById('p-send').addEventListener('click',()=>{
+  document.getElementById('p-ok').style.display='block';
+});
+</script>
+</body>
+</html>

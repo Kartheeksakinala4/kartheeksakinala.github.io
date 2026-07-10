@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -19,19 +19,77 @@
 <div class="bg-glow two"></div>
 
 <header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-wrap">
+      <div class="topbar-contacts">
+        <a href="tel:+919030356966"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> +91 90303 56966</a>
+        <a href="mailto:info@pynek.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg> info@pynek.com</a>
+      </div>
+      <button class="newsletter-link" type="button" data-open-newsletter>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+        Subscribe to our Newsletter
+      </button>
+    </div>
+  </div>
   <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="Pynek home">
-      <img src="assets/img/pynek-logo.svg" alt="Pynek">
+    <a class="brand" href="index.html" aria-label="Pynek Technologies home">
+      <img src="assets/img/pynek-mark.svg" alt="Pynek Technologies" class="brand-mark">
+      <span class="brand-text">
+        <span class="brand-name">PYN<span class="brand-e">E</span>K</span>
+        <span class="brand-sub">TECHNOLOGIES</span>
+      </span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="cybersecurity.html">Cybersecurity</a></li>
-      <li><a href="digital-forensics.html">Digital Forensics</a></li>
-      <li><a href="data-recovery.html" class="active">Data Recovery</a></li>
-      <li><a href="trainings.html">Trainings</a></li>
+      <li class="has-dropdown">
+        <a href="cybersecurity.html">Cybersecurity <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="cybersecurity.html">All Cybersecurity Services &rarr;</a></li>
+          <li><a href="cybersecurity.html#vulnerability-assessment">Vulnerability Assessment</a></li>
+          <li><a href="cybersecurity.html#penetration-testing">Penetration Testing</a></li>
+          <li><a href="cybersecurity.html#endpoint-security">Endpoint Security</a></li>
+          <li><a href="cybersecurity.html#data-loss-prevention">Data Loss Prevention</a></li>
+          <li><a href="cybersecurity.html#brand-dark-web-monitoring">Brand &amp; Dark Web Monitoring</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="digital-forensics.html">Digital Forensics <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown wide">
+          <li><a class="dd-all" href="digital-forensics.html">All Digital Forensics Services &rarr;</a></li>
+          <li><a href="digital-forensics.html#computer-forensics">Computer Forensics</a></li>
+          <li><a href="digital-forensics.html#storage-media-forensics">Storage Media Forensics</a></li>
+          <li><a href="digital-forensics.html#mobile-forensics">Mobile Forensics</a></li>
+          <li><a href="digital-forensics.html#email-forensics">E-mail Forensics</a></li>
+          <li><a href="digital-forensics.html#audio-forensics">Audio Forensics</a></li>
+          <li><a href="digital-forensics.html#image-forensics">Image Forensics</a></li>
+          <li><a href="digital-forensics.html#video-forensics">Video Forensics</a></li>
+          <li><a href="digital-forensics.html#osint">OSINT</a></li>
+          <li><a href="digital-forensics.html#malware-forensics">Malware Forensics</a></li>
+          <li><a href="digital-forensics.html#network-forensics">Network Forensics</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="data-recovery.html" class="active">Data Recovery <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="data-recovery.html">All Data Recovery Services &rarr;</a></li>
+          <li><a href="data-recovery.html#logical-recovery">Logical Recovery</a></li>
+          <li><a href="data-recovery.html#firmware-recovery">Firmware-Level Recovery</a></li>
+          <li><a href="data-recovery.html#physical-recovery">Physical Recovery</a></li>
+          <li><a href="data-recovery.html#bitlocker-recovery">BitLocker Recovery</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="trainings.html">Trainings <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="trainings.html">All Trainings &rarr;</a></li>
+          <li><a href="trainings.html#cybersecurity-training">Cybersecurity Training</a></li>
+          <li><a href="trainings.html#digital-forensics-training">Digital Forensics Training</a></li>
+          <li><a href="trainings.html#data-recovery-training">Data Recovery Training</a></li>
+        </ul>
+      </li>
       <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
     </ul>
   </div>
@@ -53,7 +111,7 @@
       <p>Media fails in different ways, and each failure demands a different discipline. We diagnose first, then recover at the level your media actually needs.</p>
     </div>
     <div class="grid cols-3">
-      <div class="card reveal">
+      <div id="logical-recovery" class="card reveal">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M13 2v7h7"/></svg></div>
         <h3>Logical Recovery</h3>
         <p>The drive is healthy but the data isn't reachable — deleted files, formatted partitions, corrupted file systems, ransomware aftermath, or OS failures. We rebuild structures and carve data without ever writing to your original media.</p>
@@ -63,7 +121,7 @@
           <li>Corrupted database and file reconstruction</li>
         </ul>
       </div>
-      <div class="card reveal d1">
+      <div id="firmware-recovery" class="card reveal d1">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
         <h3>Firmware-Level Recovery</h3>
         <p>When a drive's own microcode fails — corrupted service areas, translator faults, or SSD controller issues — the data is intact but invisible. Using specialised hardware tools, we repair firmware and regain access safely.</p>
@@ -73,7 +131,7 @@
           <li>Vendor-specific firmware fault handling</li>
         </ul>
       </div>
-      <div class="card reveal d2">
+      <div id="physical-recovery" class="card reveal d2">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5V5"/></svg></div>
         <h3>Physical Recovery</h3>
         <p>Clicking drives, head crashes, motor seizures, water and fire damage. In a controlled cleanroom environment we transplant heads, swap platters, and image failing media sector by sector before it degrades further.</p>
@@ -87,7 +145,7 @@
   </div>
 </section>
 
-<section style="padding-top: 0;">
+<section id="bitlocker-recovery" style="padding-top: 0;">
   <div class="container split">
     <div class="reveal">
       <span class="eyebrow">Encrypted Media</span>
@@ -155,7 +213,13 @@
   <div class="container">
     <div class="footer-grid">
       <div class="f-brand">
-        <img src="assets/img/pynek-logo.svg" alt="Pynek">
+        <a class="brand" href="index.html" aria-label="Pynek Technologies home">
+          <img src="assets/img/pynek-mark.svg" alt="Pynek Technologies" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">PYN<span class="brand-e">E</span>K</span>
+            <span class="brand-sub">TECHNOLOGIES</span>
+          </span>
+        </a>
         <p>Specialists in cybersecurity, digital forensics, and data recovery — protecting businesses and uncovering digital truth.</p>
       </div>
       <div>
@@ -191,6 +255,32 @@
     </div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="newsletter-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="nl-title">
+    <button class="modal-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 id="nl-title">Subscribe to our Newsletter</h3>
+    <p>Security insights, case studies, and training announcements from the Pynek team. No spam, unsubscribe anytime.</p>
+    <form id="newsletter-form">
+      <div class="field">
+        <label for="nl-name">Name *</label>
+        <input id="nl-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="nl-email">E-mail *</label>
+        <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="nl-mobile">Mobile number *</label>
+        <input id="nl-mobile" name="mobile" type="tel" required autocomplete="tel" placeholder="+91 …">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe</button>
+      <div class="form-status" id="newsletter-status"></div>
+    </form>
+  </div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Pynek</title>
+  <meta name="description" content="Contact Pynek for cybersecurity services, digital forensic investigations, data recovery, and training enquiries. Confidential consultations.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow one"></div>
+<div class="bg-glow two"></div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="Pynek home">
+      <img src="assets/img/pynek-logo.svg" alt="Pynek">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cybersecurity.html">Cybersecurity</a></li>
+      <li><a href="digital-forensics.html">Digital Forensics</a></li>
+      <li><a href="data-recovery.html">Data Recovery</a></li>
+      <li><a href="trainings.html">Trainings</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="here">Contact</span></div>
+    <h1>Talk to a Specialist</h1>
+    <p>Whether it's an active incident, a locked drive, or a training enquiry — reach out. Every conversation is confidential and without obligation.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container contact-grid">
+    <div class="contact-info-card reveal">
+      <h3 style="margin-bottom: 10px;">Contact Details</h3>
+      <p style="color: var(--muted); font-size: 15px; margin-bottom: 12px;">For urgent incidents and failing media, call us directly — response time matters.</p>
+
+      <div class="contact-line">
+        <span class="cl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+        <div>
+          <h4>Phone</h4>
+          <p><a href="tel:+919030356966">+91 90303 56966</a><br><a href="tel:+919322407016">+91 93224 07016</a></p>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <span class="cl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+        <div>
+          <h4>E-mail</h4>
+          <p><a href="mailto:info@pynek.com">info@pynek.com</a></p>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <span class="cl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div>
+          <h4>Location</h4>
+          <p>Hyderabad, India</p>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <span class="cl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+        <div>
+          <h4>Availability</h4>
+          <p>Mon–Sat, 9:30 AM – 7:00 PM IST<br>24/7 for active incidents</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal d1" id="contact-form">
+      <h3 style="margin-bottom: 10px;">Send us a message</h3>
+      <p style="color: var(--muted); font-size: 15px; margin-bottom: 22px;">Submitting opens your e-mail client with the message pre-filled — nothing is stored on this website.</p>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="cf-name">Full name *</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="cf-email">E-mail *</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="cf-phone">Phone</label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …">
+        </div>
+        <div class="field">
+          <label for="cf-service">I'm interested in *</label>
+          <select id="cf-service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Cybersecurity — Vulnerability Assessment</option>
+            <option>Cybersecurity — Penetration Testing</option>
+            <option>Cybersecurity — Endpoint Security</option>
+            <option>Cybersecurity — Data Loss Prevention</option>
+            <option>Cybersecurity — Brand &amp; Dark Web Monitoring</option>
+            <option>Digital Forensics Investigation</option>
+            <option>Data Recovery — Damaged Media</option>
+            <option>Data Recovery — BitLocker</option>
+            <option>Training — Cybersecurity</option>
+            <option>Training — Digital Forensics</option>
+            <option>Training — Data Recovery</option>
+            <option>Other / General enquiry</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="cf-message">Message *</label>
+        <textarea id="cf-message" name="message" required placeholder="Briefly describe your situation or requirement…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <img src="assets/img/pynek-logo.svg" alt="Pynek">
+        <p>Specialists in cybersecurity, digital forensics, and data recovery — protecting businesses and uncovering digital truth.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="digital-forensics.html">Digital Forensics</a></li>
+          <li><a href="data-recovery.html">Data Recovery</a></li>
+          <li><a href="trainings.html">Trainings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">What We Do</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@pynek.com">info@pynek.com</a></li>
+          <li><a href="tel:+919030356966">+91 90303 56966</a></li>
+          <li><a href="tel:+919322407016">+91 93224 07016</a></li>
+          <li>Hyderabad, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Pynek. All rights reserved.</span>
+      <span>Cybersecurity · Digital Forensics · Data Recovery · Trainings</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

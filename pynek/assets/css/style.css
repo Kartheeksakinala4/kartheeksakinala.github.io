@@ -141,16 +141,37 @@ section { padding: 88px 0; position: relative; }
   gap: 24px;
 }
 
-/* Brand: mark + wordmark */
+/* Brand: mark + wordmark (wordmark styled after the Pynek logo) */
 .brand { display: flex; align-items: center; gap: 13px; }
 .brand .brand-mark { height: 44px; width: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name {
-  font-family: var(--font-brand);
-  font-size: 23px;
+  font-family: "Orbitron", var(--font-brand);
+  font-size: 21px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: #3b4048;
+}
+/* The E's top arm is detached and blue, as in the logo */
+.brand-e { position: relative; display: inline-block; --brand-bg: #ffffff; }
+.brand-e::after {
+  content: "";
+  position: absolute;
+  top: 0.1em;
+  left: -0.02em;
+  right: 0.06em;
+  height: 0.1em;
+  background: var(--brand-bg);
+}
+.brand-e::before {
+  content: "";
+  position: absolute;
+  top: -0.06em;
+  left: -0.02em;
+  right: 0.06em;
+  height: 0.14em;
+  background: #42a0e0;
+  z-index: 1;
 }
 .brand-sub {
   font-family: var(--font-brand);
@@ -691,10 +712,37 @@ section { padding: 88px 0; position: relative; }
 
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 40px; margin-bottom: 48px; }
 
-.footer-grid .f-brand .brand { margin-bottom: 16px; align-items: center; }
-.footer-grid .f-brand .brand-mark { height: 46px; }
-.site-footer .brand-name { color: #eef2f8; font-size: 21px; }
-.site-footer .brand-sub { color: #6ea3e8; }
+/* Footer: stacked lockup — mark above, wordmark below (as in the logo) */
+.footer-grid .f-brand .brand { margin-bottom: 18px; }
+.brand-stacked {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  display: inline-flex;
+}
+.brand-stacked .brand-mark { height: 74px; }
+.brand-stacked .brand-text { align-items: center; }
+.site-footer .brand-name { color: #eef2f8; font-size: 23px; }
+.site-footer .brand-e { --brand-bg: #050810; }
+.site-footer .brand-sub { color: #6ea3e8; font-size: 10.2px; margin-top: 6px; }
+.brand-pvt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-brand);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #6ea3e8;
+  margin-top: 6px;
+}
+.brand-pvt::before, .brand-pvt::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: #55606f;
+}
 .footer-grid .f-brand p { color: var(--muted); font-size: 14.5px; max-width: 300px; }
 
 .footer-grid h4 {

@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" role="img" aria-label="Pynek mark">
   <defs>
-    <clipPath id="circ"><circle cx="225" cy="195" r="180"/></clipPath>
+    <clipPath id="circ"><circle cx="222" cy="190" r="175"/></clipPath>
   </defs>
   <!-- Main circle -->
-  <circle cx="225" cy="195" r="180" fill="#42A0E0"/>
-  <!-- Darker fold inside the circle -->
+  <circle cx="222" cy="190" r="175" fill="#42A0E0"/>
+  <!-- Darker fold inside the circle, starting at the notch edge -->
   <g clip-path="url(#circ)">
-    <path d="M152 292 C 245 352, 338 342, 412 262 L 420 420 L 152 420 Z" fill="#3467B8"/>
+    <path d="M190 195 C 245 288, 315 292, 390 228 L 418 400 L 160 400 Z" fill="#3566B7"/>
   </g>
-  <!-- White notch that separates stem from circle -->
-  <rect x="20" y="250" width="132" height="98" fill="#fff"/>
+  <!-- White notch separating stem from circle -->
+  <rect x="30" y="190" width="160" height="88" fill="#fff"/>
   <!-- Stem -->
-  <path d="M40 270 H 152 V 468 Q 152 512 108 512 H 84 Q 40 512 40 468 Z" fill="#42A0E0"/>
-  <!-- Darker diagonal on the stem -->
-  <path d="M40 270 H 152 V 300 L 40 402 Z" fill="#3B6FC9"/>
+  <path d="M47 278 H 190 V 480 Q 190 545 118 545 Q 47 545 47 480 Z" fill="#42A0E0"/>
+  <!-- Darker diagonal at the top of the stem -->
+  <path d="M47 278 H 190 V 306 L 47 400 Z" fill="#3E6FC9"/>
 </svg>

@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -19,19 +19,77 @@
 <div class="bg-glow two"></div>
 
 <header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-wrap">
+      <div class="topbar-contacts">
+        <a href="tel:+919030356966"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> +91 90303 56966</a>
+        <a href="mailto:info@pynek.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg> info@pynek.com</a>
+      </div>
+      <button class="newsletter-link" type="button" data-open-newsletter>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+        Subscribe to our Newsletter
+      </button>
+    </div>
+  </div>
   <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="Pynek home">
-      <img src="assets/img/pynek-logo.svg" alt="Pynek">
+    <a class="brand" href="index.html" aria-label="Pynek Technologies home">
+      <img src="assets/img/pynek-mark.svg" alt="Pynek Technologies" class="brand-mark">
+      <span class="brand-text">
+        <span class="brand-name">PYN<span class="brand-e">E</span>K</span>
+        <span class="brand-sub">TECHNOLOGIES</span>
+      </span>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="cybersecurity.html">Cybersecurity</a></li>
-      <li><a href="digital-forensics.html">Digital Forensics</a></li>
-      <li><a href="data-recovery.html">Data Recovery</a></li>
-      <li><a href="trainings.html">Trainings</a></li>
+      <li class="has-dropdown">
+        <a href="cybersecurity.html">Cybersecurity <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="cybersecurity.html">All Cybersecurity Services &rarr;</a></li>
+          <li><a href="cybersecurity.html#vulnerability-assessment">Vulnerability Assessment</a></li>
+          <li><a href="cybersecurity.html#penetration-testing">Penetration Testing</a></li>
+          <li><a href="cybersecurity.html#endpoint-security">Endpoint Security</a></li>
+          <li><a href="cybersecurity.html#data-loss-prevention">Data Loss Prevention</a></li>
+          <li><a href="cybersecurity.html#brand-dark-web-monitoring">Brand &amp; Dark Web Monitoring</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="digital-forensics.html">Digital Forensics <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown wide">
+          <li><a class="dd-all" href="digital-forensics.html">All Digital Forensics Services &rarr;</a></li>
+          <li><a href="digital-forensics.html#computer-forensics">Computer Forensics</a></li>
+          <li><a href="digital-forensics.html#storage-media-forensics">Storage Media Forensics</a></li>
+          <li><a href="digital-forensics.html#mobile-forensics">Mobile Forensics</a></li>
+          <li><a href="digital-forensics.html#email-forensics">E-mail Forensics</a></li>
+          <li><a href="digital-forensics.html#audio-forensics">Audio Forensics</a></li>
+          <li><a href="digital-forensics.html#image-forensics">Image Forensics</a></li>
+          <li><a href="digital-forensics.html#video-forensics">Video Forensics</a></li>
+          <li><a href="digital-forensics.html#osint">OSINT</a></li>
+          <li><a href="digital-forensics.html#malware-forensics">Malware Forensics</a></li>
+          <li><a href="digital-forensics.html#network-forensics">Network Forensics</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="data-recovery.html">Data Recovery <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="data-recovery.html">All Data Recovery Services &rarr;</a></li>
+          <li><a href="data-recovery.html#logical-recovery">Logical Recovery</a></li>
+          <li><a href="data-recovery.html#firmware-recovery">Firmware-Level Recovery</a></li>
+          <li><a href="data-recovery.html#physical-recovery">Physical Recovery</a></li>
+          <li><a href="data-recovery.html#bitlocker-recovery">BitLocker Recovery</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="trainings.html">Trainings <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="dropdown">
+          <li><a class="dd-all" href="trainings.html">All Trainings &rarr;</a></li>
+          <li><a href="trainings.html#cybersecurity-training">Cybersecurity Training</a></li>
+          <li><a href="trainings.html#digital-forensics-training">Digital Forensics Training</a></li>
+          <li><a href="trainings.html#data-recovery-training">Data Recovery Training</a></li>
+        </ul>
+      </li>
       <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
     </ul>
   </div>
@@ -86,7 +144,7 @@
 
     <form class="contact-form reveal d1" id="contact-form">
       <h3 style="margin-bottom: 10px;">Send us a message</h3>
-      <p style="color: var(--muted); font-size: 15px; margin-bottom: 22px;">Submitting opens your e-mail client with the message pre-filled — nothing is stored on this website.</p>
+      <p style="color: var(--muted); font-size: 15px; margin-bottom: 22px;">Fill in the form and our team will get back to you within one business day.</p>
 
       <div class="form-row">
         <div class="field">
@@ -132,6 +190,7 @@
       <button type="submit" class="btn btn-primary">Send Message
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
       </button>
+      <div class="form-status" id="contact-status"></div>
     </form>
   </div>
 </section>
@@ -140,7 +199,13 @@
   <div class="container">
     <div class="footer-grid">
       <div class="f-brand">
-        <img src="assets/img/pynek-logo.svg" alt="Pynek">
+        <a class="brand" href="index.html" aria-label="Pynek Technologies home">
+          <img src="assets/img/pynek-mark.svg" alt="Pynek Technologies" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">PYN<span class="brand-e">E</span>K</span>
+            <span class="brand-sub">TECHNOLOGIES</span>
+          </span>
+        </a>
         <p>Specialists in cybersecurity, digital forensics, and data recovery — protecting businesses and uncovering digital truth.</p>
       </div>
       <div>
@@ -176,6 +241,32 @@
     </div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="newsletter-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="nl-title">
+    <button class="modal-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 id="nl-title">Subscribe to our Newsletter</h3>
+    <p>Security insights, case studies, and training announcements from the Pynek team. No spam, unsubscribe anytime.</p>
+    <form id="newsletter-form">
+      <div class="field">
+        <label for="nl-name">Name *</label>
+        <input id="nl-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="nl-email">E-mail *</label>
+        <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="nl-mobile">Mobile number *</label>
+        <input id="nl-mobile" name="mobile" type="tel" required autocomplete="tel" placeholder="+91 …">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe</button>
+      <div class="form-status" id="newsletter-status"></div>
+    </form>
+  </div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

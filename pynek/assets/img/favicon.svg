@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
-  <defs>
-    <clipPath id="circ"><circle cx="222" cy="190" r="175"/></clipPath>
-  </defs>
-  <circle cx="222" cy="190" r="175" fill="#42A0E0"/>
-  <g clip-path="url(#circ)">
-    <path d="M190 195 C 245 288, 315 292, 390 228 L 418 400 L 160 400 Z" fill="#3566B7"/>
-  </g>
-  <path d="M47 278 H 190 V 480 Q 190 545 118 545 Q 47 545 47 480 Z" fill="#42A0E0"/>
-  <path d="M47 278 H 190 V 306 L 47 400 Z" fill="#3E6FC9"/>
-</svg>
+

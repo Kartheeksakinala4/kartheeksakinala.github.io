@@ -300,9 +300,13 @@ section { padding: 88px 0; position: relative; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 110px 0 96px;
+  padding: 130px 0 116px;
   text-align: center;
   position: relative;
+  background:
+    linear-gradient(180deg, rgba(6, 10, 20, 0.68) 0%, rgba(6, 10, 20, 0.88) 75%, var(--bg) 100%),
+    url("../img/hero-bg.jpg") center / cover no-repeat;
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-badge {
@@ -674,7 +678,7 @@ section { padding: 88px 0; position: relative; }
   margin-top: 40px;
 }
 
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 40px; margin-bottom: 48px; }
+.footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px; margin-bottom: 48px; }
 
 /* Footer: full logo on a white card (logo has a white background) */
 .brand-card {

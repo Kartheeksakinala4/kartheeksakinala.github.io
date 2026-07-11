@@ -189,7 +189,7 @@ if (form) {
         'Name: ' + values.name + '\nEmail: ' + values.email + '\nPhone: ' + values.phone +
         '\nService: ' + values.service + '\n\n' + values.message
       );
-      window.location.href = 'mailto:info@pynek.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:contact@pynek.com?subject=' + subject + '&body=' + body;
       return;
     }
     if (status) status.className = 'form-status';

@@ -785,3 +785,36 @@ html.js .reveal.d3 { transition-delay: 0.24s; }
   .form-row { grid-template-columns: 1fr; }
   .stats { gap: 28px 12px; }
 }
+/* ---------- Light sections (multi-mode theme) ---------- */
+section.light {
+  background: #f3f7fc;
+  color: #1e2a3a;
+  --surface: #ffffff;
+  --surface-2: #f6f9fd;
+  --border: #dfe8f3;
+  --border-strong: rgba(52, 103, 184, 0.4);
+  --text: #1e2a3a;
+  --muted: #55647a;
+  --accent-soft: rgba(66, 160, 224, 0.12);
+}
+section.light .eyebrow { color: var(--accent-2); }
+section.light a:not(.btn) { color: var(--accent-2); }
+section.light .card { box-shadow: 0 10px 28px rgba(15, 35, 70, 0.07); }
+section.light .card:hover { box-shadow: 0 16px 36px rgba(15, 35, 70, 0.12); }
+section.light .field label { color: #34404f; }
+section.light .field input,
+section.light .field select,
+section.light .field textarea {
+  background: #f5f8fc;
+  border-color: #d7e2ef;
+  color: #1d2836;
+}
+section.light .field input::placeholder,
+section.light .field textarea::placeholder { color: #93a1b5; }
+section.light .btn-ghost { background: #ffffff; color: #1e2a3a; }
+
+/* ---------- Footer address ---------- */
+.f-address { color: var(--muted); font-size: 14.5px; line-height: 1.8; }
+.f-address strong { color: #cdd8e6; font-weight: 600; }
+
+

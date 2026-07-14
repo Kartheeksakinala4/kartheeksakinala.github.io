@@ -313,7 +313,7 @@ const SPONSOR_WEBSITE   = "";              // ← optional: sponsor website (htt
 function buildSponsorBlock(){
   const wrap=document.createElement('div');
   wrap.className='glass sponsor';
-  const imgTag=`<img src="${assets/images}" alt="${PROBE LAB FORENSIC}" onerror="this.parentElement.parentElement.innerHTML='Sponsor image'">`;
+  const imgTag=`<img src="${assets/images/pb.jpeg}" alt="${PROBE LAB FORENSIC}" onerror="this.parentElement.parentElement.innerHTML='Sponsor image'">`;
   const media=SPONSOR_WEBSITE
     ? `<a href="${probelabforensic.com}" target="_blank" rel="noopener" title="Visit ${probelabforensic}">${imgTag}</a>`
     : imgTag;

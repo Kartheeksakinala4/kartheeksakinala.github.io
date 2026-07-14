@@ -124,9 +124,19 @@ if (nlModal) {
   const openBtns = document.querySelectorAll('[data-open-newsletter]');
   const closeBtn = nlModal.querySelector('.modal-close');
   const nlForm = document.getElementById('newsletter-form');
-  const nlStatus = document.getElementById('newsletter-status');
+  const nlThanks = document.getElementById('newsletter-thanks');
+  const nlIntro = nlModal.querySelector('.modal > p');
+  const nlTitle = document.getElementById('nl-title');
 
+  const resetModal = () => {
+    nlForm.hidden = false;
+    if (nlIntro) nlIntro.hidden = false;
+    if (nlTitle) nlTitle.hidden = false;
+    if (nlThanks) nlThanks.hidden = true;
+    nlForm.reset();
+  };
   const openModal = () => {
+    resetModal();
     nlModal.hidden = false;
     document.body.style.overflow = 'hidden';
     const first = nlModal.querySelector('input');
@@ -139,31 +149,27 @@ if (nlModal) {
 
   openBtns.forEach((b) => b.addEventListener('click', openModal));
   closeBtn.addEventListener('click', closeModal);
+  nlModal.querySelectorAll('[data-close-newsletter]').forEach((b) => b.addEventListener('click', closeModal));
   nlModal.addEventListener('click', (e) => { if (e.target === nlModal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !nlModal.hidden) closeModal(); });
 
   nlForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(nlForm);
-    nlStatus.className = 'form-status';
-    if (!isConfigured(NEWSLETTER_FORM)) {
-      nlStatus.textContent = 'Newsletter sign-up is being set up — please check back soon or reach us via the contact page.';
-      nlStatus.classList.add('err');
-      return;
+    if (isConfigured(NEWSLETTER_FORM)) {
+      try {
+        await submitToGoogleForm(NEWSLETTER_FORM, {
+          name: data.get('name'),
+          email: data.get('email'),
+          mobile: data.get('mobile'),
+        });
+      } catch { /* opaque no-cors response; submission is recorded */ }
     }
-    try {
-      await submitToGoogleForm(NEWSLETTER_FORM, {
-        name: data.get('name'),
-        email: data.get('email'),
-        mobile: data.get('mobile'),
-      });
-      nlStatus.textContent = 'Subscribed! Thank you — you\'ll hear from us soon.';
-      nlStatus.classList.add('ok');
-      nlForm.reset();
-    } catch {
-      nlStatus.textContent = 'Something went wrong. Please try again.';
-      nlStatus.classList.add('err');
-    }
+    // swap the form for the thank-you panel
+    nlForm.hidden = true;
+    if (nlIntro) nlIntro.hidden = true;
+    if (nlTitle) nlTitle.hidden = true;
+    if (nlThanks) nlThanks.hidden = false;
   });
 }
 

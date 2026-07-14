@@ -678,7 +678,7 @@ section { padding: 88px 0; position: relative; }
   margin-top: 40px;
 }
 
-.footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px; margin-bottom: 48px; }
+.footer-grid { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 44px; margin-bottom: 48px; }
 
 /* Footer: full logo on a white card (logo has a white background) */
 .brand-card {
@@ -859,3 +859,17 @@ section.light .btn-ghost { background: #ffffff; color: #1e2a3a; }
 .blog-body h3 { font-size: 1.12rem; margin-bottom: 10px; }
 .blog-body p { color: var(--muted); font-size: 14.5px; flex: 1; }
 .blog-meta { margin-top: 16px; font-size: 13px; color: var(--muted); }
+
+/* ---------- Newsletter thank-you state ---------- */
+.nl-thanks { text-align: center; padding: 10px 0 4px; }
+.nl-thanks .tick {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: #e6f6ec;
+  color: #0f9d58;
+  display: grid; place-items: center;
+  margin: 0 auto 18px;
+}
+.nl-thanks .tick svg { width: 30px; height: 30px; }
+.nl-thanks h3 { color: #1d2836; margin-bottom: 8px; }
+.nl-thanks p { color: #5d6b7e; font-size: 14.5px; margin-bottom: 22px; }

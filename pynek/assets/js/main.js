@@ -11,10 +11,10 @@
    stored (the contact form falls back to opening the mail client).
    ============================================================ */
 const API = {
-  subscribe: 'https://YOUR-DOMAIN.example/api/subscribe.php',
-  contact: 'https://YOUR-DOMAIN.example/api/contact.php',
+  subscribe: 'https://pynek.com/api/subscribe.php',
+  contact: 'https://pynek.com/api/contact.php',
 };
-const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_V3_SITE_KEY';
+const RECAPTCHA_SITE_KEY = '6Le8R1QtAAAAAD1VJu6AAfV7O2deX2md1y2SL3fJ';
 
 const apiConfigured = (url) => !url.includes('YOUR-DOMAIN');
 const captchaConfigured = () => !RECAPTCHA_SITE_KEY.startsWith('YOUR_');

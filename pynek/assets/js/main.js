@@ -1,49 +1,53 @@
 // Pynek — shared interactions
 
 /* ============================================================
-   GOOGLE FORMS CONFIGURATION
+   API CONFIGURATION (cPanel backend)
    ------------------------------------------------------------
-   Replace the placeholder values below with your real Google
-   Form details. For each form:
-   1. Create the Google Form with matching fields.
-   2. Click "Send" → link icon → copy the form URL, and change
-      "/viewform" at the end to "/formResponse".
-   3. For each field: open the pre-filled-link tool (⋮ → Get
-      pre-filled link), fill dummy values, generate the link,
-      and copy each field's "entry.XXXXXXXXX" id from it.
-   Until configured, the newsletter form shows a notice and the
-   contact form falls back to opening the visitor's mail client.
+   1. Upload the /server folder to your hosting (see server/README.md)
+      and set the two endpoint URLs below.
+   2. Register a reCAPTCHA v3 site at google.com/recaptcha/admin and put
+      the SITE key below (the SECRET key goes only in server/config.php).
+   Until configured, forms show their success state but nothing is
+   stored (the contact form falls back to opening the mail client).
    ============================================================ */
-const NEWSLETTER_FORM = {
-  action: 'https://docs.google.com/forms/d/e/YOUR_NEWSLETTER_FORM_ID/formResponse',
-  fields: {
-    name: 'entry.1111111111',
-    email: 'entry.2222222222',
-    mobile: 'entry.3333333333',
-  },
+const API = {
+  subscribe: 'https://YOUR-DOMAIN.example/api/subscribe.php',
+  contact: 'https://YOUR-DOMAIN.example/api/contact.php',
 };
+const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_V3_SITE_KEY';
 
-const CONTACT_FORM = {
-  action: 'https://docs.google.com/forms/d/e/YOUR_CONTACT_FORM_ID/formResponse',
-  fields: {
-    name: 'entry.1111111111',
-    email: 'entry.2222222222',
-    phone: 'entry.3333333333',
-    service: 'entry.4444444444',
-    message: 'entry.5555555555',
-  },
-};
+const apiConfigured = (url) => !url.includes('YOUR-DOMAIN');
+const captchaConfigured = () => !RECAPTCHA_SITE_KEY.startsWith('YOUR_');
 
-const isConfigured = (cfg) => !cfg.action.includes('FORM_ID');
+// Lazily load the reCAPTCHA v3 script the first time a form is used.
+let recaptchaLoader = null;
+function recaptchaReady() {
+  if (!captchaConfigured()) return Promise.resolve();
+  if (!recaptchaLoader) {
+    recaptchaLoader = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY;
+      s.onload = () => grecaptcha.ready(resolve);
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  return recaptchaLoader;
+}
 
-function submitToGoogleForm(cfg, values) {
+async function captchaToken(action) {
+  if (!captchaConfigured()) return '';
+  await recaptchaReady();
+  return grecaptcha.execute(RECAPTCHA_SITE_KEY, { action });
+}
+
+async function postForm(url, fields) {
   const body = new FormData();
-  Object.keys(cfg.fields).forEach((key) => {
-    if (values[key] != null) body.append(cfg.fields[key], values[key]);
-  });
-  // no-cors: Google Forms doesn't send CORS headers; the response is
-  // opaque, but the submission is recorded.
-  return fetch(cfg.action, { method: 'POST', mode: 'no-cors', body });
+  Object.keys(fields).forEach((k) => body.append(k, fields[k] == null ? '' : fields[k]));
+  const res = await fetch(url, { method: 'POST', body });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.ok) throw new Error(data.error || 'request_failed');
+  return data;
 }
 
 // ---------- Mobile nav toggle ----------
@@ -153,17 +157,31 @@ if (nlModal) {
   nlModal.addEventListener('click', (e) => { if (e.target === nlModal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !nlModal.hidden) closeModal(); });
 
+  const nlStatus = document.getElementById('newsletter-status');
+  const nlButton = nlForm.querySelector('button[type=submit]');
+
   nlForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(nlForm);
-    if (isConfigured(NEWSLETTER_FORM)) {
+    if (nlStatus) nlStatus.className = 'form-status';
+    if (apiConfigured(API.subscribe)) {
       try {
-        await submitToGoogleForm(NEWSLETTER_FORM, {
+        if (nlButton) { nlButton.disabled = true; nlButton.textContent = 'Subscribing…'; }
+        await postForm(API.subscribe, {
           name: data.get('name'),
           email: data.get('email'),
           mobile: data.get('mobile'),
+          captcha_token: await captchaToken('subscribe'),
         });
-      } catch { /* opaque no-cors response; submission is recorded */ }
+      } catch {
+        if (nlStatus) {
+          nlStatus.textContent = 'Something went wrong. Please try again in a moment.';
+          nlStatus.classList.add('err');
+        }
+        if (nlButton) { nlButton.disabled = false; nlButton.textContent = 'Subscribe'; }
+        return;
+      }
+      if (nlButton) { nlButton.disabled = false; nlButton.textContent = 'Subscribe'; }
     }
     // swap the form for the thank-you panel
     nlForm.hidden = true;
@@ -177,30 +195,33 @@ if (nlModal) {
 const form = document.getElementById('contact-form');
 if (form) {
   const status = document.getElementById('contact-status');
+  const submitBtn = form.querySelector('button[type=submit]');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const values = {
       name: data.get('name'),
       email: data.get('email'),
-      phone: data.get('phone') || '-',
-      service: data.get('service') || '-',
+      phone: data.get('phone') || '',
+      service: data.get('service') || '',
       message: data.get('message'),
     };
-    if (!isConfigured(CONTACT_FORM)) {
-      // Fallback until the Google Form is wired up: open the
-      // visitor's mail client with the message pre-filled.
-      const subject = encodeURIComponent('[Pynek] ' + values.service + ' — ' + values.name);
+    if (!apiConfigured(API.contact)) {
+      // Fallback until the backend is configured: open the visitor's
+      // mail client with the message pre-filled.
+      const subject = encodeURIComponent('[Pynek] ' + (values.service || 'General enquiry') + ' — ' + values.name);
       const body = encodeURIComponent(
-        'Name: ' + values.name + '\nEmail: ' + values.email + '\nPhone: ' + values.phone +
-        '\nService: ' + values.service + '\n\n' + values.message
+        'Name: ' + values.name + '\nEmail: ' + values.email + '\nPhone: ' + (values.phone || '-') +
+        '\nService: ' + (values.service || '-') + '\n\n' + values.message
       );
       window.location.href = 'mailto:contact@pynek.com?subject=' + subject + '&body=' + body;
       return;
     }
     if (status) status.className = 'form-status';
     try {
-      await submitToGoogleForm(CONTACT_FORM, values);
+      if (submitBtn) { submitBtn.disabled = true; }
+      values.captcha_token = await captchaToken('contact');
+      await postForm(API.contact, values);
       if (status) {
         status.textContent = 'Message sent! We\'ll get back to you shortly.';
         status.classList.add('ok');
@@ -211,6 +232,8 @@ if (form) {
         status.textContent = 'Something went wrong. Please call us or try again.';
         status.classList.add('err');
       }
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; }
     }
   });
 }

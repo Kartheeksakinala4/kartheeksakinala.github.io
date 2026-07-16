@@ -9,10 +9,8 @@
 
 // ---- MySQL (from cPanel -> MySQL Databases) ----
 define('DB_HOST', 'localhost');
-// NOTE: cPanel usually prefixes database names with your account name,
-// e.g. "pynekco_pynek_forms". If yours is prefixed, use the full
-// prefixed name here so it matches exactly what cPanel created.
-define('DB_NAME', 'pynek_forms');
+// Must match the name in cPanel -> MySQL Databases EXACTLY (case-sensitive).
+define('DB_NAME', 'Pynek_Forms');
 define('DB_USER', 'YOUR_DB_USER');        // e.g. pynekco_webuser
 define('DB_PASS', 'YOUR_DB_PASSWORD');
 

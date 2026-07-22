@@ -44,10 +44,31 @@ async function captchaToken(action) {
 async function postForm(url, fields) {
   const body = new FormData();
   Object.keys(fields).forEach((k) => body.append(k, fields[k] == null ? '' : fields[k]));
-  const res = await fetch(url, { method: 'POST', body });
+  let res;
+  try {
+    res = await fetch(url, { method: 'POST', body });
+  } catch {
+    throw new Error('network');
+  }
   const data = await res.json().catch(() => ({}));
-  if (!res.ok || !data.ok) throw new Error(data.error || 'request_failed');
+  if (!res.ok || !data.ok) throw new Error(data.error || 'http_' + res.status);
   return data;
+}
+
+// Map an error code from postForm to a message that also identifies the
+// cause, so failures can be diagnosed from the screen.
+function formErrorMessage(err) {
+  const code = (err && err.message) || 'unknown';
+  const map = {
+    network: 'Could not reach the server — the request was blocked or the API is unreachable.',
+    captcha_missing: 'Security check did not load. Please refresh the page and try again.',
+    captcha_failed: 'Security check failed. Please refresh the page and try again.',
+    invalid_input: 'Please check the details you entered and try again.',
+    server_error: 'The server could not save your details (database error).',
+    http_403: 'The server refused the request (403).',
+    http_404: 'The API was not found on the server (404).',
+  };
+  return (map[code] || 'Something went wrong. Please try again in a moment.') + ' [' + code + ']';
 }
 
 // ---------- Mobile nav toggle ----------
@@ -173,9 +194,9 @@ if (nlModal) {
           mobile: data.get('mobile'),
           captcha_token: await captchaToken('subscribe'),
         });
-      } catch {
+      } catch (err) {
         if (nlStatus) {
-          nlStatus.textContent = 'Something went wrong. Please try again in a moment.';
+          nlStatus.textContent = formErrorMessage(err);
           nlStatus.classList.add('err');
         }
         if (nlButton) { nlButton.disabled = false; nlButton.textContent = 'Subscribe'; }
@@ -227,9 +248,9 @@ if (form) {
         status.classList.add('ok');
       }
       form.reset();
-    } catch {
+    } catch (err) {
       if (status) {
-        status.textContent = 'Something went wrong. Please call us or try again.';
+        status.textContent = formErrorMessage(err);
         status.classList.add('err');
       }
     } finally {

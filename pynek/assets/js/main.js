@@ -59,6 +59,9 @@ async function postForm(url, fields) {
 // cause, so failures can be diagnosed from the screen.
 function formErrorMessage(err) {
   const code = (err && err.message) || 'unknown';
+  if (code.startsWith('captcha_failed:')) {
+    return 'Security check failed. Please refresh the page and try again. [' + code + ']';
+  }
   const map = {
     network: 'Could not reach the server — the request was blocked or the API is unreachable.',
     captcha_missing: 'Security check did not load. Please refresh the page and try again.',

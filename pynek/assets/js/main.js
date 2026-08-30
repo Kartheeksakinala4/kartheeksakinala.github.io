@@ -3,12 +3,8 @@
 /* ============================================================
    API CONFIGURATION (cPanel backend)
    ------------------------------------------------------------
-   1. Upload the /server folder to your hosting (see server/README.md)
-      and set the two endpoint URLs below.
-   2. Register a reCAPTCHA v3 site at google.com/recaptcha/admin and put
-      the SITE key below (the SECRET key goes only in server/config.php).
-   Until configured, forms show their success state but nothing is
-   stored (the contact form falls back to opening the mail client).
+   The SECRET reCAPTCHA key lives only in server/config.php on the
+   hosting account — never here, never in the repository.
    ============================================================ */
 const API = {
   subscribe: 'https://pynek.com/api/subscribe.php',
@@ -67,6 +63,7 @@ function formErrorMessage(err) {
     captcha_missing: 'Security check did not load. Please refresh the page and try again.',
     captcha_failed: 'Security check failed. Please refresh the page and try again.',
     invalid_input: 'Please check the details you entered and try again.',
+    terms_required: 'Please accept the terms and conditions before sending.',
     server_error: 'The server could not save your details (database error).',
     http_403: 'The server refused the request (403).',
     http_404: 'The API was not found on the server (404).',
@@ -75,35 +72,48 @@ function formErrorMessage(err) {
 }
 
 // ---------- Mobile nav toggle ----------
-const toggle = document.querySelector('.nav-toggle');
-const links = document.querySelector('.nav-links');
-if (toggle && links) {
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 }
 
-// ---------- Dropdown menus ----------
+// ---------- Menus (mega + simple dropdown) ----------
 const mobileNav = window.matchMedia('(max-width: 940px)');
-document.querySelectorAll('.has-dropdown > a').forEach((parent) => {
+document.querySelectorAll('.has-mega > a, .has-dropdown > a').forEach((parent) => {
   parent.addEventListener('click', (e) => {
+    // On mobile the top-level row expands its panel instead of navigating;
+    // the links inside go to the pages.
+    if (!mobileNav.matches) return;
+    e.preventDefault();
     const li = parent.parentElement;
-    if (mobileNav.matches) {
-      // On mobile the parent row expands the sub-list; the "All …"
-      // link inside the dropdown navigates to the page itself.
-      e.preventDefault();
-      const wasOpen = li.classList.contains('open');
-      document.querySelectorAll('.has-dropdown.open').forEach((o) => o.classList.remove('open'));
-      if (!wasOpen) li.classList.add('open');
-    }
-    // On desktop hover/focus opens the dropdown and a click follows the link.
+    const wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-mega.open, .has-dropdown.open').forEach((o) => o.classList.remove('open'));
+    if (!wasOpen) li.classList.add('open');
   });
 });
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.nav-links')) {
-    document.querySelectorAll('.has-dropdown.open').forEach((o) => o.classList.remove('open'));
+    document.querySelectorAll('.has-mega.open, .has-dropdown.open').forEach((o) => o.classList.remove('open'));
   }
+});
+
+// ---------- Mega-menu category switching ----------
+document.querySelectorAll('.mega').forEach((mega) => {
+  const cats = mega.querySelectorAll('.mega-cat');
+  const panels = mega.querySelectorAll('.mega-panel');
+  const show = (key) => {
+    cats.forEach((c) => c.classList.toggle('active', c.dataset.cat === key));
+    panels.forEach((p) => p.classList.toggle('active', p.dataset.cat === key));
+  };
+  cats.forEach((cat) => {
+    cat.addEventListener('mouseenter', () => show(cat.dataset.cat));
+    cat.addEventListener('focus', () => show(cat.dataset.cat));
+    cat.addEventListener('click', () => show(cat.dataset.cat));
+  });
 });
 
 // ---------- Scroll-reveal ----------
@@ -162,21 +172,14 @@ if (nlModal) {
     if (nlTitle) nlTitle.hidden = false;
     if (nlThanks) nlThanks.hidden = true;
     nlForm.reset();
+    const st = document.getElementById('newsletter-status');
+    if (st) { st.textContent = ''; st.className = 'form-status'; }
   };
-  const openModal = () => {
-    resetModal();
-    nlModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    const first = nlModal.querySelector('input');
-    if (first) first.focus();
-  };
-  const closeModal = () => {
-    nlModal.hidden = true;
-    document.body.style.overflow = '';
-  };
+  const openModal = () => { nlModal.hidden = false; document.body.style.overflow = 'hidden'; };
+  const closeModal = () => { nlModal.hidden = true; document.body.style.overflow = ''; resetModal(); };
 
   openBtns.forEach((b) => b.addEventListener('click', openModal));
-  closeBtn.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
   nlModal.querySelectorAll('[data-close-newsletter]').forEach((b) => b.addEventListener('click', closeModal));
   nlModal.addEventListener('click', (e) => { if (e.target === nlModal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !nlModal.hidden) closeModal(); });
@@ -220,28 +223,28 @@ const form = document.getElementById('contact-form');
 if (form) {
   const status = document.getElementById('contact-status');
   const submitBtn = form.querySelector('button[type=submit]');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
     const values = {
       name: data.get('name'),
       email: data.get('email'),
-      phone: data.get('phone') || '',
-      service: data.get('service') || '',
+      phone: data.get('phone'),
+      service: data.get('service'),
       message: data.get('message'),
+      terms: data.get('terms') ? '1' : '',
     };
-    if (!apiConfigured(API.contact)) {
-      // Fallback until the backend is configured: open the visitor's
-      // mail client with the message pre-filled.
-      const subject = encodeURIComponent('[Pynek] ' + (values.service || 'General enquiry') + ' — ' + values.name);
-      const body = encodeURIComponent(
-        'Name: ' + values.name + '\nEmail: ' + values.email + '\nPhone: ' + (values.phone || '-') +
-        '\nService: ' + (values.service || '-') + '\n\n' + values.message
-      );
-      window.location.href = 'mailto:contact@pynek.com?subject=' + subject + '&body=' + body;
+    if (status) { status.className = 'form-status'; status.textContent = ''; }
+
+    if (!values.terms) {
+      if (status) {
+        status.textContent = 'Please accept the terms and conditions before sending.';
+        status.classList.add('err');
+      }
       return;
     }
-    if (status) status.className = 'form-status';
+
     try {
       if (submitBtn) { submitBtn.disabled = true; }
       values.captcha_token = await captchaToken('contact');

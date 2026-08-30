@@ -63,6 +63,7 @@ function verify_captcha(?string $token, string $expectedAction): ?float {
     CURLOPT_TIMEOUT => 10,
   ]);
   $body = curl_exec($ch);
+  $curlErr = curl_error($ch);
   curl_close($ch);
   $result = $body ? json_decode($body, true) : null;
 
@@ -72,7 +73,20 @@ function verify_captcha(?string $token, string $expectedAction): ?float {
     && (($result['score'] ?? 0) >= RECAPTCHA_MIN_SCORE);
 
   if (!$ok) {
-    json_response(403, ['ok' => false, 'error' => 'captcha_failed']);
+    // Say WHY verification failed so it can be diagnosed from the browser.
+    if (!$body) {
+      $why = 'no_reply_from_google' . ($curlErr ? ':' . $curlErr : '');
+    } elseif (!$result) {
+      $why = 'bad_reply_from_google';
+    } elseif (empty($result['success'])) {
+      $why = implode(',', $result['error-codes'] ?? ['rejected']);
+    } elseif (($result['action'] ?? '') !== $expectedAction) {
+      $why = 'action_mismatch:' . ($result['action'] ?? 'none');
+    } else {
+      $why = 'low_score:' . ($result['score'] ?? '?');
+    }
+    error_log('verify_captcha: ' . $why);
+    json_response(403, ['ok' => false, 'error' => 'captcha_failed:' . $why]);
   }
   return (float) $result['score'];
 }

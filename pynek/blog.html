@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -119,6 +119,60 @@
         </div>
       </li>
       <li><a href="products.html">Products</a></li>
+      <li class="has-mega">
+        <a href="trainings.html">Trainings <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="mega">
+          <div class="mega-inner container">
+            <div class="mega-cats">
+            <button class="mega-cat active" type="button" data-cat="t-cyber">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg>
+              <span>Cybersecurity Trainings</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <button class="mega-cat" type="button" data-cat="t-forensics">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>
+              <span>Cyber Forensics Trainings</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <button class="mega-cat" type="button" data-cat="t-recovery">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+              <span>Data Recovery Trainings</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            </div>
+            <div class="mega-panels">
+          <div class="mega-panel active" data-cat="t-cyber">
+            <div class="mega-head">
+              <h4>Build and defend networks, then think like the attacker.</h4>
+              <a href="trainings.html">All training programs &rarr;</a>
+            </div>
+            <div class="mega-grid">
+              <a class="mega-card" href="network-security-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg><strong>Network Security</strong><span>Design, harden and defend networks</span></a>
+              <a class="mega-card" href="cybersecurity-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg><strong>Cybersecurity</strong><span>Fundamentals to practitioner level</span></a>
+            </div>
+          </div>
+          <div class="mega-panel" data-cat="t-forensics">
+            <div class="mega-head">
+              <h4>The full investigative lifecycle, taught hands-on.</h4>
+              <a href="trainings.html">All training programs &rarr;</a>
+            </div>
+            <div class="mega-grid">
+              <a class="mega-card" href="digital-forensics-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg><strong>General Digital Forensics Training</strong><span>Evidence handling to reporting</span></a>
+            </div>
+          </div>
+          <div class="mega-panel" data-cat="t-recovery">
+            <div class="mega-head">
+              <h4>Professional recovery on professional tooling.</h4>
+              <a href="trainings.html">All training programs &rarr;</a>
+            </div>
+            <div class="mega-grid">
+              <a class="mega-card" href="pc3000-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><strong>PC-3000 Training</strong><span>Hands-on with the PC-3000 platform</span></a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </li>
       <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
     </ul>
@@ -229,6 +283,7 @@
         <ul>
           <li><a href="services.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
+          <li><a href="trainings.html">Trainings</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -236,7 +291,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> Pynek Technologies Private Limited. All rights reserved.</span>
-      <span>Cybersecurity &middot; Digital Forensics &middot; Data Recovery &middot; Products</span>
+      <span>Cybersecurity &middot; Digital Forensics &middot; Data Recovery &middot; Trainings</span>
     </div>
   </div>
 </footer>
@@ -273,6 +328,6 @@
   </div>
 </div>
 
-<script src="assets/js/main.js?v=7"></script>
+<script src="assets/js/main.js?v=8"></script>
 </body>
 </html>

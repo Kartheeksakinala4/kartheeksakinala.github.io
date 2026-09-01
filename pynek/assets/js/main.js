@@ -58,6 +58,13 @@ function formErrorMessage(err) {
   if (code.startsWith('captcha_failed:')) {
     return 'Security check failed. Please refresh the page and try again. [' + code + ']';
   }
+  if (code.startsWith('server_error:')) {
+    const sqlstate = code.slice('server_error:'.length);
+    const why = sqlstate === '42S22' ? 'a database column is missing'
+      : sqlstate === '42S02' ? 'a database table is missing'
+      : 'a database error occurred';
+    return 'The server could not save your details — ' + why + '. [' + code + ']';
+  }
   const map = {
     network: 'Could not reach the server — the request was blocked or the API is unreachable.',
     captcha_missing: 'Security check did not load. Please refresh the page and try again.',

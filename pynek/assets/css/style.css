@@ -656,15 +656,74 @@ section.band .section-head p { color: #cadcef; }
 .brand-card img { width: 100%; height: auto; }
 .f-address { line-height: 1.7; color: #b8c6d2; }
 .f-address strong { color: #fff; display: block; margin-bottom: 4px; }
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  padding: 20px 0 24px;
+/* dark legal strip at the very bottom */
+.footer-legal { background: #0e161d; }
+.footer-legal-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px 20px;
   flex-wrap: wrap;
+  padding: 18px 0;
   font-size: .85rem;
   color: #93a5b4;
+}
+.legal-links { display: flex; align-items: center; gap: 10px; }
+.legal-links a { color: #7fc0ea; font-weight: 700; }
+.legal-links a:hover { color: #fff; }
+.legal-links span { color: #4a5c6a; }
+@media (max-width: 620px) {
+  .footer-legal-inner { justify-content: center; text-align: center; }
+}
+
+/* ---------- long-form legal / policy pages ---------- */
+.legal-body { max-width: 78ch; }
+.legal-body h2 {
+  font-size: 1.32rem;
+  margin: 38px 0 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.legal-body h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+.legal-body h3 { font-size: 1.02rem; margin: 22px 0 8px; }
+.legal-body p, .legal-body li { color: var(--body); }
+.legal-body ul, .legal-body ol { margin: 0 0 14px; padding-left: 22px; }
+.legal-body ul { list-style: disc; }
+.legal-body ol { list-style: decimal; }
+.legal-body li { margin-bottom: 7px; }
+.legal-body a { text-decoration: underline; }
+.legal-meta {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--blue-deep);
+  font-size: .84rem;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+.legal-toc {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 34px;
+}
+.legal-toc h4 { margin-bottom: 10px; }
+.legal-toc ol { margin: 0; padding-left: 20px; list-style: decimal; }
+.legal-toc li { margin-bottom: 5px; font-size: .92rem; }
+.legal-toc a { text-decoration: none; font-weight: 500; }
+.legal-toc a:hover { text-decoration: underline; }
+
+/* ---------- 404 ---------- */
+.err-wrap { text-align: center; padding: 90px 0; }
+.err-code {
+  font-family: var(--head-font);
+  font-size: clamp(4.5rem, 14vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--blue-deep);
+  letter-spacing: -.04em;
 }
 
 /* ---------- newsletter modal ---------- */

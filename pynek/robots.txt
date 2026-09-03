@@ -1,0 +1,9 @@
+# robots.txt for pynek.com
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Housekeeping files that carry no page content
+Disallow: /404.html
+
+Sitemap: https://pynek.com/sitemap.xml

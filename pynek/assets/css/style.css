@@ -105,6 +105,8 @@ section.band .section-head p { color: #cadcef; }
   padding: 6px 0;
 }
 .newsletter-link:hover { color: #fff; }
+.topbar-location { display: inline-flex; align-items: center; gap: 8px; color: #b9c9d6; }
+.topbar-location svg { width: 15px; height: 15px; flex: none; color: #7fc0ea; }
 .newsletter-link svg { width: 15px; height: 15px; }
 
 /* ---------- header ---------- */
@@ -632,8 +634,9 @@ section.band .section-head p { color: #cadcef; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1.2fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px;
+  align-items: start;
   padding-bottom: 46px;
 }
 .site-footer h4 {
@@ -646,15 +649,16 @@ section.band .section-head p { color: #cadcef; }
 .site-footer a { color: #b8c6d2; }
 .site-footer a:hover { color: #fff; }
 .site-footer ul { display: grid; gap: 10px; }
+.site-footer li { font-size: .9rem; }
 .brand-card {
   display: inline-block;
   background: #fff;
   border-radius: var(--radius);
-  padding: 16px 20px;
-  max-width: 190px;
+  padding: 14px 18px;
+  max-width: 158px;
 }
 .brand-card img { width: 100%; height: auto; }
-.f-address { line-height: 1.7; color: #b8c6d2; }
+.f-address { line-height: 1.65; font-size: .88rem; color: #b8c6d2; }
 .f-address strong { color: #fff; display: block; margin-bottom: 4px; }
 /* dark legal strip at the very bottom */
 .footer-legal { background: #0e161d; }

@@ -634,8 +634,9 @@ section.band .section-head p { color: #cadcef; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 36px;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  gap: 52px;
   align-items: start;
   padding-bottom: 46px;
 }
@@ -658,7 +659,7 @@ section.band .section-head p { color: #cadcef; }
   max-width: 158px;
 }
 .brand-card img { width: 100%; height: auto; }
-.f-address { line-height: 1.65; font-size: .88rem; color: #b8c6d2; }
+.f-address { line-height: 1.65; font-size: .88rem; max-width: 38ch; color: #b8c6d2; }
 .f-address strong { color: #fff; display: block; margin-bottom: 4px; }
 /* dark legal strip at the very bottom */
 .footer-legal { background: #0e161d; }
@@ -1061,3 +1062,21 @@ section.band .section-head p { color: #cadcef; }
 @media (prefers-reduced-motion: reduce) {
   .hero-panel { backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
+
+
+/* ---------- vendor logo strip (home) ---------- */
+.logo-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.logo-strip span {
+  display: grid;
+  place-items: center;
+  min-width: 168px;
+  height: 82px;
+  padding: 16px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.logo-strip span:hover { border-color: #c8ddef; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.logo-strip img { max-height: 34px; max-width: 124px; width: auto; object-fit: contain; }
+@media (max-width: 620px) { .logo-strip span { min-width: 132px; height: 70px; } }

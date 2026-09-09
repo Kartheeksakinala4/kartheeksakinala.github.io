@@ -1080,3 +1080,39 @@ section.band .section-head p { color: #cadcef; }
 .logo-strip span:hover { border-color: #c8ddef; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .logo-strip img { max-height: 34px; max-width: 124px; width: auto; object-fit: contain; }
 @media (max-width: 620px) { .logo-strip span { min-width: 132px; height: 70px; } }
+
+/* ---------- animated hero backdrop ---------- */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+/* slow drifting glow behind the node network */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -22%;
+  right: -12%;
+  width: 62vw;
+  height: 62vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61, 155, 216, .20) 0%, rgba(61, 155, 216, 0) 62%);
+  animation: heroDrift 26s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes heroDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .85; }
+  50%  { transform: translate3d(-6%, 5%, 0) scale(1.12); opacity: 1; }
+  100% { transform: translate3d(4%, -4%, 0) scale(.96); opacity: .8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { animation: none; }
+  .hero-canvas { display: none; }
+}

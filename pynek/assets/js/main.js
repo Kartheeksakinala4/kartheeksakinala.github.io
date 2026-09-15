@@ -265,7 +265,7 @@ if (heroCanvas && heroCanvas.getContext &&
         const dx = a.x - b.x, dy = a.y - b.y;
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < LINK) {
-          ctx.strokeStyle = 'rgba(125, 190, 232, ' + ((1 - d / LINK) * 0.2).toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(74, 168, 255, ' + ((1 - d / LINK) * 0.26).toFixed(3) + ')';
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -274,7 +274,7 @@ if (heroCanvas && heroCanvas.getContext &&
       }
     }
 
-    ctx.fillStyle = 'rgba(150, 208, 242, 0.5)';
+    ctx.fillStyle = 'rgba(124, 194, 255, 0.55)';
     for (const n of nodes) {
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);

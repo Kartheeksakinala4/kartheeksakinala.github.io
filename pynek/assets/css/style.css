@@ -1116,3 +1116,253 @@ section.band .section-head p { color: #cadcef; }
   .hero::after { animation: none; }
   .hero-canvas { display: none; }
 }
+
+/* ============================================================
+   ORGANISATION-LEVEL COMPONENTS
+   ============================================================ */
+
+/* ---------- trust bar (partner platforms, under the hero) ---------- */
+.trust-bar { background: var(--surface); border-bottom: 1px solid var(--line-soft); padding: 34px 0; }
+.trust-bar-label {
+  text-align: center;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px 44px;
+}
+.trust-logos img {
+  max-height: 30px;
+  max-width: 120px;
+  width: auto;
+  object-fit: contain;
+  opacity: .62;
+  filter: grayscale(100%);
+  transition: opacity .2s ease, filter .2s ease;
+}
+.trust-logos img:hover { opacity: 1; filter: none; }
+
+/* ---------- numbered process ---------- */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.step { position: relative; padding-top: 52px; }
+.step::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 42px;
+  right: -28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--line), rgba(223, 232, 240, .25));
+}
+.step:last-child::before { display: none; }
+.step-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3d9bd8, #2456a6);
+  color: #fff;
+  font-family: var(--head-font);
+  font-size: .92rem;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(36, 86, 166, .3);
+}
+.step h3 { font-size: 1.06rem; margin-bottom: 7px; }
+.step p { font-size: .93rem; color: var(--body); margin: 0; }
+
+/* ---------- industries / who we work with ---------- */
+.sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sector {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--ink);
+  font-size: .96rem;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.sector:hover { border-color: #c8ddef; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.sector svg { width: 21px; height: 21px; flex: none; color: var(--blue-deep); }
+
+/* ---------- company facts table (about) ---------- */
+.facts { display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.fact { display: grid; grid-template-columns: 230px 1fr; gap: 20px; padding: 18px 24px; border-bottom: 1px solid var(--line-soft); }
+.fact:last-child { border-bottom: 0; }
+.fact:nth-child(odd) { background: var(--surface); }
+.fact dt { font-weight: 700; color: var(--ink); font-size: .92rem; }
+.fact dd { margin: 0; color: var(--body); font-size: .95rem; }
+
+@media (max-width: 940px) {
+  .steps { grid-template-columns: repeat(2, 1fr); gap: 30px 24px; }
+  .step::before { display: none; }
+  .sector-grid { grid-template-columns: repeat(2, 1fr); }
+  .fact { grid-template-columns: 1fr; gap: 4px; }
+  .trust-logos { gap: 16px 28px; }
+}
+@media (max-width: 560px) {
+  .steps, .sector-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   ORGANISATION REBUILD — v16
+   ========================================================= */
+
+/* ---------- checked capability list ---------- */
+.check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+.check-list li {
+  position: relative;
+  padding-left: 32px;
+  color: var(--body);
+  font-size: .97rem;
+  line-height: 1.6;
+}
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(61, 155, 216, .14);
+  border: 1px solid rgba(61, 155, 216, .4);
+}
+.check-list li::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid var(--blue-deep);
+  border-bottom: 2px solid var(--blue-deep);
+  transform: rotate(-45deg);
+}
+.check-list li strong { color: var(--ink); font-weight: 700; }
+
+/* ---------- split feature (text + panel) ---------- */
+.feature-split {
+  display: grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap: 58px;
+  align-items: center;
+}
+.feature-split .section-head { margin-bottom: 22px; }
+
+/* ---------- dark statement band ---------- */
+.statement {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f1c2c 0%, #16304d 52%, #1d4a7a 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 54px 58px;
+}
+.statement::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61, 155, 216, .34), transparent 68%);
+  pointer-events: none;
+}
+.statement .eyebrow { color: #7fc3ec; }
+.statement h2 { color: #fff; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.32; margin-bottom: 16px; position: relative; }
+.statement p { color: rgba(233, 242, 250, .84); max-width: 62ch; position: relative; margin: 0; }
+.statement-foot {
+  position: relative;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 46px;
+}
+.statement-foot div b {
+  display: block;
+  font-family: var(--head-font);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+}
+.statement-foot div span { font-size: .84rem; color: rgba(210, 227, 242, .78); }
+
+/* ---------- soft tinted section (breaks up the white) ---------- */
+.tinted {
+  position: relative;
+  background:
+    radial-gradient(900px 420px at 88% -10%, rgba(61, 155, 216, .11), transparent 62%),
+    radial-gradient(760px 400px at 4% 112%, rgba(36, 86, 166, .08), transparent 60%),
+    var(--surface);
+}
+.tinted::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(29, 43, 54, .028) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(29, 43, 54, .028) 1px, transparent 1px);
+  background-size: 62px 62px;
+  mask-image: radial-gradient(70% 70% at 50% 40%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 40%, #000 20%, transparent 78%);
+}
+.tinted > .container { position: relative; z-index: 1; }
+
+/* ---------- about page intro panel ---------- */
+.about-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px;
+  box-shadow: var(--shadow-sm);
+}
+.about-panel h3 { font-size: 1.1rem; margin-bottom: 14px; }
+
+/* ---------- leadership / team-free credibility row ---------- */
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pill svg { width: 16px; height: 16px; color: var(--blue-deep); }
+
+@media (max-width: 940px) {
+  .feature-split { grid-template-columns: 1fr; gap: 34px; }
+  .statement { padding: 38px 26px; }
+  .statement-foot { gap: 14px 28px; }
+}
+
+/* two-up sector grid (home) */
+.sector-grid.two { grid-template-columns: repeat(2, 1fr); }
+.feature-split > * { min-width: 0; }
+.sector { min-width: 0; }
+@media (max-width: 620px) {
+  .sector-grid, .sector-grid.two { grid-template-columns: 1fr; }
+}

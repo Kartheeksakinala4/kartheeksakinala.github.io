@@ -27,22 +27,40 @@ if ($terms !== '1') {
 
 $score = verify_captcha($_POST['captcha_token'] ?? null, 'contact');
 
+$params = [
+  ':name' => $name,
+  ':email' => $email,
+  ':phone' => $phone !== '' ? $phone : null,
+  ':service' => $service !== '' ? $service : null,
+  ':message' => $message,
+  ':score' => $score,
+];
+
 try {
-  $stmt = db()->prepare(
-    'INSERT INTO contact_messages (name, email, phone, service, message, terms_accepted, captcha_score)
-     VALUES (:name, :email, :phone, :service, :message, 1, :score)'
-  );
-  $stmt->execute([
-    ':name' => $name,
-    ':email' => $email,
-    ':phone' => $phone !== '' ? $phone : null,
-    ':service' => $service !== '' ? $service : null,
-    ':message' => $message,
-    ':score' => $score,
-  ]);
+  try {
+    $stmt = db()->prepare(
+      'INSERT INTO contact_messages (name, email, phone, service, message, terms_accepted, captcha_score)
+       VALUES (:name, :email, :phone, :service, :message, 1, :score)'
+    );
+    $stmt->execute($params);
+  } catch (PDOException $e) {
+    // Older installs may not have the terms_accepted column yet. Fall back so
+    // the form keeps working, and log a reminder to run the ALTER TABLE.
+    if ($e->getCode() !== '42S22') {
+      throw $e;
+    }
+    error_log('contact.php: contact_messages has no terms_accepted column — '
+      . 'run: ALTER TABLE contact_messages ADD COLUMN terms_accepted TINYINT(1) NOT NULL DEFAULT 0 AFTER message;');
+    $stmt = db()->prepare(
+      'INSERT INTO contact_messages (name, email, phone, service, message, captcha_score)
+       VALUES (:name, :email, :phone, :service, :message, :score)'
+    );
+    $stmt->execute($params);
+  }
 } catch (PDOException $e) {
   error_log('contact.php: ' . $e->getMessage());
-  json_response(500, ['ok' => false, 'error' => 'server_error']);
+  // The SQLSTATE code makes the cause visible without leaking any detail.
+  json_response(500, ['ok' => false, 'error' => 'server_error:' . $e->getCode()]);
 }
 
 // Optional e-mail notification

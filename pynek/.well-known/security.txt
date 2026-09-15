@@ -1,0 +1,7 @@
+# Security contact for pynek.com
+Contact: mailto:contact@pynek.com
+Contact: tel:+91-81858-02575
+Expires: 2027-09-03T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://pynek.com/.well-known/security.txt
+Policy: https://pynek.com/terms-and-conditions.html#authorisation

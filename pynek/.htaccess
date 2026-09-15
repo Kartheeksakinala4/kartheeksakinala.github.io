@@ -1,0 +1,99 @@
+# ============================================================
+# Pynek Technologies — Apache configuration for cPanel hosting
+# Place this file in public_html/
+# ============================================================
+
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# ---------- Custom error page ----------
+ErrorDocument 404 /404.html
+
+# ---------- HTTPS and canonical host ----------
+# Serves every request over https://pynek.com (no www), so search engines
+# see one canonical address. If you would rather keep www as the primary
+# host, swap the two rules below.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # www -> non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Allow /page instead of /page.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+</IfModule>
+
+# ---------- Security headers ----------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+
+  # Enable once you are certain every subdomain is HTTPS-only:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Never cache the API responses
+  <FilesMatch "\.php$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---------- Compression ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+# ---------- Browser caching ----------
+# Assets are versioned in the markup (style.css?v=10, main.js?v=10), so a
+# long cache is safe: bumping the version busts it.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                              "access plus 1 month"
+  ExpiresByType text/html                     "access plus 0 seconds"
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/x-icon                  "access plus 1 year"
+  ExpiresByType application/manifest+json     "access plus 1 week"
+  ExpiresByType text/xml                      "access plus 1 day"
+</IfModule>
+
+# ---------- Correct MIME types ----------
+<IfModule mod_mime.c>
+  AddType application/manifest+json  .webmanifest
+  AddType image/x-icon               .ico
+  AddType text/plain                 .txt
+</IfModule>
+
+# ---------- Protect sensitive files ----------
+# config.php holds the database password and reCAPTCHA secret. PHP files are
+# executed rather than served, but these rules block direct access to backups,
+# SQL dumps and dotfiles that should never be downloadable.
+<FilesMatch "(^\.|\.(sql|md|log|ini|bak|sh|py)$|~$)">
+  Require all denied
+</FilesMatch>
+
+# .well-known must stay reachable (security.txt, SSL validation)
+<IfModule mod_alias.c>
+  RedirectMatch 404 /\.git(/|$)
+</IfModule>
+<Files ".well-known">
+  Require all granted
+</Files>

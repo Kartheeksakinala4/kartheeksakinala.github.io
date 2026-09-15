@@ -33,7 +33,7 @@ try {
   ]);
 } catch (PDOException $e) {
   error_log('subscribe.php: ' . $e->getMessage());
-  json_response(500, ['ok' => false, 'error' => 'server_error']);
+  json_response(500, ['ok' => false, 'error' => 'server_error:' . $e->getCode()]);
 }
 
 json_response(200, ['ok' => true]);

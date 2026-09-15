@@ -58,6 +58,13 @@ function formErrorMessage(err) {
   if (code.startsWith('captcha_failed:')) {
     return 'Security check failed. Please refresh the page and try again. [' + code + ']';
   }
+  if (code.startsWith('server_error:')) {
+    const sqlstate = code.slice('server_error:'.length);
+    const why = sqlstate === '42S22' ? 'a database column is missing'
+      : sqlstate === '42S02' ? 'a database table is missing'
+      : 'a database error occurred';
+    return 'The server could not save your details — ' + why + '. [' + code + ']';
+  }
   const map = {
     network: 'Could not reach the server — the request was blocked or the API is unreachable.',
     captcha_missing: 'Security check did not load. Please refresh the page and try again.',
@@ -156,68 +163,6 @@ if (counters.length && 'IntersectionObserver' in window) {
   counters.forEach((el) => cio.observe(el));
 }
 
-// ---------- Newsletter modal ----------
-const nlModal = document.getElementById('newsletter-modal');
-if (nlModal) {
-  const openBtns = document.querySelectorAll('[data-open-newsletter]');
-  const closeBtn = nlModal.querySelector('.modal-close');
-  const nlForm = document.getElementById('newsletter-form');
-  const nlThanks = document.getElementById('newsletter-thanks');
-  const nlIntro = nlModal.querySelector('.modal > p');
-  const nlTitle = document.getElementById('nl-title');
-
-  const resetModal = () => {
-    nlForm.hidden = false;
-    if (nlIntro) nlIntro.hidden = false;
-    if (nlTitle) nlTitle.hidden = false;
-    if (nlThanks) nlThanks.hidden = true;
-    nlForm.reset();
-    const st = document.getElementById('newsletter-status');
-    if (st) { st.textContent = ''; st.className = 'form-status'; }
-  };
-  const openModal = () => { nlModal.hidden = false; document.body.style.overflow = 'hidden'; };
-  const closeModal = () => { nlModal.hidden = true; document.body.style.overflow = ''; resetModal(); };
-
-  openBtns.forEach((b) => b.addEventListener('click', openModal));
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  nlModal.querySelectorAll('[data-close-newsletter]').forEach((b) => b.addEventListener('click', closeModal));
-  nlModal.addEventListener('click', (e) => { if (e.target === nlModal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !nlModal.hidden) closeModal(); });
-
-  const nlStatus = document.getElementById('newsletter-status');
-  const nlButton = nlForm.querySelector('button[type=submit]');
-
-  nlForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(nlForm);
-    if (nlStatus) nlStatus.className = 'form-status';
-    if (apiConfigured(API.subscribe)) {
-      try {
-        if (nlButton) { nlButton.disabled = true; nlButton.textContent = 'Subscribing…'; }
-        await postForm(API.subscribe, {
-          name: data.get('name'),
-          email: data.get('email'),
-          mobile: data.get('mobile'),
-          captcha_token: await captchaToken('subscribe'),
-        });
-      } catch (err) {
-        if (nlStatus) {
-          nlStatus.textContent = formErrorMessage(err);
-          nlStatus.classList.add('err');
-        }
-        if (nlButton) { nlButton.disabled = false; nlButton.textContent = 'Subscribe'; }
-        return;
-      }
-      if (nlButton) { nlButton.disabled = false; nlButton.textContent = 'Subscribe'; }
-    }
-    // swap the form for the thank-you panel
-    nlForm.hidden = true;
-    if (nlIntro) nlIntro.hidden = true;
-    if (nlTitle) nlTitle.hidden = true;
-    if (nlThanks) nlThanks.hidden = false;
-  });
-}
-
 // ---------- Contact form ----------
 const form = document.getElementById('contact-form');
 if (form) {
@@ -269,3 +214,95 @@ if (form) {
 document.querySelectorAll('[data-year]').forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
+
+// ---------- Hero node-network animation ----------
+// Runs only on the home page, only when the canvas is on screen, and never
+// when the visitor has asked for reduced motion.
+const heroCanvas = document.getElementById('hero-canvas');
+if (heroCanvas && heroCanvas.getContext &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const ctx = heroCanvas.getContext('2d');
+  const LINK = 138;
+  let w = 0, h = 0, nodes = [], raf = null, running = false;
+
+  const sizeCanvas = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = heroCanvas.clientWidth;
+    h = heroCanvas.clientHeight;
+    heroCanvas.width = Math.round(w * dpr);
+    heroCanvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+
+  const seed = () => {
+    const count = Math.min(80, Math.max(24, Math.round((w * h) / 17000)));
+    nodes = [];
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.5 + 0.9,
+      });
+    }
+  };
+
+  const frame = () => {
+    ctx.clearRect(0, 0, w, h);
+
+    for (const n of nodes) {
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -24) n.x = w + 24; else if (n.x > w + 24) n.x = -24;
+      if (n.y < -24) n.y = h + 24; else if (n.y > h + 24) n.y = -24;
+    }
+
+    ctx.lineWidth = 1;
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK) {
+          ctx.strokeStyle = 'rgba(125, 190, 232, ' + ((1 - d / LINK) * 0.2).toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    ctx.fillStyle = 'rgba(150, 208, 242, 0.5)';
+    for (const n of nodes) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(frame);
+  };
+
+  const start = () => { if (!running) { running = true; raf = requestAnimationFrame(frame); } };
+  const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = null; };
+
+  sizeCanvas();
+  seed();
+  start();
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { sizeCanvas(); seed(); }, 200);
+  });
+
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(
+      (entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())),
+      { threshold: 0 }
+    ).observe(heroCanvas);
+  }
+}

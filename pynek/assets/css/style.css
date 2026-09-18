@@ -2004,3 +2004,65 @@ a.card:hover, .card:hover {
 @media (max-width: 480px) {
   .footer-two-col { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================
+   CLIENT LOGO BAR
+   ========================================================== */
+.client-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 40px 0 44px;
+  overflow: hidden;
+}
+.client-bar .marquee-label { color: var(--muted); margin-bottom: 22px; }
+.client-bar .marquee { background: none; border: 0; padding: 0; }
+.client-bar .marquee-track { gap: 30px; }
+.client-bar .marquee img {
+  height: 84px;
+  max-width: 210px;
+  padding: 16px 22px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  opacity: 1;
+  filter: none;
+  object-fit: contain;
+}
+/* a white wordmark needs a dark plate or it disappears */
+.client-bar .marquee img.on-dark {
+  background: #0b2c58;
+  border-color: #0b2c58;
+}
+
+@media (max-width: 620px) {
+  .client-bar .marquee img { height: 68px; max-width: 170px; padding: 12px 16px; }
+}
+
+/* ==========================================================
+   ICON BESIDE THE HEADING (services, industries, products)
+   ========================================================== */
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0;
+  align-content: start;
+}
+.card > .icon { grid-column: 1; grid-row: 1; margin: 0 14px 0 0; align-self: start; }
+.card > h3    { grid-column: 2; grid-row: 1; align-self: center; margin: 0; min-width: 0; }
+.card > *:not(.icon):not(h3) { grid-column: 1 / -1; }
+.card > .icon ~ *:not(h3):first-of-type { margin-top: 0; }
+.card > p:first-of-type,
+.card > .mini-list:first-of-type,
+.card > .tag:first-of-type { margin-top: 18px; }
+/* cards with no icon keep their heading flush left */
+.card > h3:first-child { grid-column: 1 / -1; }
+
+.industry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: start;
+}
+.industry > .si { grid-column: 1; grid-row: 1; margin: 0 14px 0 0; }
+.industry > h3  { grid-column: 2; grid-row: 1; align-self: center; margin: 0; min-width: 0; }
+.industry > p   { grid-column: 1 / -1; margin-top: 16px; }

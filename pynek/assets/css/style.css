@@ -2009,9 +2009,9 @@ a.card:hover, .card:hover {
    CLIENT LOGO BAR
    ========================================================== */
 .client-bar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--line);
-  padding: 40px 0 44px;
+  background: #fff;
+  border-block: 1px solid var(--line);
+  padding: 44px 0 48px;
   overflow: hidden;
 }
 .client-bar .marquee-label { color: var(--muted); margin-bottom: 22px; }
@@ -2022,7 +2022,7 @@ a.card:hover, .card:hover {
   max-width: 210px;
   padding: 16px 22px;
   border-radius: 10px;
-  background: #fff;
+  background: #fbfcfe;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
   opacity: 1;

@@ -11,28 +11,28 @@
     gtag('js', new Date());
     gtag('config', 'G-5GRVKDQV9W');
   </script>
-  <title>Malware Forensics &mdash; Behaviour, Persistence &amp; Impact Analysis &mdash; Pynek</title>
-  <meta name="description" content="Static and dynamic malware analysis in an isolated environment: behaviour, persistence, command and control, data access and impact. Indicators of compromise and containment guidance. India.">
+  <title>What to do in the first hour after you suspect a breach &mdash; Pynek Technologies</title>
+  <meta name="description" content="The decisions made before an examiner is involved usually determine what an examination can establish afterwards.">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://pynek.com/malware-forensics.html">
+  <link rel="canonical" href="https://pynek.com/blog-first-hour-after-a-breach.html">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#071a33">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pynek Technologies Private Limited">
-  <meta property="og:title" content="Malware Forensics &mdash; Behaviour, Persistence &amp; Impact Analysis &mdash; Pynek">
-  <meta property="og:description" content="Static and dynamic malware analysis in an isolated environment: behaviour, persistence, command and control, data access and impact. Indicators of compromise and containment guidance. India.">
-  <meta property="og:url" content="https://pynek.com/malware-forensics.html">
+  <meta property="og:title" content="What to do in the first hour after you suspect a breach &mdash; Pynek Technologies">
+  <meta property="og:description" content="The decisions made before an examiner is involved usually determine what an examination can establish afterwards.">
+  <meta property="og:url" content="https://pynek.com/blog-first-hour-after-a-breach.html">
   <meta property="og:image" content="https://pynek.com/assets/img/pynek-bottom.jpg">
   <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Malware Forensics &mdash; Behaviour, Persistence &amp; Impact Analysis &mdash; Pynek">
-  <meta name="twitter:description" content="Static and dynamic malware analysis in an isolated environment: behaviour, persistence, command and control, data access and impact. Indicators of compromise and containment guidance. India.">
+  <meta name="twitter:title" content="What to do in the first hour after you suspect a breach &mdash; Pynek Technologies">
+  <meta name="twitter:description" content="The decisions made before an examiner is involved usually determine what an examination can establish afterwards.">
   <meta name="twitter:image" content="https://pynek.com/assets/img/pynek-bottom.jpg">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="assets/css/style.css?v=19">
@@ -60,7 +60,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li class="has-mega">
-        <a href="services.html" class="active">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="services.html">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="mega">
           <div class="mega-inner container">
             <div class="mega-cats">
@@ -153,7 +153,7 @@
         </div>
       </li>
       <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
     </ul>
   </div>
@@ -161,49 +161,45 @@
 
 <div class="page-hero">
   <div class="container">
-    <span class="eyebrow">Digital Forensics &mdash; Discipline 10</span>
-    <h1>What it did, how it got in, and whether it is still there</h1>
-    <p>Static and dynamic analysis of suspicious files in a contained environment, with the indicators, persistence mechanisms and impact assessment your response depends on.</p>
+    <span class="eyebrow">Digital Forensics</span>
+    <h1>What to do in the first hour after you suspect a breach</h1>
+    <p>The decisions made before an examiner is involved usually determine what an examination can establish afterwards.</p>
     <div class="page-hero-meta">
-        <span class="tag">2&ndash;7 working days</span>
-        <span class="tag">Isolated analysis</span>
-        <span class="tag cyan">IOC export</span>
+      <span class="tag">19 August 2026</span>
+      <span class="tag cyan">6 min read</span>
     </div>
   </div>
 </div>
 
 <section>
-  <div class="container split">
-    <div class="reveal">
-      <div class="section-head left">
-        <span class="eyebrow">Malware Forensics</span>
-        <h2>Removing it is not the same as understanding it</h2>
-      </div>
-      <p>An antivirus alert tells you a file was quarantined. It does not tell you what ran before quarantine, what it wrote to disk, which credentials it harvested, what it sent out, or whether a second-stage payload is still sitting in a scheduled task waiting for the next reboot.</p>
-      <p>We analyse the sample in an isolated environment. Static analysis establishes what the file is, how it is packed or obfuscated, what capabilities are present in the code and what strings, imports and embedded resources reveal. Dynamic analysis runs it under instrumentation and records what actually happens &mdash; files written, registry and configuration changes, processes spawned, injection into other processes, network destinations contacted and persistence mechanisms installed.</p>
-      <p>The output is operational. You receive indicators to hunt with across the rest of the estate, the persistence mechanisms to check for, an assessment of what data the sample could reach, and a containment sequence in the order it should be executed.</p>
-    </div>
-    <div class="reveal d1">
-      <dl class="spec">
-        <div class="spec-row"><dt>Typical duration</dt><dd>2&ndash;7 working days depending on obfuscation and anti-analysis behaviour</dd></div>
-        <div class="spec-row"><dt>Sample types</dt><dd>Executables and DLLs, office documents with macros, scripts, archives, installers, Android packages and firmware images</dd></div>
-        <div class="spec-row"><dt>Static analysis</dt><dd>File structure, packing and obfuscation, imports, strings, embedded resources, code capability review</dd></div>
-        <div class="spec-row"><dt>Dynamic analysis</dt><dd>Instrumented execution in an isolated environment, with full file, registry, process and network recording</dd></div>
-        <div class="spec-row"><dt>Network</dt><dd>Command and control identification, protocol and beacon analysis, exfiltration destination assessment</dd></div>
-        <div class="spec-row"><dt>Output</dt><dd>Technical report, IOC export in a usable format, containment and hunting guidance</dd></div>
-      </dl>
-      <div class="card" style="margin-top: 16px;">
-        <h3>What you receive</h3>
-        <ul class="mini-list" style="margin-top: 12px;">
-          <li>Technical analysis report covering behaviour and capability</li>
-          <li>Indicators of compromise in a machine-readable export</li>
-          <li>Persistence mechanism checklist for estate-wide hunting</li>
-          <li>Command and control infrastructure for blocking and log review</li>
-          <li>Impact assessment: what data the sample could reach</li>
-          <li>Prioritised containment and remediation sequence</li>
-        </ul>
-        <a class="card-link" href="contact.html">Discuss your requirement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
+  <div class="container">
+    <div class="article reveal">
+<p>Most forensic examinations that fail to answer the client&rsquo;s question do not fail for technical reasons. They fail because of what happened in the hours between somebody noticing a problem and somebody calling an examiner. This is the checklist we give over the phone, in the order it matters.</p>
+
+<h2>Do not power-cycle or reinstall the machine</h2>
+<p>The instinct is to reboot it, clean it, or reimage it and move on. Each of those destroys evidence, and the first is worse than people expect.</p>
+<p>A running machine holds volatile memory containing the processes that are actually executing, network connections that are currently open, injected code that exists nowhere on disk, and in many cases encryption keys and credentials in cleartext. A reboot discards all of it. A reinstall discards the rest.</p>
+<div class="pull"><p>Isolate the machine from the network rather than shutting it down. Pull the cable, disable the wireless adapter, or move the switch port to a quarantine VLAN. You keep the volatile evidence and you stop the spread.</p></div>
+
+<h2>Preserve logs before retention windows expire</h2>
+<p>This is the step with a deadline attached, and it is the one most often missed. Firewall logs are commonly retained for thirty to ninety days. Cloud sign-in logs are frequently kept for less. Dwell time in a real intrusion routinely exceeds both, which means the evidence of initial access can expire while the investigation is still being authorised.</p>
+<p>On the day you suspect something: extend retention on every source you control, and export what already exists to somewhere outside the affected environment. Firewall, proxy, DNS, VPN, authentication, mail platform audit logs and endpoint telemetry. Export first, decide what is relevant later.</p>
+<p>If CCTV is relevant, stop the recorder from overwriting. A four-day retention cycle is not unusual, and a DVR does not pause while a decision is made.</p>
+
+<h2>Start a contemporaneous record</h2>
+<p>From the moment you suspect something, write down what is happening: who noticed what and at what time, who touched which system, what they did, and what they observed. Note the times from a reliable clock, not from memory afterwards.</p>
+<p>This record is worth considerably more than people expect. It establishes when you became aware &mdash; which matters for regulatory notification &mdash; and it lets an examiner distinguish your team&rsquo;s activity from the intruder&rsquo;s. Without it, every administrative action during the response period becomes an ambiguity in the timeline.</p>
+
+<h2>Do not tip off an insider</h2>
+<p>Where the concern is an employee rather than an external attacker, the response order changes. Confronting the person, disabling their account, or asking IT to &ldquo;have a look at their laptop&rdquo; all give notice, and notice is usually followed by deletion.</p>
+<p>The sequence that works is to preserve first and confront second: secure the device and the account&rsquo;s mail and file history quietly, then act. Take advice on employment and privacy obligations before examining a personal device or a personal account &mdash; authority to examine is a separate question from technical ability to do so, and it is one your counsel should answer.</p>
+
+<h2>Be careful with the &ldquo;quick look&rdquo;</h2>
+<p>Someone will offer to check the machine first. Browsing the file system changes access timestamps. Running an antivirus scan can quarantine or delete the very artefact that explains the incident. Copying files out with ordinary tools produces a copy without any of the metadata that makes it evidential.</p>
+<p>If a preliminary look is genuinely necessary, document who did it, when, and exactly what they ran. An examiner can work around known contamination. Unknown contamination is what causes a finding to be challenged.</p>
+
+<h2>Then call</h2>
+<p>Once the machine is isolated, the logs are preserved and the record is started, the technical situation is recoverable and the rest can proceed at a sensible pace. Reach us on <a href="tel:+918185802575">+91 81858 02575</a> &mdash; for preservation advice we will talk you through it immediately, before any paperwork exists.</p>
     </div>
   </div>
 </section>
@@ -211,120 +207,13 @@
 <section class="surface">
   <div class="container">
     <div class="section-head left reveal" style="max-width: 680px;">
-      <span class="eyebrow">Coverage</span>
-      <h2>What the analysis establishes</h2>
-    </div>
-    <div class="grid cols-3">
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M8 12H3M21 12h-5M8 8L5 5M16 8l3-3M8 17l-3 3M16 17l3 3"/></svg></div>
-          <h3>Behaviour and capability</h3>
-          <p>What the sample does on execution &mdash; files written, processes spawned, injection into legitimate processes, privilege escalation attempts, and the capabilities present but not triggered.</p>
-        </div>
-        <div class="card reveal d1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg></div>
-          <h3>Persistence mechanisms</h3>
-          <p>Registry run keys, scheduled tasks, services, startup entries, WMI subscriptions and DLL hijacks &mdash; every place it arranged to survive a reboot or a cleanup.</p>
-        </div>
-        <div class="card reveal d2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg></div>
-          <h3>Command and control</h3>
-          <p>Domains, IP addresses, protocols, beacon intervals and infrastructure characteristics, so the traffic can be blocked and hunted retrospectively in your logs.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L20 3M17 6l3 3M15 8l2 2"/></svg></div>
-          <h3>Credential and data access</h3>
-          <p>Whether the sample harvested credentials, browser data, tokens or documents, and what it attempted to send out &mdash; the input to any breach notification decision.</p>
-        </div>
-        <div class="card reveal d1">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-          <h3>Infection vector</h3>
-          <p>How it arrived: e-mail attachment, malicious link, removable media, software supply chain, or exploitation of an exposed service.</p>
-        </div>
-        <div class="card reveal d2">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
-          <h3>Family attribution</h3>
-          <p>Comparison against known families and toolkits where the code supports it, reported with a confidence level rather than as a headline.</p>
-        </div>
-    </div>
-  </div>
-</section>
-
-<section class="gridlines">
-  <div class="container">
-    <div class="section-head left reveal" style="max-width: 640px;">
-      <span class="eyebrow">Method</span>
-      <h2>How analysis runs</h2>
-    </div>
-    <div class="rail">
-      <div class="rail-item reveal">
-        <div class="rail-num">STEP 01</div>
-        <div class="rail-body">
-          <h3>Containment first</h3>
-          <p>Before analysis, guidance on isolating affected hosts and preserving evidence &mdash; including not reimaging the machine, which destroys the record of what happened.</p>
-          <div class="rail-meta"><span class="tag">Isolate</span><span class="tag">Preserve first</span></div>
-        </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">STEP 02</div>
-        <div class="rail-body">
-          <h3>Static analysis</h3>
-          <p>File structure, hashes, packing and obfuscation, imports, strings and embedded resources examined without executing anything.</p>
-          <div class="rail-meta"><span class="tag">No execution</span><span class="tag">Capability review</span></div>
-        </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">STEP 03</div>
-        <div class="rail-body">
-          <h3>Dynamic analysis</h3>
-          <p>Instrumented execution in an isolated environment with full recording of file system, registry, process and network activity, including anti-analysis behaviour.</p>
-          <div class="rail-meta"><span class="tag">Isolated</span><span class="tag">Full recording</span></div>
-        </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">STEP 04</div>
-        <div class="rail-body">
-          <h3>Reporting and hunting</h3>
-          <p>Technical report, machine-readable indicators, persistence checklist, impact assessment and a containment sequence in execution order.</p>
-          <div class="rail-meta"><span class="tag">IOC export</span><span class="tag">Containment sequence</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="surface">
-  <div class="container">
-    <div class="section-head left reveal" style="max-width: 680px;">
-      <span class="eyebrow">Questions</span>
-      <h2>What clients ask first</h2>
-    </div>
-    <div class="faq reveal">
-      <details>
-        <summary>We already reimaged the machine. Can you still help?</summary>
-        <div class="faq-body"><p>Partly. If you retained the sample, it can still be analysed and you still get indicators to hunt across the rest of the estate &mdash; which is where most of the value is anyway, because the reimaged host is rarely the only one affected. What is lost is the host-level record of what actually executed and when. If another machine is suspected, isolate it and leave it alone rather than reimaging that one too.</p></div>
-      </details>
-      <details>
-        <summary>Do you need the malware to be running to analyse it?</summary>
-        <div class="faq-body"><p>No. Analysis is performed on a copy of the sample in an isolated environment that is destroyed afterwards. Nothing is executed on your systems or on any network with a path to them. If you can also provide the host&rsquo;s forensic image and its logs, the analysis extends to what actually happened on that machine rather than what the sample is capable of.</p></div>
-      </details>
-      <details>
-        <summary>Can you tell us if data was stolen?</summary>
-        <div class="faq-body"><p>We can establish what the sample was capable of accessing and what it attempted to transmit, and combined with your network and proxy logs that usually supports a defensible conclusion about exfiltration. Where the evidence does not support one, we say the evidence does not support one &mdash; that is a material distinction when you are deciding what to tell regulators and customers.</p></div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-head left reveal" style="max-width: 680px;">
-      <span class="eyebrow">Related</span>
-      <h2>Often scoped alongside this</h2>
+      <span class="eyebrow">Keep reading</span>
+      <h2>More from the team</h2>
     </div>
     <div class="related reveal">
-      <a href="network-forensics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg><span>Network Forensics</span></a>
-      <a href="computer-forensics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Computer Forensics</span></a>
-      <a href="email-forensics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><span>E-mail Forensics</span></a>
+      <a href="blog-first-assessment-findings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg><span>Five findings we report on almost every first assessment</span></a>
+      <a href="blog-dpdp-act-mid-size-business.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg><span>DPDP Act, 2023: what actually changes for a mid-size Indian business</span></a>
+      <a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M13 2v7h7"/></svg><span>All insights</span></a>
     </div>
   </div>
 </section>

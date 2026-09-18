@@ -1636,34 +1636,35 @@ a.card:hover, .card:hover {
    ========================================================== */
 
 /* ---------- hero slider ---------- */
-.slider { position: relative; overflow: hidden; background: #071a33; }
+.slider { position: relative; overflow: hidden; background: #071a33; padding: 0; }
 .slider-track { display: flex; transition: transform .6s cubic-bezier(.4, 0, .2, 1); }
 .slide {
   position: relative;
   flex: 0 0 100%;
   min-width: 100%;
-  padding: 92px 0 104px;
+  padding: 96px 0 112px;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
   background:
     radial-gradient(1000px 500px at 78% -10%, rgba(56, 132, 255, .3), transparent 62%),
     linear-gradient(162deg, #071a33 0%, #0b2c58 55%, #071a33 100%);
 }
+/* readability scrim over the artwork, strongest behind the copy */
 .slide::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, .038) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .038) 1px, transparent 1px);
-  background-size: 58px 58px;
-  -webkit-mask-image: radial-gradient(circle at 50% 35%, #000 0%, transparent 76%);
-  mask-image: radial-gradient(circle at 50% 35%, #000 0%, transparent 76%);
+  background: linear-gradient(100deg, rgba(3, 10, 20, .86) 0%, rgba(3, 10, 20, .58) 38%, rgba(3, 10, 20, .12) 66%, rgba(3, 10, 20, 0) 100%);
   pointer-events: none;
 }
-.slide.forensics { background: radial-gradient(1000px 500px at 78% -10%, rgba(45, 212, 191, .24), transparent 62%), linear-gradient(162deg, #04211f 0%, #07332f 52%, #041c2c 100%); }
-.slide.products  { background: radial-gradient(1000px 500px at 78% -10%, rgba(167, 139, 250, .26), transparent 62%), linear-gradient(162deg, #140c2e 0%, #1f1350 52%, #0d0a24 100%); }
-.slide.brand     { background: radial-gradient(1000px 500px at 78% -10%, rgba(251, 146, 60, .24), transparent 62%), linear-gradient(162deg, #26140a 0%, #3a1d0c 52%, #1a0e07 100%); }
+.slide { background-size: cover; background-position: center right; background-repeat: no-repeat; }
+.slide            { background-image: url("../img/slides/pentest.svg"); background-color: #04101f; }
+.slide.forensics  { background-image: url("../img/slides/forensics.svg"); background-color: #02120f; }
+.slide.brand      { background-image: url("../img/slides/monitoring.svg"); background-color: #1a0d04; }
+.slide.products   { background-image: url("../img/slides/products.svg"); background-color: #0c0720; }
 
-.slide-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+.slide-grid { position: relative; z-index: 1; width: min(100% - 44px, var(--container)); margin-inline: auto; display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
 .slide-eyebrow {
   display: inline-flex;
   align-items: center;

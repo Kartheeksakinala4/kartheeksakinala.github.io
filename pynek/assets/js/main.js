@@ -346,8 +346,13 @@ if (heroCanvas && heroCanvas.getContext &&
   if (prev) prev.addEventListener('click', function () { go(index - 1); restart(); });
   dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); restart(); }); });
 
-  slider.addEventListener('mouseenter', stop);
-  slider.addEventListener('mouseleave', start);
+  // Only the controls pause the carousel — hovering the slide itself must not,
+  // or a pointer resting over the hero stops it advancing at all.
+  const controls = slider.querySelector('.slider-nav');
+  if (controls) {
+    controls.addEventListener('mouseenter', stop);
+    controls.addEventListener('mouseleave', start);
+  }
   slider.addEventListener('focusin', stop);
   slider.addEventListener('focusout', function (e) {
     if (!slider.contains(e.relatedTarget)) start();

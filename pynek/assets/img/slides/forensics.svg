@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="A disk platter under examination with verified hash values">
+  <defs>
+    <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#02120f"/><stop offset="54%" stop-color="#06322c"/><stop offset="100%" stop-color="#021a1f"/>
+    </linearGradient>
+    <radialGradient id="fglow" cx="70%" cy="26%" r="58%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity=".42"/><stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fplat" cx="50%" cy="38%" r="62%">
+      <stop offset="0" stop-color="#1c5a55"/><stop offset="62%" stop-color="#0d3b38"/><stop offset="100%" stop-color="#062421"/>
+    </radialGradient>
+    <linearGradient id="fscrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#02120f" stop-opacity=".93"/><stop offset="42%" stop-color="#02120f" stop-opacity=".55"/><stop offset="100%" stop-color="#02120f" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="fgrid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0v56" fill="none" stroke="#ffffff" stroke-opacity=".27" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#fbg)"/>
+  <rect width="1600" height="900" fill="url(#fgrid)"/>
+  <rect width="1600" height="900" fill="url(#fglow)"/>
+
+  <!-- drive platter -->
+  <g transform="translate(1080 450)">
+    <circle r="300" fill="url(#fplat)" stroke="#2dd4bf" stroke-opacity=".50" stroke-width="2"/>
+    <g fill="none" stroke="#2dd4bf" stroke-opacity=".38">
+      <circle r="262"/><circle r="224"/><circle r="186"/><circle r="148"/><circle r="110"/><circle r="72"/>
+    </g>
+    <circle r="40" fill="#08322e" stroke="#2dd4bf" stroke-opacity=".72" stroke-width="2"/>
+    <circle r="12" fill="#0b4a44"/>
+    <!-- sector highlight -->
+    <path d="M0 0 L212 -212 A300 300 0 0 1 300 0 Z" fill="#2dd4bf" opacity=".12"/>
+    <path d="M0 0 L212 -212" stroke="#5eead4" stroke-opacity=".72" stroke-width="2"/>
+    <!-- actuator arm -->
+    <g transform="rotate(-28)">
+      <path d="M300 0 L120 0" stroke="#7fe8da" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+      <path d="M120 0 L96 0" stroke="#d7fff7" stroke-width="16" stroke-linecap="round"/>
+      <circle cx="318" cy="0" r="30" fill="#0d3b38" stroke="#2dd4bf" stroke-opacity=".82" stroke-width="3"/>
+    </g>
+    <g fill="#5eead4">
+      <circle cx="96" cy="-52" r="6"/>
+    </g>
+  </g>
+
+  <!-- magnifier over the platter -->
+  <g transform="translate(905 300)">
+    <circle r="132" fill="#c9fff4" fill-opacity=".05" stroke="#7fe8da" stroke-opacity=".95" stroke-width="5"/>
+    <circle r="132" fill="none" stroke="#ffffff" stroke-opacity=".40" stroke-width="12"/>
+    <path d="M94 94 L176 176" stroke="#7fe8da" stroke-opacity=".95" stroke-width="18" stroke-linecap="round"/>
+    <g fill="none" stroke="#d7fff7" stroke-opacity=".72" stroke-width="2">
+      <circle r="84"/><circle r="46"/>
+    </g>
+    <path d="M-132 0h264M0 -132v264" stroke="#d7fff7" stroke-opacity=".50" stroke-width="1.5"/>
+  </g>
+
+</svg>

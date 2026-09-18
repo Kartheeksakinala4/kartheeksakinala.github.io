@@ -306,3 +306,103 @@ if (heroCanvas && heroCanvas.getContext &&
     ).observe(heroCanvas);
   }
 }
+
+// ---------- Hero slider ----------
+(function () {
+  const slider = document.querySelector('[data-slider]');
+  if (!slider) return;
+
+  const track = slider.querySelector('.slider-track');
+  const slides = Array.from(track.children);
+  const dots = Array.from(slider.querySelectorAll('.slider-dot'));
+  const prev = slider.querySelector('[data-slider-prev]');
+  const next = slider.querySelector('[data-slider-next]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DELAY = 7000;
+  let index = 0;
+  let timer = null;
+
+  function render() {
+    track.style.transform = 'translateX(-' + index * 100 + '%)';
+    slides.forEach(function (s, i) {
+      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+      s.querySelectorAll('a, button').forEach(function (el) {
+        if (i === index) { el.removeAttribute('tabindex'); }
+        else { el.setAttribute('tabindex', '-1'); }
+      });
+    });
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === index);
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+  }
+
+  function go(i) { index = (i + slides.length) % slides.length; render(); }
+  function start() { if (!reduced && !timer) { timer = setInterval(function () { go(index + 1); }, DELAY); } }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stop(); start(); }
+
+  if (next) next.addEventListener('click', function () { go(index + 1); restart(); });
+  if (prev) prev.addEventListener('click', function () { go(index - 1); restart(); });
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); restart(); }); });
+
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  slider.addEventListener('focusin', stop);
+  slider.addEventListener('focusout', function (e) {
+    if (!slider.contains(e.relatedTarget)) start();
+  });
+  slider.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { go(index + 1); restart(); }
+    if (e.key === 'ArrowLeft') { go(index - 1); restart(); }
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  // swipe
+  let x0 = null;
+  slider.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) { go(index + (dx < 0 ? 1 : -1)); }
+    x0 = null;
+    start();
+  }, { passive: true });
+
+  render();
+  start();
+})();
+
+// ---------- Service tabs ----------
+(function () {
+  const tablist = document.querySelector('[data-tabs]');
+  if (!tablist) return;
+  const tabs = Array.from(tablist.querySelectorAll('.tab-btn'));
+
+  function select(tab) {
+    tabs.forEach(function (t) {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab); });
+    tab.addEventListener('keydown', function (e) {
+      let j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'Home') j = 0;
+      if (e.key === 'End') j = tabs.length - 1;
+      if (j === null) return;
+      e.preventDefault();
+      select(tabs[j]);
+      tabs[j].focus();
+    });
+  });
+})();

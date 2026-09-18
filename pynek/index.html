@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://pynek.com/">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#070c13">
+  <meta name="theme-color" content="#071a33">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pynek Technologies Private Limited">
@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="Pynek Technologies Private Limited: penetration testing, vulnerability assessment, DPDP compliance and eleven digital forensics disciplines. Practitioner-led, written scope, 30-day retest included. Hyderabad, India.">
   <meta name="twitter:image" content="https://pynek.com/assets/img/pynek-bottom.jpg">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=17">
+  <link rel="stylesheet" href="assets/css/style.css?v=19">
 </head>
 <body>
 
@@ -159,245 +159,409 @@
   </div>
 </header>
 
-<section class="hero">
-  <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Offensive security &amp; digital forensics</span>
-      <h1>Prove what an attacker can reach. <span class="accent">Prove what already happened.</span></h1>
-      <p class="lede">Pynek tests the systems you have built, examines the evidence when something goes wrong, and supplies the platforms that hold the line in between. Every engagement is run by the specialist who scoped it.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="contact.html">Request a scoping call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a class="btn btn-ghost" href="services.html">See what we test</a>
+<section class="slider" data-slider aria-roledescription="carousel" aria-label="Our services">
+  <div class="slider-track">
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+        <div class="container slide-grid">
+          <div>
+            <span class="slide-eyebrow">Penetration Testing</span>
+            <h2>Find out what an attacker could actually reach</h2>
+            <p>Network, web application, mobile and API testing against a written scope. We chain findings the way a real intruder would, so the report shows demonstrated impact rather than a list of possibilities.</p>
+            <div class="slide-actions">
+              <a class="btn btn-primary" href="penetration-testing.html">Penetration testing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="btn btn-ghost" href="cybersecurity.html">All cybersecurity services</a>
+            </div>
+          </div>
+          <div class="slide-panel">
+            <h3>What the engagement covers</h3>
+            <ul>
+            <li>External and internal network, including lateral movement</li>
+            <li>Web applications tested against the OWASP WSTG</li>
+            <li>Android and iOS apps, plus the APIs behind them</li>
+            <li>Proof-of-concept evidence for every confirmed finding</li>
+            <li>One remediation retest within 30 days, included</li>
+            </ul>
+            <div class="pill-row"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> 5–15 working days</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> Authorised in writing</span></div>
+          </div>
+        </div>
       </div>
-      <div class="hero-trust">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> Signed scope before day one</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> NDA on request</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Hyderabad, India</span>
+      <div class="slide forensics" role="group" aria-roledescription="slide" aria-label="2 of 4">
+        <div class="container slide-grid">
+          <div>
+            <span class="slide-eyebrow">Digital Forensics</span>
+            <h2>Establish what happened, to a standard that holds</h2>
+            <p>Eleven examination disciplines under one method: write-blocked acquisition, SHA-256 verification and an unbroken chain of custody from receipt to examiner’s statement.</p>
+            <div class="slide-actions">
+              <a class="btn btn-primary" href="digital-forensics.html">Digital forensics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="btn btn-ghost" href="contact.html">Preserve evidence now</a>
+            </div>
+          </div>
+          <div class="slide-panel">
+            <h3>Typical instructions</h3>
+            <ul>
+            <li>Suspected data theft before a resignation</li>
+            <li>A compromised mailbox and a diverted payment</li>
+            <li>A device seized for an internal enquiry</li>
+            <li>CCTV that must be recovered before it overwrites</li>
+            <li>A failed drive holding the only copy of a case file</li>
+            </ul>
+            <div class="pill-row"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> Section 63 certificate</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> Documented custody</span></div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="console reveal d1">
-      <div class="console-bar">
-        <span class="console-dot live"></span>
-        <span class="console-dot"></span>
-        <span class="console-dot"></span>
-        <span class="console-title">Sample findings summary</span>
+      <div class="slide brand" role="group" aria-roledescription="slide" aria-label="3 of 4">
+        <div class="container slide-grid">
+          <div>
+            <span class="slide-eyebrow">Brand &amp; Dark Web Monitoring</span>
+            <h2>Find the leaked credential before it is used</h2>
+            <p>Continuous monitoring of breach corpora, stealer logs, paste sites, dark web markets and newly registered domains for material that belongs to you — triaged by an analyst before it reaches you.</p>
+            <div class="slide-actions">
+              <a class="btn btn-primary" href="brand-dark-web-monitoring.html">Brand monitoring <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="btn btn-ghost" href="contact.html">Talk to us</a>
+            </div>
+          </div>
+          <div class="slide-panel">
+            <h3>What we watch for</h3>
+            <ul>
+            <li>Corporate credentials in breach and stealer data</li>
+            <li>Typosquat and lookalike domains at certificate issue</li>
+            <li>API keys and source pushed to public repositories</li>
+            <li>Repackaged mobile apps using your branding</li>
+            <li>Impersonation accounts targeting your customers</li>
+            </ul>
+            <div class="pill-row"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> Monthly reporting</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> Takedown support</span></div>
+          </div>
+        </div>
       </div>
-      <div class="console-body">
-        <div class="console-row"><span>Critical &mdash; authentication bypass</span><b class="hot">02</b></div>
-        <div class="console-row"><span>High &mdash; injection, access control</span><b class="warn">07</b></div>
-        <div class="console-row"><span>Medium &mdash; configuration, exposure</span><b>14</b></div>
-        <div class="console-row"><span>Low &mdash; hardening, hygiene</span><b>23</b></div>
-        <div class="console-row"><span>False positives removed by analysts</span><b class="ok">31</b></div>
-        <p class="console-foot">Illustrative breakdown from a web application test. Every finding is manually verified, rated with CVSS v3.1, and shipped with reproduction steps &mdash; never a raw scanner export.</p>
+      <div class="slide products" role="group" aria-roledescription="slide" aria-label="4 of 4">
+        <div class="container slide-grid">
+          <div>
+            <span class="slide-eyebrow">Security Products</span>
+            <h2>The platforms behind the work, supplied and supported</h2>
+            <p>Twenty-four security products across endpoint, data protection, identity, e-mail and web defence — licensed, deployed and supported by the same engineers who work with them on engagements.</p>
+            <div class="slide-actions">
+              <a class="btn btn-primary" href="products.html">Browse the catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a class="btn btn-ghost" href="contact.html">Request a quote</a>
+            </div>
+          </div>
+          <div class="slide-panel">
+            <h3>How we sell</h3>
+            <ul>
+            <li>Proof of concept against your environment first</li>
+            <li>Licensing and renewals handled through us</li>
+            <li>Deployment, policy design and integration</li>
+            <li>First-line support from our own engineers</li>
+            <li>Your team trained so you are not dependent on us</li>
+            </ul>
+            <div class="pill-row"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg> 24 platforms</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> 6 solution areas</span></div>
+          </div>
+        </div>
       </div>
+  </div>
+  <div class="slider-nav">
+    <div class="container">
+      <div class="slider-dots" role="tablist" aria-label="Choose a slide">
+          <button class="slider-dot active" type="button" role="tab" aria-selected="true" aria-label="Penetration Testing"></button>
+          <button class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Digital Forensics"></button>
+          <button class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Brand &amp; Dark Web Monitoring"></button>
+          <button class="slider-dot" type="button" role="tab" aria-selected="false" aria-label="Security Products"></button>
+      </div>
+      <button class="slider-arrow" type="button" data-slider-prev aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="slider-arrow" type="button" data-slider-next aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
 </section>
 
-<div class="marquee-block">
+<div class="partner-bar">
   <p class="marquee-label">Platforms we supply, deploy and support</p>
   <div class="marquee" aria-label="Technology partners">
     <div class="marquee-track"><img src="assets/img/products/bitdefender.png" alt="Bitdefender" loading="lazy"><img src="assets/img/products/vmray.png" alt="VMRay" loading="lazy"><img src="assets/img/products/miniorange.png" alt="miniOrange" loading="lazy"><img src="assets/img/products/safetica.png" alt="Safetica" loading="lazy"><img src="assets/img/products/filecloud.png" alt="Filecloud" loading="lazy"><img src="assets/img/products/gtb.png" alt="GTB Technologies" loading="lazy"><img src="assets/img/products/prophaze.png" alt="Prophaze" loading="lazy"><img src="assets/img/products/zeeks.png" alt="Zeeks" loading="lazy"><img src="assets/img/products/transferchain.png" alt="TransferChain" loading="lazy"><img src="assets/img/products/sendquick.png" alt="SendQuick" loading="lazy"><img src="assets/img/products/axidian.png" alt="Axidian" loading="lazy"><img src="assets/img/products/zaperon.png" alt="Zaperon" loading="lazy"><img src="assets/img/products/hunto.png" alt="Hunto" loading="lazy"><img src="assets/img/products/goldphish.png" alt="Goldphish" loading="lazy"><img src="assets/img/products/presecurity.png" alt="PreSecurity" loading="lazy"><img src="assets/img/products/threatwatch360.png" alt="ThreatWatch360" loading="lazy"><img src="assets/img/products/biokey.png" alt="BioKey" loading="lazy"><img src="assets/img/products/ipm.png" alt="IPM" loading="lazy"><img src="assets/img/products/bitdefender.png" alt="Bitdefender" loading="lazy"><img src="assets/img/products/vmray.png" alt="VMRay" loading="lazy"><img src="assets/img/products/miniorange.png" alt="miniOrange" loading="lazy"><img src="assets/img/products/safetica.png" alt="Safetica" loading="lazy"><img src="assets/img/products/filecloud.png" alt="Filecloud" loading="lazy"><img src="assets/img/products/gtb.png" alt="GTB Technologies" loading="lazy"><img src="assets/img/products/prophaze.png" alt="Prophaze" loading="lazy"><img src="assets/img/products/zeeks.png" alt="Zeeks" loading="lazy"><img src="assets/img/products/transferchain.png" alt="TransferChain" loading="lazy"><img src="assets/img/products/sendquick.png" alt="SendQuick" loading="lazy"><img src="assets/img/products/axidian.png" alt="Axidian" loading="lazy"><img src="assets/img/products/zaperon.png" alt="Zaperon" loading="lazy"><img src="assets/img/products/hunto.png" alt="Hunto" loading="lazy"><img src="assets/img/products/goldphish.png" alt="Goldphish" loading="lazy"><img src="assets/img/products/presecurity.png" alt="PreSecurity" loading="lazy"><img src="assets/img/products/threatwatch360.png" alt="ThreatWatch360" loading="lazy"><img src="assets/img/products/biokey.png" alt="BioKey" loading="lazy"><img src="assets/img/products/ipm.png" alt="IPM" loading="lazy"></div>
   </div>
 </div>
 
-<section class="gridlines">
+<section>
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Capabilities</span>
-      <h2>Four capabilities, one accountable team</h2>
-      <p>A finding from a test, the platform that closes it and the course that teaches your staff to keep it closed should not come from three different vendors.</p>
+    <div class="section-head left reveal" style="max-width: 700px;">
+      <span class="eyebrow">Services</span>
+      <h2>Every service, one click away</h2>
+      <p>Four cybersecurity services, eleven forensic disciplines and three training programs. Pick a category to see what sits inside it.</p>
     </div>
-
-    <div class="bento">
-      <a class="card wide reveal" href="cybersecurity.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg></div>
-        <h3>Cybersecurity testing</h3>
-        <p>Vulnerability assessment, network and web application penetration testing, mobile and API testing, brand and dark web monitoring, and DPDP Act readiness. Authorised in writing, manually verified, and retested after you remediate.</p>
-        <div class="bento-figure">
-          <div class="bar-row hot"><span>Critical</span><span class="bar"><i style="width: 9%"></i></span><b>2</b></div>
-          <div class="bar-row"><span>High</span><span class="bar"><i style="width: 28%"></i></span><b>7</b></div>
-          <div class="bar-row"><span>Medium</span><span class="bar"><i style="width: 56%"></i></span><b>14</b></div>
-          <div class="bar-row"><span>Low</span><span class="bar"><i style="width: 84%"></i></span><b>23</b></div>
+    <div class="tabs" role="tablist" data-tabs aria-label="Service categories">
+        <button class="tab-btn" type="button" role="tab" id="tab-cyber" aria-controls="panel-cyber" aria-selected="true" tabindex="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg> Cybersecurity <span class="tab-count">04</span></button>
+        <button class="tab-btn" type="button" role="tab" id="tab-forensics" aria-controls="panel-forensics" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg> Digital Forensics <span class="tab-count">11</span></button>
+        <button class="tab-btn" type="button" role="tab" id="tab-trainings" aria-controls="panel-trainings" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg> Trainings <span class="tab-count">03</span></button>
+    </div>
+      <div class="tab-panel" id="panel-cyber" role="tabpanel" aria-labelledby="tab-cyber">
+        <div class="service-links">
+          <a class="service-link" href="vulnerability-assessment.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></span>
+            <span><strong>Vulnerability Assessment</strong><span>Risk-rated sweep of your estate</span></span>
+          </a>
+          <a class="service-link" href="penetration-testing.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M8 12H3M21 12h-5M8 8L5 5M16 8l3-3M8 17l-3 3M16 17l3 3"/></svg></span>
+            <span><strong>Penetration Testing</strong><span>Network, web, mobile and API</span></span>
+          </a>
+          <a class="service-link" href="brand-dark-web-monitoring.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <span><strong>Brand &amp; Dark Web Monitoring</strong><span>Leaks and impersonation alerts</span></span>
+          </a>
+          <a class="service-link" href="dpdp-compliance.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+            <span><strong>DPDP Compliance</strong><span>India DPDP Act readiness</span></span>
+          </a>
         </div>
-        <span class="card-link">Explore cybersecurity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
+        <p style="margin-top: 22px;"><a class="card-link" href="cybersecurity.html">Full cybersecurity overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+      </div>
+      <div class="tab-panel" id="panel-forensics" role="tabpanel" aria-labelledby="tab-forensics" hidden>
+        <div class="service-links">
+          <a class="service-link" href="computer-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+            <span><strong>Computer Forensics</strong><span>Desktops, laptops and servers</span></span>
+          </a>
+          <a class="service-link" href="disk-recovery.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></span>
+            <span><strong>Disk Recovery</strong><span>Data off failed and damaged drives</span></span>
+          </a>
+          <a class="service-link" href="storage-media-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></span>
+            <span><strong>Storage Media Forensics</strong><span>Disks, SSDs and removable media</span></span>
+          </a>
+          <a class="service-link" href="mobile-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+            <span><strong>Mobile Forensics</strong><span>Android and iOS extraction</span></span>
+          </a>
+          <a class="service-link" href="email-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+            <span><strong>E-mail Forensics</strong><span>Headers, spoofing and threads</span></span>
+          </a>
+          <a class="service-link" href="audio-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M19 5a9 9 0 010 14"/></svg></span>
+            <span><strong>Audio Forensics</strong><span>Authenticity and enhancement</span></span>
+          </a>
+          <a class="service-link" href="image-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>
+            <span><strong>Image Forensics</strong><span>Tampering and metadata analysis</span></span>
+          </a>
+          <a class="service-link" href="video-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg></span>
+            <span><strong>Video Forensics</strong><span>CCTV and footage examination</span></span>
+          </a>
+          <a class="service-link" href="osint.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
+            <span><strong>OSINT</strong><span>Open-source intelligence research</span></span>
+          </a>
+          <a class="service-link" href="malware-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M8 12H3M21 12h-5M8 8L5 5M16 8l3-3M8 17l-3 3M16 17l3 3"/></svg></span>
+            <span><strong>Malware Forensics</strong><span>Behaviour and impact analysis</span></span>
+          </a>
+          <a class="service-link" href="network-forensics.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg></span>
+            <span><strong>Network Forensics</strong><span>Traffic and log reconstruction</span></span>
+          </a>
+        </div>
+        <p style="margin-top: 22px;"><a class="card-link" href="digital-forensics.html">Full digital forensics overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+      </div>
+      <div class="tab-panel" id="panel-trainings" role="tabpanel" aria-labelledby="tab-trainings" hidden>
+        <div class="service-links">
+          <a class="service-link" href="network-security-training.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg></span>
+            <span><strong>Network Security</strong><span>Design, harden and defend networks</span></span>
+          </a>
+          <a class="service-link" href="cybersecurity-training.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg></span>
+            <span><strong>Cybersecurity</strong><span>Fundamentals to practitioner level</span></span>
+          </a>
+          <a class="service-link" href="digital-forensics-training.html">
+            <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+            <span><strong>General Digital Forensics Training</strong><span>Evidence handling to reporting</span></span>
+          </a>
+        </div>
+        <p style="margin-top: 22px;"><a class="card-link" href="trainings.html">Full trainings overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+      </div>
+  </div>
+</section>
 
-      <a class="card tall reveal d1" href="digital-forensics.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
-        <h3>Digital forensics</h3>
-        <p>Eleven examination disciplines &mdash; computer, mobile, e-mail, network, malware, audio, image and video, plus OSINT, storage media work and disk recovery.</p>
-        <p>Write-blocked acquisition, SHA-256 verification and an unbroken chain of custody, so the finding survives cross-examination and not just internal review.</p>
-        <ul class="mini-list" style="margin-top: 18px;">
-          <li>Forensic image with verified hash values</li>
-          <li>Examiner&rsquo;s statement of method and findings</li>
-          <li>Section 63 (BSA, 2023) certificate where required</li>
-        </ul>
-        <span class="card-link">Explore digital forensics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+<section class="surface">
+  <div class="container">
+    <div class="section-head left reveal" style="max-width: 700px;">
+      <span class="eyebrow">Products</span>
+      <h2>Platforms we supply, deploy and support</h2>
+      <p>Twenty-four security products across six solution areas, through our distribution alliances &mdash; chosen because our own engineers work with them on live engagements.</p>
+    </div>
+    <div class="grid cols-3">
+      <a class="card reveal" href="products.html#endpoint">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Endpoint &amp; Threat Protection</h3>
+        <p>Protection, detection and management at the device level.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">5 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">Bitdefender &middot; VMRay &middot; 42Gears &middot; IPM+ &middot; ePrompto</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-
-      <a class="card reveal d2" href="products.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
-        <h3>Security products</h3>
-        <p>Twenty-four platforms across endpoint, data protection, identity, e-mail and web defence &mdash; supplied, deployed and supported by the same engineers who test with them.</p>
-        <span class="card-link">Browse the catalogue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      <a class="card reveal d1" href="products.html#identity">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L20 3M17 6l3 3M15 8l2 2"/></svg></div>
+        <h3>Identity &amp; Access</h3>
+        <p>Who gets in, from where, and with what privileges.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">5 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">miniOrange &middot; BIO-Key &middot; Axidian &middot; Zaperon &middot; SendQuick</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-
-      <a class="card reveal d3" href="trainings.html">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg></div>
-        <h3>Trainings</h3>
-        <p>Network Security, Cybersecurity and General Digital Forensics &mdash; taught from real casework on our own lab builds, with more hands-on time than lecture time.</p>
-        <span class="card-link">View the programs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      <a class="card reveal d2" href="products.html#data">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg></div>
+        <h3>Data Protection &amp; Secure Collaboration</h3>
+        <p>Keeping sensitive data from leaving, and sharing it safely when it must move.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">6 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">Safetica &middot; GTB Technologies &middot; FileCloud &middot; TransferChain &middot; VIPRE SafeSend &middot; Crossware</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card reveal" href="products.html#infra">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>Application &amp; Infrastructure Security</h3>
+        <p>Protecting the applications, APIs and infrastructure your business runs on.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">3 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">Prophaze &middot; PrahiX &middot; PRE Security</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card reveal d1" href="products.html#intel">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Threat Intelligence &amp; Awareness</h3>
+        <p>Seeing threats outside your perimeter, and preparing the people inside it.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">3 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">Hunto.ai &middot; ThreatWatch360 &middot; GoldPhish</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card reveal d2" href="products.html#compliance">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <h3>Governance &amp; Compliance</h3>
+        <p>Consent, privacy and regulatory readiness &mdash; including India&rsquo;s DPDP Act.</p>
+        <div class="rail-meta" style="margin-top: 14px;"><span class="tag">2 platforms</span></div>
+        <p style="margin-top: 12px; font-size: .86rem; color: var(--muted);">Zeeks &middot; GRC Services</p>
+        <span class="card-link">See the platforms <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </div>
   </div>
 </section>
 
-<section class="tight">
+<section class="gridlines">
   <div class="container">
-    <div class="kpi-band reveal">
-      <div class="kpi"><b>15</b><span>Specialist services across two practices</span></div>
-      <div class="kpi"><b>11</b><span>Forensic examination disciplines</span></div>
-      <div class="kpi"><b>24</b><span>Platforms under distribution alliance</span></div>
-      <div class="kpi"><b>30d</b><span>Remediation retest window, included</span></div>
+    <div class="section-head left reveal" style="max-width: 700px;">
+      <span class="eyebrow">Industries</span>
+      <h2>Industries we serve</h2>
+      <p>The work changes shape by sector &mdash; what is being protected, who is asking for evidence, and which regulator is watching.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry reveal">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
+        <h3>Manufacturing</h3>
+        <p>Flat plant networks, unpatchable equipment controllers and supplier connections into the corporate estate &mdash; usually a segmentation and access problem before anything else.</p>
+      </div>
+      <div class="industry reveal d1">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg></span>
+        <h3>Banking &amp; Financial Services</h3>
+        <p>Application testing to satisfy customer and audit requirements, payment fraud investigation, and mailbox compromise leading to diverted transfers.</p>
+      </div>
+      <div class="industry reveal d2">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg></span>
+        <h3>Healthcare &amp; Diagnostics</h3>
+        <p>Patient records across clinical systems and shared drives, imaging equipment on the general network, and DPDP obligations attached to sensitive data.</p>
+      </div>
+      <div class="industry reveal">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+        <h3>IT Services &amp; SaaS</h3>
+        <p>Pre-launch application testing, customer security questionnaires, multi-tenant access control, and API surfaces that expanded faster than the review process.</p>
+      </div>
+      <div class="industry reveal d1">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+        <h3>Legal &amp; Advisory</h3>
+        <p>Forensic examination for matters in progress, examiner statements for filing, and protection of client material held under professional obligation.</p>
+      </div>
+      <div class="industry reveal d2">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg></span>
+        <h3>Education &amp; Research</h3>
+        <p>Open campus networks, large unmanaged device populations, student data under the DPDP Act, and research material worth stealing.</p>
+      </div>
+      <div class="industry reveal">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></svg></span>
+        <h3>Logistics &amp; Retail</h3>
+        <p>Point-of-sale and warehouse systems, seasonal staff turnover with standing access, and card data handled across a distributed footprint.</p>
+      </div>
+      <div class="industry reveal d1">
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
+        <h3>Public Sector &amp; NGOs</h3>
+        <p>Constrained budgets, long-lived legacy systems, and citizen or beneficiary data that carries obligations regardless of the size of the IT team.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="surface">
   <div class="container">
-    <div class="section-head left reveal" style="max-width: 640px;">
-      <span class="eyebrow">Engagement model</span>
-      <h2>How an engagement actually runs</h2>
-      <p>The same five phases whether you are booking a quarterly assessment or calling us the morning after an incident.</p>
+    <div class="section-head left reveal" style="max-width: 700px;">
+      <span class="eyebrow">Insights</span>
+      <h2>From live engagements</h2>
+      <p>What we keep finding, and what clients keep asking &mdash; written up so you can act on it without hiring anyone.</p>
     </div>
-
-    <div class="rail">
-      <div class="rail-item reveal">
-        <div class="rail-num">PHASE 01</div>
-        <div class="rail-body">
-          <h3>Scope and authorisation</h3>
-          <p>Asset inventory, rules of engagement, test windows, out-of-scope systems and escalation contacts &mdash; signed off by a named approver on your side. Nothing is touched before that document exists.</p>
-          <div class="rail-meta"><span class="tag">NDA</span><span class="tag">Authorisation letter</span><span class="tag cyan">2&ndash;4 days</span></div>
+    <div class="post-grid">
+      <article class="post-card reveal">
+        <div class="post-cover "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg></div>
+        <div class="post-body">
+          <p class="post-meta">Cybersecurity &middot; 2 September 2026 &middot; 7 min read</p>
+          <h3>Five findings we report on almost every first assessment</h3>
+          <p>Across first-time assessments the same handful of issues turn up again and again &mdash; and none of them need a budget line to fix.</p>
+          <a class="card-link" href="blog-first-assessment-findings.html">Read the article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">PHASE 02</div>
-        <div class="rail-body">
-          <h3>Mapping the attack surface</h3>
-          <p>Enumeration of hosts, services, applications, cloud assets and exposed credentials &mdash; including what is reachable from the public internet and what has already leaked to paste sites and dark web markets.</p>
-          <div class="rail-meta"><span class="tag">OSINT</span><span class="tag">Asset discovery</span><span class="tag">Credential exposure</span></div>
+      </article>
+      <article class="post-card reveal d1">
+        <div class="post-cover t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="post-body">
+          <p class="post-meta">Digital Forensics &middot; 19 August 2026 &middot; 6 min read</p>
+          <h3>What to do in the first hour after you suspect a breach</h3>
+          <p>The decisions made before an examiner is involved usually determine what an examination can establish afterwards.</p>
+          <a class="card-link" href="blog-first-hour-after-a-breach.html">Read the article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">PHASE 03</div>
-        <div class="rail-body">
-          <h3>Testing or examination</h3>
-          <p>Manual work on top of tooling &mdash; OWASP WSTG for web, MASVS for mobile, NIST SP 800-115 for infrastructure; write-blocked acquisition and documented custody for forensic matters. Anything critical is escalated the day it is confirmed, not saved for the report.</p>
-          <div class="rail-meta"><span class="tag">OWASP WSTG</span><span class="tag">NIST SP 800-115</span><span class="tag">MITRE ATT&amp;CK mapping</span></div>
+      </article>
+      <article class="post-card reveal d2">
+        <div class="post-cover t3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <div class="post-body">
+          <p class="post-meta">Compliance &middot; 5 August 2026 &middot; 8 min read</p>
+          <h3>DPDP Act, 2023: what actually changes for a mid-size Indian business</h3>
+          <p>The obligations are not the hard part. Finding every place personal data sits, and being able to delete it, usually is.</p>
+          <a class="card-link" href="blog-dpdp-act-mid-size-business.html">Read the article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">PHASE 04</div>
-        <div class="rail-body">
-          <h3>Reporting</h3>
-          <p>An executive summary your board can read, CVSS v3.1 ratings, reproduction steps, captured evidence and remediation that fits your stack rather than a generic vendor recommendation. Forensic matters ship with an examiner&rsquo;s statement.</p>
-          <div class="rail-meta"><span class="tag">CVSS v3.1</span><span class="tag">Reproduction steps</span><span class="tag">Walkthrough call</span></div>
-        </div>
-      </div>
-      <div class="rail-item reveal">
-        <div class="rail-num">PHASE 05</div>
-        <div class="rail-body">
-          <h3>Retest and close-out</h3>
-          <p>One remediation retest within thirty days of the report, with an updated status against every finding &mdash; so you can show a closed item rather than a promised fix.</p>
-          <div class="rail-meta"><span class="tag cyan">Included</span><span class="tag">Updated finding status</span></div>
-        </div>
-      </div>
+      </article>
     </div>
-  </div>
-</section>
-
-<section class="tight" style="padding-top: 96px;">
-  <div class="container">
-    <div class="statement reveal">
-      <span class="eyebrow">Why Pynek</span>
-      <h2>A specialist firm, not a reseller with a security page</h2>
-      <p>Pynek Technologies Private Limited is a registered Indian company operating from Dilshuknagar, Hyderabad. Work is not subcontracted out of the team, findings are not padded to fill a page count, and we will tell you when an engagement is not the right spend.</p>
-      <div class="statement-foot">
-        <div><b>In-house</b><span>No subcontracting</span></div>
-        <div><b>Named</b><span>Examiner on every report</span></div>
-        <div><b>Retest</b><span>Included, not upsold</span></div>
-        <div><b>Plain</b><span>Language for the board</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gridlines">
-  <div class="container feature-split">
-    <div class="reveal">
-      <div class="section-head left">
-        <span class="eyebrow">What you get</span>
-        <h2>Deliverables you can act on the same week</h2>
-      </div>
-      <ul class="check-list">
-        <li><strong>Analyst-verified findings.</strong> False positives are removed before you see the report, so your engineers are not chasing scanner noise.</li>
-        <li><strong>Reproduction steps for every issue.</strong> Request, payload, response and affected endpoint &mdash; enough for a developer to reproduce it without calling us.</li>
-        <li><strong>Risk rated against your context.</strong> CVSS v3.1 as the baseline, adjusted for what the affected system actually holds.</li>
-        <li><strong>Evidence handled to standard.</strong> Hash-verified images, documented custody and an examiner&rsquo;s statement on forensic matters.</li>
-        <li><strong>A retest that closes the loop.</strong> Thirty days to remediate, then we verify and reissue the status.</li>
-      </ul>
-      <div class="pill-row">
-        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> DPDP Act 2023 aware handling</span>
-        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> Encrypted evidence transfer</span>
-      </div>
-    </div>
-
-    <div class="reveal d1">
-      <div class="section-head left">
-        <span class="eyebrow">Who we work with</span>
-        <h2>Where this work usually lands</h2>
-      </div>
-      <div class="sector-grid two">
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1.6"/></svg> Banking &amp; fintech</span>
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> IT services &amp; SaaS</span>
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg> Law firms &amp; advisory</span>
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M8 11l2.5 2.5L16 8"/></svg> Hospitals &amp; diagnostics</span>
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg> Manufacturing &amp; logistics</span>
-        <span class="sector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg> Universities &amp; research</span>
-      </div>
-      <p style="margin-top: 20px; font-size: .94rem;">Typical starting points: a pre-audit assessment, an application going live, a suspected insider data leak, a device seized for an internal enquiry, or a laptop that will not boot with the only copy of a case file on it.</p>
-      <a class="btn btn-ghost" href="about.html" style="margin-top: 22px;">How we work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
+    <p style="margin-top: 26px;"><a class="card-link" href="blog.html">All insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
   </div>
 </section>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
+  <div class="footer-cta">
+    <div class="container footer-cta-inner">
       <div>
-        <h3>Start with a conversation, not a quote</h3>
-        <p>Tell us the system, the timeline and what you are worried about. We will tell you what the engagement would actually involve &mdash; or that you do not need one.</p>
+        <span class="eyebrow">Start here</span>
+        <h3>Tell us the system, the timeline and the worry</h3>
+        <p>Initial consultations are confidential and free of charge. If a device has been seized or a breach is live, call rather than write.</p>
       </div>
-      <div class="footer-actions">
-        <a class="btn btn-primary" href="contact.html">Request a scoping call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a class="btn btn-ghost" href="tel:+918185802575">+91 81858 02575</a>
+      <div class="footer-cta-actions">
+        <a class="btn btn-light" href="contact.html">Request a scoping call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-ghost" href="tel:+918185802575"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> +91 81858 02575</a>
       </div>
     </div>
+  </div>
 
+  <div class="container">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand-card" href="index.html" aria-label="Pynek Technologies home">
           <img src="assets/img/pynek-bottom.jpg" alt="Pynek Technologies Private Limited">
         </a>
         <p class="f-note">Offensive security testing and digital forensic examination, delivered by the people who scope the work.</p>
-        <p class="f-address"><strong>Pynek Technologies Private Limited</strong>
-        507, 5th Floor, 4-68, MN Reddy Complex, Vikas Nagar,<br>
-        Krishna Nagar, Dilshuknagar, Hyderabad,<br>
-        Telangana &ndash; 500060, India</p>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+918185802575">+91 81858 02575</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg> <a href="mailto:contact@pynek.com">contact@pynek.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <span>507, 5th Floor, 4-68, MN Reddy Complex, Vikas Nagar, Krishna Nagar, Dilshuknagar, Hyderabad, Telangana &ndash; 500060, India</span></li>
+        </ul>
       </div>
+
       <div>
         <h4>Cybersecurity</h4>
         <ul>
@@ -406,34 +570,49 @@
           <li><a href="brand-dark-web-monitoring.html">Brand &amp; Dark Web Monitoring</a></li>
           <li><a href="dpdp-compliance.html">DPDP Compliance</a></li>
         </ul>
-      </div>
-      <div>
-        <h4>Digital Forensics</h4>
+        <h4 style="margin-top: 28px;">Trainings</h4>
         <ul>
-          <li><a href="computer-forensics.html">Computer Forensics</a></li>
-          <li><a href="mobile-forensics.html">Mobile Forensics</a></li>
-          <li><a href="disk-recovery.html">Disk Recovery</a></li>
-          <li><a href="email-forensics.html">E-mail Forensics</a></li>
-          <li><a href="digital-forensics.html">All 11 disciplines &rarr;</a></li>
+          <li><a href="network-security-training.html">Network Security</a></li>
+          <li><a href="cybersecurity-training.html">Cybersecurity</a></li>
+          <li><a href="digital-forensics-training.html">Digital Forensics</a></li>
         </ul>
       </div>
+
+      <div>
+        <h4>Digital Forensics</h4>
+        <ul class="footer-two-col">
+          <li><a href="computer-forensics.html">Computer</a></li>
+          <li><a href="mobile-forensics.html">Mobile</a></li>
+          <li><a href="email-forensics.html">E-mail</a></li>
+          <li><a href="network-forensics.html">Network</a></li>
+          <li><a href="malware-forensics.html">Malware</a></li>
+          <li><a href="audio-forensics.html">Audio</a></li>
+          <li><a href="image-forensics.html">Image</a></li>
+          <li><a href="video-forensics.html">Video</a></li>
+          <li><a href="osint.html">OSINT</a></li>
+          <li><a href="storage-media-forensics.html">Storage Media</a></li>
+          <li><a href="disk-recovery.html">Disk Recovery</a></li>
+        </ul>
+      </div>
+
       <div>
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About Pynek</a></li>
+          <li><a href="services.html">All services</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="trainings.html">Trainings</a></li>
           <li><a href="blog.html">Insights</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <h4 style="margin-top: 26px;">Reach us</h4>
+        <h4 style="margin-top: 28px;">Hours</h4>
         <ul>
-          <li><a href="mailto:contact@pynek.com">contact@pynek.com</a></li>
-          <li>Mon&ndash;Sat, 9:30&ndash;19:00 IST</li>
+          <li>Mon&ndash;Sat, 9:30 AM &ndash; 7:00 PM IST</li>
         </ul>
       </div>
     </div>
   </div>
+
   <div class="footer-legal">
     <div class="container footer-legal-inner">
       <span>&copy; <span data-year>2026</span> Pynek Technologies Private Limited. All rights reserved.</span>
@@ -443,11 +622,13 @@
         <a href="privacy-policy.html">Privacy Policy</a>
         <span aria-hidden="true">|</span>
         <a href="/.well-known/security.txt">Security</a>
+        <span aria-hidden="true">|</span>
+        <a href="sitemap.xml">Sitemap</a>
       </nav>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=17"></script>
+<script src="assets/js/main.js?v=19"></script>
 </body>
 </html>
